@@ -34,10 +34,9 @@ const ms = require("ms");
 const { joinVoiceChannel } = require('@discordjs/voice');
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const { Database } = require('st.db');
-const db = new Database("database.json")
-const dbb = new Database("verf.json")
-const dbp = new Database("points.json")
+const db = require("pro.db");
+const dbb = require("pro.db");
+const dbp = require("pro.db");
 // بكج
 
 const client = new Client({
@@ -61,10 +60,6 @@ const client = new Client({
   ],
 });
 // انتيست
-
-const { AutoKill } = require('autokill')
-AutoKill({Client: client, Time: 5000})
-// kill 1
 
 const { DiscordModal, ModalBuilder, ModalField } = require("discord-modal");
 DiscordModal(client);
