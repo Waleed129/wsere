@@ -34,9 +34,10 @@ const ms = require("ms");
 const { joinVoiceChannel } = require('@discordjs/voice');
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const db = require("pro.db");
-const dbb = require("pro.db");
-const dbp = require("pro.db");
+const Database = require("st.db")
+const db = new Database({path: "database.json"})
+const dbb = new Database({path: "tf3el.json"})
+const dbp = new Database({path: "points.json"})
 // بكج
 
 const client = new Client({
