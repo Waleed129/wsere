@@ -310,7 +310,7 @@ if(message.author.bot) return;
 if (message.content.startsWith(prefix+"حرس")) {
        let ch = dbb.get(`logtf3el_${message.guild.id}`)
      let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
-   let channel2 = message.guild.channels.cache.get("980494462042144849")
+   let channel2 = message.guild.channels.cache.get("1033297256465563738")
     //
      let member = message.mentions.members.first();
    let user = message.mentions.members.first();
@@ -388,7 +388,7 @@ if(message.author.bot) return;
 if (message.content.startsWith(prefix+"قوات")) {
        let ch = dbb.get(`logtf3el_${message.guild.id}`)
      let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
-   let channel2 = message.guild.channels.cache.get("980494464340606986")
+   let channel2 = message.guild.channels.cache.get("1033297213255852072")
     //
      let member = message.mentions.members.first();
    let user = message.mentions.members.first();
@@ -467,7 +467,7 @@ if(message.author.bot) return;
 if (message.content.startsWith(prefix+"عام")) {
        let ch = dbb.get(`logtf3el_${message.guild.id}`)
      let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
-   let channel2 = message.guild.channels.cache.get("980494463178788894")
+   let channel2 = message.guild.channels.cache.get("1033297231756926977")
     //
      let member = message.mentions.members.first();
    let user = message.mentions.members.first();
@@ -2272,7 +2272,7 @@ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . 
 . أيدي العسكري : ${id} .
 . عدد الأجوبة الصحيحة : ${truee} 
 . عدد الأجوبة الخاطئة : ${falsee} 
-. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ ` });
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
                                                                                                                                                                       w8wanen1.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
                                                                                                                                                                       w8wanen2.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
                                                                                                                                                                       w8wanen3.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
