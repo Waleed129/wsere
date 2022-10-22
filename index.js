@@ -294,22 +294,47 @@ collector.on('collect', async i => {
       }
 })}});
 
+client.on("messageCreate" , message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix+"لوق-التفعيل")) {
+    if(!message.member.permissions.has("ADMINISTRATOR")) return;
+    let channel = message.mentions.channels.first()
+    if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
+    dbb.set(`logtf3el_${message.guild.id}` , channel.id)
+    message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق ببتفعيل **__ ` })
+  }
+});
+
 client.on("messageCreate", async message => {
 if(message.author.bot) return;
 if (message.content.startsWith(prefix+"حرس")) {
-    let da7leh = interaction.guild.roles.cache.get('948325091480055930');// الداخلية
-    let hrs = interaction.guild.roles.cache.get('948329160479211530');// القوات
-    let t7t = interaction.guild.roles.cache.get('948329181031317555');// تحت التدريب
+   let channel2 = message.guild.channels.cache.get("980494462042144849")
+   let user = message.mentions.members.first();
+    if (!message.member.permissions.has('ADMINISTRATOR'))
+      if (!message.member.roles.cache.has('980494296320999424'))
+        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' })
+    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' })
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` })
+    if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " })
     //
-    if(user.roles.cache.some(r=> r.id == da7leh)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-    if(user.roles.cache.some(r=> r.id == hrs)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-    if(user.roles.cache.some(r=> r.id == t7t)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** لا يمكن تفعيل العسكري فهو مفصول \n اذا كنت تريد معرفة السبب قم بكتابة : "-سبب-الفصل" **__ ` });
     //
-    user.roles.add(da7leh);
-    user.roles.add(hrs);
-    user.roles.add(t7t);
+let idps4 = message.content.split(' ').slice(2).join(' ')
+if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العسكري **__ ` })
+  //
+    let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+    let hrs = message.guild.roles.cache.get('980494332949844058');// القوات
+    let t7t = message.guild.roles.cache.get('980494360539987978');// تحت التدريب
     //
-       let count = db.fetch(`codehrs_${interaction.guild.id}`)
+    if(user.roles.cache.some(r=> r.id == da7leh)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == hrs)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == t7t)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    //
+    member.roles.add(da7leh);
+    member.roles.add(hrs);
+    member.roles.add(t7t);
+    //
+       let count = dbb.fetch(`codehrs_${message.guild.id}`)
         let embed = new MessageEmbed()
       .setTitle("تفعيل الوزارة")
       .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
@@ -319,15 +344,15 @@ if (message.content.startsWith(prefix+"حرس")) {
       .setThumbnail(user.user.avatarURL({ dynamic: true }))
       .setTimestamp()
       .setColor("#11e2e2")
-  interaction.editReply({ embeds: [embed] });
+  message.reply({ embeds: [embed] });
     //
-   db.add(`codehrs_${interaction.guild.id}`, 1)
+   dbb.add(`codehrs_${message.guild.id}`, 1)
 user.setNickname(`${idps4} ( T-${count || 0} )`);
 channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494318580162590> 
 \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     //
-/*    interaction.editReply({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
-    interaction.editReply({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] }); */
+   message.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
+    message.channel.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] }); 
     /*
        dm
        */
@@ -342,7 +367,7 @@ channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسك�
       .setColor("#11e2e2")
     user.send({ embeds: [embed1] })
     //
-    let log_tf3el = db.fetch(`logtf3el_${interaction.guild.id}`)
+    let log_tf3el = db.fetch(`logtf3el_${message.guild.id}`)
     let logtf3el = interaction.guild.channels.cache.get(log_tf3el)
       let embed2 = new MessageEmbed()
     .setColor(`#32496b`)
