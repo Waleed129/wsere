@@ -1910,6 +1910,331 @@ let embed = new Discord.MessageEmbed()
 message.reply({ embeds: [embed] });
 }});
 
+// خط
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494406836690997') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '1019431515815415948') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '1019440298113380352') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494420363313172') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494422611468298') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '1000497265665904760') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494440357568562') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494443620749403') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494444556066967') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494446233788477') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494450092556328') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494451384385576') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494464340606986') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494463178788894') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '980494462042144849') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if(message.guild.id !== '980493720233316372') return;
+if(message.channel.id !== '1016292689941106758') return;
+if(message) {
+message.channel.send({ files: [line] });
+}
+});
+
+client.on('messageCreate', message=> {
+if (message.author.bot) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494296320999424')) return;
+message.delete()
+message.channel.send({ files: [line] });
+}
+});
+
+/*
+ايموجي صح ...
+*/
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494420363313172') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494440357568562') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494453443813386') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994748592642347049') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994748676603924500') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994749086752313454') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '998296908420366447') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '999407762339540992') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '999407850403151942') return;
+if (message) {
+message.react("981644790649217054")
+}
+});
+
+/*
+ايموجي غلط
+*/
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494420363313172') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494440357568562') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '980494453443813386') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994748592642347049') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994748676603924500') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '994749086752313454') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '998296908420366447') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '999407762339540992') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
+client.on('messageCreate', message => {
+if (message.author.bot) return;
+if (message.channel.id !== '999407850403151942') return;
+if (message) {
+message.react("981644850350927973")
+}
+});
+
 client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
     //
