@@ -301,7 +301,7 @@ client.on("messageCreate" , message => {
     let channel = message.mentions.channels.first()
     if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
     dbb.set(`logtf3el_${message.guild.id}` , channel.id)
-    message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق ببتفعيل **__ ` })
+    message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` })
   }
 });
 
@@ -309,13 +309,21 @@ client.on("messageCreate", async message => {
 if(message.author.bot) return;
 if (message.content.startsWith(prefix+"حرس")) {
    let channel2 = message.guild.channels.cache.get("980494462042144849")
+         let log_tf3el = dbb.fetch(`logtf3el_${message.guild.id}`)
+    let logtf3el = message.guild.channels.cache.get(log_tf3el)
+    //
+     let member = message.mentions.members.first();
    let user = message.mentions.members.first();
     if (!message.member.permissions.has('ADMINISTRATOR'))
       if (!message.member.roles.cache.has('980494296320999424'))
-        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' })
-    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' })
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` })
-    if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " })
+        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+  //
+  if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
+\`${prefix}لوق-التفعيل\` **__ ` });
+  //
+    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
+    if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
     //
     if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** لا يمكن تفعيل العسكري فهو مفصول \n اذا كنت تريد معرفة السبب قم بكتابة : "-سبب-الفصل" **__ ` });
     //
@@ -348,7 +356,7 @@ if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي ا
     //
    dbb.add(`codehrs_${message.guild.id}`, 1)
 user.setNickname(`${idps4} ( T-${count || 0} )`);
-channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494318580162590> 
+channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494332949844058> 
 \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     //
    message.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
@@ -367,16 +375,13 @@ channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسك�
       .setColor("#11e2e2")
     user.send({ embeds: [embed1] })
     //
-    let log_tf3el = db.fetch(`logtf3el_${message.guild.id}`)
-    let logtf3el = interaction.guild.channels.cache.get(log_tf3el)
-      let embed2 = new MessageEmbed()
+      let embed2 = new Discord.MessageEmbed()
     .setColor(`#32496b`)
-    .setDescription(` __** تم تفعيل ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${interaction.user} **__ `);
+    .setDescription(` __** تم تفعيل ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${message.author.id} **__ `);
 
-await logtf3el.send({ embeds: [embed2] });
-await logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
-
-
+ logtf3el.send({ embeds: [embed2] });
+ logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+}});
 
 const Owner = ['793487451888549908']
 client.on('messageCreate', message => {
@@ -2115,10 +2120,10 @@ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . 
                                                                                                                                                                       w8wanen2.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
                                                                                                                                                                       w8wanen3.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
 //
-dbb.delete(`guild=${message.guild.id}_user=${user.id}_name`)
-dbb.delete(`guild=${message.guild.id}_user=${user.id}_age`)
-dbb.delete(`guild=${message.guild.id}_user=${user.id}_sector`)
-dbb.delete(`guild=${message.guild.id}_user=${user.id}_id`)
+dbb.delete(`guild=${fox.guild.id}_user=${user.id}_name`)
+dbb.delete(`guild=${fox.guild.id}_user=${user.id}_age`)
+dbb.delete(`guild=${fox.guild.id}_user=${user.id}_sector`)
+dbb.delete(`guild=${fox.guild.id}_user=${user.id}_id`)
 //
 dbb.delete(`true_${user.id}`)
 dbb.delete(`false_${user.id}`)
