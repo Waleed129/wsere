@@ -2261,7 +2261,7 @@ client.on("messageCreate", wolf => {
       var q1;
       wolf.reply({ content: ` __** اسمك ؟ **__ ` })
         .then(fox => {
-          fox.channel.awaitMessages({ filter1, max: 1, time: 90000, errors: ['time'] })
+          fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
             .then(collected => {
               dbb.set(`guild=${fox.guild.id}_user=${user.id}_name`, collected.first().content)
               collected.first().delete();
@@ -2270,7 +2270,7 @@ client.on("messageCreate", wolf => {
               var q2;
               fox.edit({ content: ` __** عمرك ؟ **__ ` })
                 .then(fox => {
-                  fox.channel.awaitMessages({ filter1, max: 1, time: 90000, errors: ['time'] })
+                  fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                     .then(collected => {
                       dbb.set(`guild=${fox.guild.id}_user=${user.id}_aeg`, collected.first().content)
                       collected.first().delete();
@@ -2279,7 +2279,7 @@ client.on("messageCreate", wolf => {
                       var q3;
                       fox.edit({ content: ` __** ايديك ؟ **__ ` })
                         .then(fox => {
-                          fox.channel.awaitMessages({ filter1, max: 1, time: 90000, errors: ['time'] })
+                          fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                             .then(collected => {
                               dbb.set(`guild=${fox.guild.id}_user=${user.id}_id`, collected.first().content)
                               collected.first().delete();
@@ -2288,7 +2288,7 @@ client.on("messageCreate", wolf => {
                               var q4;
                               fox.edit({ content: ` __** قطاعك ؟ **__ ` })
                                 .then(fox => {
-                                  fox.channel.awaitMessages({ filter1, max: 1, time: 90000, errors: ['time'] })
+                                  fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                                     .then(collected => {
                                       dbb.set(`guild=${fox.guild.id}_user=${user.id}_sector`, collected.first().content)
                                       collected.first().delete();
@@ -2301,7 +2301,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم .
 و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                         .then(fox => {
-                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                             .then(collected => {
                                               collected.first().delete();
                                               q5 = collected.first().content;
@@ -2313,7 +2313,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                 .then(fox => {
-                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                     .then(collected => {
                                                       collected.first().delete();
                                                       q6 = collected.first().content;
@@ -2325,7 +2325,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                         .then(fox => {
-                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                             .then(collected => {
                                                               collected.first().delete();
                                                               q7 = collected.first().content;
@@ -2337,7 +2337,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                 .then(fox => {
-                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                     .then(collected => {
                                                                       collected.first().delete();
                                                                       q8 = collected.first().content;
@@ -2349,7 +2349,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                         .then(fox => {
-                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                             .then(collected => {
                                                                               collected.first().delete();
                                                                               q9 = collected.first().content;
@@ -2361,7 +2361,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                 .then(fox => {
-                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                     .then(collected => {
                                                                                       collected.first().delete();
                                                                                       q10 = collected.first().content;
@@ -2373,7 +2373,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيصحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                         .then(fox => {
-                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                             .then(collected => {
                                                                                               collected.first().delete();
                                                                                               q11 = collected.first().content;
@@ -2385,7 +2385,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                 .then(fox => {
-                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                     .then(collected => {
                                                                                                       collected.first().delete();
                                                                                                       q12 = collected.first().content;
@@ -2397,7 +2397,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                         .then(fox => {
-                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                             .then(collected => {
                                                                                                               collected.first().delete();
                                                                                                               q13 = collected.first().content;
@@ -2409,7 +2409,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                 .then(fox => {
-                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                     .then(collected => {
                                                                                                                       collected.first().delete();
                                                                                                                       q14 = collected.first().content;
@@ -2421,7 +2421,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                         .then(fox => {
-                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                             .then(collected => {
                                                                                                                               collected.first().delete();
                                                                                                                               q15 = collected.first().content;
@@ -2433,7 +2433,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                                 .then(fox => {
-                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                                     .then(collected => {
                                                                                                                                       collected.first().delete();
                                                                                                                                       q16 = collected.first().content;
@@ -2445,7 +2445,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                                         .then(fox => {
-                                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                                             .then(collected => {
                                                                                                                                               collected.first().delete();
                                                                                                                                               q17 = collected.first().content;
@@ -2457,7 +2457,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيصحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                                                 .then(fox => {
-                                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                                                     .then(collected => {
                                                                                                                                                       collected.first().delete();
                                                                                                                                                       q18 = collected.first().content;
@@ -2469,7 +2469,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                                                         .then(fox => {
-                                                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                                                             .then(collected => {
                                                                                                                                                               collected.first().delete();
                                                                                                                                                               q19 = collected.first().content;
@@ -2481,7 +2481,7 @@ client.on("messageCreate", wolf => {
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                                                                                                                                 .then(fox => {
-                                                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 90000, errors: ['time'] })
+                                                                                                                                                                  fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                                                                                                                                     .then(collected => {
                                                                                                                                                                       collected.first().delete();
                                                                                                                                                                       q20 = collected.first().content;
