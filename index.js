@@ -294,6 +294,65 @@ collector.on('collect', async i => {
       }
 })}});
 
+client.on("messageCreate", async message => {
+if(message.author.bot) return;
+if (message.content.startsWith(prefix+"حرس")) {
+    let da7leh = interaction.guild.roles.cache.get('948325091480055930');// الداخلية
+    let hrs = interaction.guild.roles.cache.get('948329160479211530');// القوات
+    let t7t = interaction.guild.roles.cache.get('948329181031317555');// تحت التدريب
+    //
+    if(user.roles.cache.some(r=> r.id == da7leh)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == hrs)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == t7t)) return interaction.editReply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    //
+    user.roles.add(da7leh);
+    user.roles.add(hrs);
+    user.roles.add(t7t);
+    //
+       let count = db.fetch(`codehrs_${interaction.guild.id}`)
+        let embed = new MessageEmbed()
+      .setTitle("تفعيل الوزارة")
+      .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
+
+     <:emoji_20:981170142744567808> ┆┆ صاحب الأيدي : ${idps4} و الكود : T-${count || 0} \n <:emoji_20:981170142744567808> ┆┆ نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ \n <:emoji_20:981170142744567808> ┆┆ نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل  \n <:emoji_20:981170142744567808> ┆┆ و تم خصم رسوم التوضيف بنجاح **__ `)
+      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+      .setThumbnail(user.user.avatarURL({ dynamic: true }))
+      .setTimestamp()
+      .setColor("#11e2e2")
+  interaction.editReply({ embeds: [embed] });
+    //
+   db.add(`codehrs_${interaction.guild.id}`, 1)
+user.setNickname(`${idps4} ( T-${count || 0} )`);
+channel2.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494318580162590> 
+\n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+    //
+/*    interaction.editReply({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
+    interaction.editReply({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] }); */
+    /*
+       dm
+       */
+    const embed1 = new MessageEmbed()
+      .setTitle("تفعيل الوزارة")
+      .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
+
+     <:emoji_20:981170142744567808> ┆┆ صاحب الأيدي : ${idps4} و الكود : T-${count || 0} \n <:emoji_20:981170142744567808> ┆┆ نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ \n <:emoji_20:981170142744567808> ┆┆ نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل  \n <:emoji_20:981170142744567808> ┆┆ و تم خصم رسوم التوضيف بنجاح **__ `)
+      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+.setThumbnail(user.user.avatarURL({ dynamic: true }))
+      .setTimestamp()
+      .setColor("#11e2e2")
+    user.send({ embeds: [embed1] })
+    //
+    let log_tf3el = db.fetch(`logtf3el_${interaction.guild.id}`)
+    let logtf3el = interaction.guild.channels.cache.get(log_tf3el)
+      let embed2 = new MessageEmbed()
+    .setColor(`#32496b`)
+    .setDescription(` __** تم تفعيل ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${interaction.user} **__ `);
+
+await logtf3el.send({ embeds: [embed2] });
+await logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+
+
+
 const Owner = ['793487451888549908']
 client.on('messageCreate', message => {
 if (message.content === prefix+'نام') {
