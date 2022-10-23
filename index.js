@@ -1009,7 +1009,44 @@ ${prefix}توضيح
 }
 });
 
-client.on('messageCreate', message => {
+ client.on('messageCreate', async message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix+"شات-الخط")) {  
+      let args = message.content.split(/ +/);
+      let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
+      if(!channel) return message.reply({ content: ` __** منشن الشات أو أيدي الشات ! **__ ` });
+         db.push('channel', channel.id);
+        message.reply({ content: ` __** > تم إضافة ${channel} إلى الداتا بيس ! **__ ` });
+     }});
+  
+  client.on('messageCreate', async message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix+"الخط")) {  
+      let args = message.content.split(/ +/);      
+      let line = await message.content.split(" ").slice(1).join(" ");
+  
+      if(!line) return message.reply({ content: ` __** أرسل رابط الخط ! **__ ` });
+      if(!args[0].startsWith("https://media.discordapp.net/attachments/")) {
+      }
+       db.set('link', line);
+       message.reply({ content: ` __** > تم إضافة ${line} إلى الداتا بيس ! **__ ` });
+      }
+    }
+  );
+
+client.on('messageCreate', async (message) => {
+if (message.author.bot) return;
+let channel = await db.fetch(`channel`)
+let line = await db.fetch(`link`)
+if (channel == null) return;
+let ch = channel
+if (!ch.includes(message.channel.id)) return;
+message.channel.send({ files : [line] }).then(c => {
+c.react('981644790649217054').then(() =>
+c.react('981644850350927973'))
+})});
+
+/*client.on('messageCreate', message => {
   if (message.author.bot) return;
   let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
@@ -1157,7 +1194,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});*/
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1174,7 +1211,7 @@ client.on('messageCreate', message => {
 ايموجي صح ...
 */
 
-client.on('messageCreate', message => {
+/*client.on('messageCreate', message => {
   if (message.author.bot) return;
   if (message.channel.id !== '980494420363313172') return;
   if (message) {
@@ -1250,7 +1287,7 @@ client.on('messageCreate', message => {
 ايموجي غلط
 */
 
-client.on('messageCreate', message => {
+/*client.on('messageCreate', message => {
   if (message.author.bot) return;
   if (message.channel.id !== '980494420363313172') return;
   if (message) {
@@ -1320,7 +1357,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.react("981644850350927973")
   }
-});
+});*/
 
 client.on("messageCreate", async message => {
   let words = ["برتكان", "discord.gg/", "معاون", "@everyone", "@here"]
@@ -1840,8 +1877,8 @@ let args2 = parseInt(args)
 if(!args2) return message.reply({ content: " __** :emoji_9: هذا ليس رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 //o  
 let number = parseInt(args)
-message.reply({ content: ` __** تم إعطاء ${agrs} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
-user.send({ content: ` __** تم إعطائك ${agrs} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
+message.reply({ content: ` __** تم إعطاء ${args} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
+user.send({ content: ` __** تم إعطائك ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
 //
 dbp.add(`Police_${user.id}`, args)
 }
@@ -1869,8 +1906,8 @@ let args2 = parseInt(args)
 if(!args2) return message.reply({ content: " __** :emoji_9: هذا ليس رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 //
 let number = parseInt(args)
-message.reply({ content: ` __** تم ازالة ${agrs} تحاضير من العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
-user.send({ content: ` __** تم إزالة ${agrs} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
+message.reply({ content: ` __** تم ازالة ${args} تحاضير من العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
+user.send({ content: ` __** تم إزالة ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
 //
 dbp.subtract(`Police_${user.id}`, args)
 }
@@ -1909,331 +1946,6 @@ let embed = new Discord.MessageEmbed()
 .setColor(`#32496b`)
 message.reply({ embeds: [embed] });
 }});
-
-// خط
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494406836690997') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '1019431515815415948') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '1019440298113380352') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494420363313172') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494422611468298') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '1000497265665904760') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494440357568562') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494443620749403') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494444556066967') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494446233788477') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494450092556328') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494451384385576') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494464340606986') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494463178788894') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '980494462042144849') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if(message.guild.id !== '980493720233316372') return;
-if(message.channel.id !== '1016292689941106758') return;
-if(message) {
-message.channel.send({ files: [line] });
-}
-});
-
-client.on('messageCreate', message=> {
-if (message.author.bot) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('980494296320999424')) return;
-message.delete()
-message.channel.send({ files: [line] });
-}
-});
-
-/*
-ايموجي صح ...
-*/
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494420363313172') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494440357568562') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494453443813386') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994748592642347049') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994748676603924500') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994749086752313454') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '998296908420366447') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '999407762339540992') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '999407850403151942') return;
-if (message) {
-message.react("981644790649217054")
-}
-});
-
-/*
-ايموجي غلط
-*/
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494420363313172') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494440357568562') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '980494453443813386') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994748592642347049') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994748676603924500') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '994749086752313454') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '998296908420366447') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '999407762339540992') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
-
-client.on('messageCreate', message => {
-if (message.author.bot) return;
-if (message.channel.id !== '999407850403151942') return;
-if (message) {
-message.react("981644850350927973")
-}
-});
 
 client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
