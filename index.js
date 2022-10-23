@@ -38,6 +38,7 @@ const Database = require("st.db")
 const db = new Database({path: "database.json"})
 const dbb = new Database({path: "tf3el.json"})
 const dbp = new Database({path: "points.json"})
+const dbl = new Database({path: "line.json"})
 // بكج
 
 const client = new Client({
@@ -1015,7 +1016,7 @@ ${prefix}توضيح
       let args = message.content.split(/ +/);
       let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
       if(!channel) return message.reply({ content: ` __** منشن الشات أو أيدي الشات ! **__ ` });
-         db.push('channel', channel.id);
+         dbl.push('channel', channel.id);
         message.reply({ content: ` __** > تم إضافة ${channel} إلى الداتا بيس ! **__ ` });
      }});
   
@@ -1028,7 +1029,7 @@ ${prefix}توضيح
       if(!line) return message.reply({ content: ` __** أرسل رابط الخط ! **__ ` });
       if(!args[0].startsWith("https://media.discordapp.net/attachments/")) {
       }
-       db.set('link', line);
+       dbl.set('link', line);
        message.reply({ content: ` __** > تم إضافة ${line} إلى الداتا بيس ! **__ ` });
       }
     }
@@ -1036,8 +1037,8 @@ ${prefix}توضيح
 
 client.on('messageCreate', async (message) => {
 if (message.author.bot) return;
-let channel = await db.fetch(`channel`)
-let line = await db.fetch(`link`)
+let channel = await dbl.fetch(`channel`)
+let line = await dbl.fetch(`link`)
 if (channel == null) return;
 let ch = channel
 if (!ch.includes(message.channel.id)) return;
