@@ -854,7 +854,7 @@ i.reply({ embeds: [ embed15 ], ephemeral: true});
 })}
 });
 
-/* const id = '985961955611275284';
+ const id = '1034092768840122498';
 client.on("messageCreate", message => {
 if (message.author.bot || !message.channel.guild) return;
 let args = message.content.split(',')  
@@ -873,8 +873,7 @@ const embed = new Discord.MessageEmbed()
 .setAuthor(message.author.username, message.author.avatarURL())
 .setColor("#11e2e2")
 .setThumbnail(message.author.avatarURL({ dynamic: true }))
-.setDescription(`__** > إقتراح جديد : ${args} 
-من قبل : <@!${message.author.id}> **__ `)
+.setDescription(`__** > إقتراح جديد : ${args} \n من قبل : <@!${message.author.id}> **__ `)
 .setFooter(`إقتراح جديد !!`)
 .setTimestamp()
 let attachm = message.attachments.first()
@@ -886,7 +885,7 @@ c.react('981644790649217054').then(() =>
 c.react('981644850350927973'))
 message.channel.send({ content: "https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png" })
 })
-}}); */
+}}); 
 
 client.on("messageCreate" , message => {
 if(message.content.startsWith(prefix+'say')){
