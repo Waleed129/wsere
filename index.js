@@ -857,8 +857,13 @@ i.reply({ embeds: [ embed15 ], ephemeral: true});
  const id = '1034092768840122498';
 client.on("messageCreate", message => {
 if (message.author.bot || !message.channel.guild) return;
-let args = message.content.split(',')  
 if(id.includes(message.channel.id)){
+let args = message.content.split(',')  
+//
+if (message.length <= 3 || message.length >= 4096) {
+return message.reply({ content: `<@!${message.author.id}>` });
+}   
+  //
 message.delete()
 let row = new Discord.MessageActionRow()
 .addComponents(
