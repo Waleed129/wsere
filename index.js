@@ -859,11 +859,6 @@ client.on("messageCreate", message => {
 if (message.author.bot || !message.channel.guild) return;
 if(id.includes(message.channel.id)){
 let args = message.content.split(',')  
-//
-if (message.length <= 3 || message.length >= 4096) {
-return message.reply({ content: `<@!${message.author.id}>` });
-}   
-  //
 message.delete()
 let row = new Discord.MessageActionRow()
 .addComponents(
