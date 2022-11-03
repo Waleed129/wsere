@@ -1702,24 +1702,38 @@ client.on('messageCreate',async message => {
       if (!message.member.roles.cache.has('980494296320999424'))
             return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-      //
-    let reason = message.content.split(' ').slice(2).join(' ')
-if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإعطاء **__ ` });
-  //
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك ! **__ ` });
+        //
+      if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك ! **__ ` });
         if(user.bot) return message.reply({ content: " __** لا يمكنك إعطاء البوتات :x: **__ " });
-    //
-if(!args) return message.reply({ content: " __** :emoji_9: يرجى كتابة رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
+   //
+    if(!args) return message.reply({ content: " __** يرجى كتابة رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 let args2 = parseInt(args)
-if(!args2) return message.reply({ content: " __** :emoji_9: هذا ليس رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-//o  
+if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
+//
+    let reason = message.content.split(' ').slice(2).join(' ')
+if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
+  //
+    let captcha = rn(100000)
+    let total =  amount - amount * (2 / 100) 
+    let filter1 = (m => m.author.id === message.author.id && m.content == captcha)
+var q1;
+let embed = new Discord.MessageEmbed()
+.setTitle(`التحقق العسكري`)
+.setColor("RED")
+.setDescription(` __** إكتب الأرقام الأتية لإكمال الإضافة : **__ \`${captcha}\``)
+message.reply({ embeds: [embed] })
+.then(fox => {
+fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
+.then(collected => {
+collected.first().delete();
+q1 = collected.first().content;
+//
 let number = parseInt(args)
 message.reply({ content: ` __** تم إعطاء ${args} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
 user.send({ content: ` __** تم إعطائك ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
 //
 dbp.add(`Police_${user.id}`, args)
-}
-});
+})})}});
 
 client.on('messageCreate',async message => {
       if(message.author.bot) return;
@@ -1731,17 +1745,17 @@ client.on('messageCreate',async message => {
       if (!message.member.roles.cache.has('980494296320999424'))
             return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+      if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك الإزالة من نفسك ! **__ ` });
+        if(user.bot) return message.reply({ content: " __** لا يمكنك الإزالة من البوتات :x: **__ " });
+   //
       //
+    if(!args) return message.reply({ content: " __** يرجى كتابة رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
+let args2 = parseInt(args)
+if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
+//
     let reason = message.content.split(' ').slice(2).join(' ')
 if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
-  //
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك الإزالة من نفسك ! **__ ` });
-        if(user.bot) return message.reply({ content: " __** لا يمكنك الإزالة من البوتات :x: **__ " });
-    //
-if(!args) return message.reply({ content: " __** :emoji_9: يرجى كتابة رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-let args2 = parseInt(args)
-if(!args2) return message.reply({ content: " __** :emoji_9: هذا ليس رقم :emoji_9: ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-//
+ //
 let number = parseInt(args)
 message.reply({ content: ` __** تم ازالة ${args} تحاضير من العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
 user.send({ content: ` __** تم إزالة ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
@@ -1757,7 +1771,7 @@ const usersData = []
 message.guild.members.cache.forEach(user => { usersData.push(user) })
 var pointsContent = usersData.length;
 let usersContent = 0;
-let usersMaxContent = 11;
+let usersMaxContent = 16;
 let tempData = [];
 for (let i = 0; i < pointsContent; i++) {
 var database = dbp.fetch(`Police_${usersData[i].id}`)
