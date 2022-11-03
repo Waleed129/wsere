@@ -612,7 +612,7 @@ client.on("guildCreate", guild => {
 });
 
 client.on('messageCreate', message => {
-if (message.content.toLowerCase() === 'التحضيرالعسكري') {
+if (message.content === 'التحضيرالعسكري') {
 let embed = new Discord.MessageEmbed()
 .setTitle('التحضير العسكري')
 .setColor(`#32496b`)
@@ -1130,6 +1130,16 @@ client.on('messageCreate', message => {
     message.channel.send({ files: [line] });
   }
 });// التحضير
+
+client.on('messageCreate', message => {
+    let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+    if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
+   if (!message.member.permissions.has('ADMINISTRATOR')) return;
+      if (!message.member.roles.cache.has('980494296320999424')) return;
+          message.delete()
+    message.channel.send({ files: [line] });
+    }
+  });
 
 /*
 ايموجي صح ...
