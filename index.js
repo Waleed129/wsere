@@ -1786,9 +1786,21 @@ message.reply({ embeds: [embed] });
 
 client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
+       if(!wolf.channel.name.startsWith("ticket-")) return wolf.reply({ content: ` __** يجب إستخدام الامر بالتكتات ! **__ ` });
     //
-    const user = wolf.author
+const user = wolf.author
+
     //
+    let da7leh = wolf.guild.roles.cache.get('980494313295331328');// الداخلية
+    let hrs = wolf.guild.roles.cache.get('980494332949844058');// حرس
+    let w9at = wolf.guild.roles.cache.get('980494318580162590'); // قوات
+    let amn = wolf.guild.roles.cache.get('980494327371399218');// امن عام
+    //
+    if(user.roles.cache.some(r=> r.id == da7leh)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == hrs)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == w9at)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+    if(user.roles.cache.some(r=> r.id == amn)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+      //
     if (cooldown.has(user.id)) {
       wolf.reply({
         content: ` __** لا يمكنك التفعيل إلا مرة واحدة !
