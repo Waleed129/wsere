@@ -549,34 +549,39 @@ client.destroy()
 }
 }); 
 
-    require('discord-reply');
-
-    client.on("messageCreate", async message => {
-      if(message.author.bot) return;
-      if (message.content.startsWith(prefix+"استدعاء-عسكري")) {
-        let member = message.mentions.members.first();
-        let user = message.mentions.members.first();
-        if (!message.member.hasPermission('ADMINISTRATOR'))
-          if (!message.member.roles.cache.has('980494296320999424'))
-            return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__'  })
-        if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' })
-        //
-          if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إستدعاء نفسك ! **__ ` })
-        if(user.bot) return message.reply({ content: " __** لا يمكنك إستدعاء البوتات :x: **__ " })
-          //
-    if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** ${user} لا يمكن إستدعاء العضو ( موقوف عن الخدمة العسكرية ) 
-    لعرض سبب الفصل : ${prefix}سبب-الفصل **__ ` })
-        user.send({ content: ` __** تم إستدعائك إلى : <#${message.channel.id}> 
+client.on("messageCreate", async message => {
+if(message.author.bot) return;
+if (message.content.startsWith(prefix+"استدعاء-عسكري")) {
+let member = message.mentions.members.first();
+let user = message.mentions.members.first();
+if (!message.member.hasPermission('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494296320999424'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__'  });
+if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+//
+if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إستدعاء نفسك ! **__ ` })
+if(user.bot) return message.reply({ content: " __** لا يمكنك إستدعاء البوتات :x: **__ " })
+//
+if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** ${user} لا يمكن إستدعاء العضو ( موقوف عن الخدمة العسكرية ) 
+لعرض سبب الفصل : ${prefix}سبب-الفصل **__ ` })
+let embed = new Discord.MessageEmbed()
+.setColor("RANDOM")
+.setDescription(` __** تم إستدعائك إلى : <#${message.channel.id}> 
 ( لديك 24h في حال لم تحضر سيتم إتخاذ الإجرائات المناسبة معك ... )
-\n العسكري :  ${user} **__ ` })
-        let embed = new Discord.MessageEmbed()
-          .setTitle('الإستدعاء العسكري')
-          .setColor("RED")
-          .setDescription(` __** ✅ تم إستدعاء العسكري : ${user} ... **__ `)
-          .setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
-          .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-        message.reply({ embes: [embed] });
-}
+\n العسكري :  ${user} الشات : <#${message.channel.id}> ) **__ `)
+.setFooter(user.username, user.displayAvatarURL({ dynamic: true }))
+//
+user.send({ embeds: [embed] });
+//
+let embed2 = new Discord.MessageEmbed()
+.setTitle('الإستدعاء العسكري')
+.setColor("RED")
+.setDescription(` __** ✅ تم إستدعاء العسكري : ${user} ... **__ `)
+.setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
+.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+message.reply({ embes: [embed2] });
+//
+  }
 });
 
 client.on('messageCreate', message => {
@@ -1664,15 +1669,14 @@ client.on('messageCreate',async message => {
     if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
     //
     if(!dbp.has(`Police_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
-    //
+ //    if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تصفير نفسك ! **__ ` });
+        if(user.bot) return message.reply({ content: " __** لا يمكنك تصفير البوتات :x: **__ " });
+     //
     let reason = message.content.split(' ').slice(2).join(' ')
 if(!reason) return message.reply({ content: `__** يرجى كتابة سبب التصفير **__ ` });
-  //
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تصفير نفسك ! **__ ` });
-        if(user.bot) return message.reply({ content: " __** لا يمكنك تصفير البوتات :x: **__ " });
     //
 message.reply({ content: ` __** تم تصفير جميع تحاضير العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب التصفير : ${reason} **__ ` });
-user.send({ content: ` __** تم تصفير جميع تحاضيرك \n من قبل المسؤول ${message.author.id} \n سبب التصفير : ${reason} **__ ` });
+user.send({ content: ` __** تم تصفير جميع تحاضيرك \n من قبل المسؤول ${message.author} \n سبب التصفير : ${reason} **__ ` });
 //
 let points = dbp.get(`Police_${user.id}`)
 dbp.subtract(`Police_${user.id}`)
