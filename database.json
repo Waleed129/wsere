@@ -36,6 +36,7 @@
             "ABC28",
             "ABC54",
             "ABC10",
+            "ABC07",
             "ABC01",
             "ABC19",
             "ABC33",
@@ -140,7 +141,6 @@
             "EDAGaga",
             "FGFAHF!$@$R",
             "GEHEG#$!@",
-            "OEOEO#%@#!",
             "GHGHGHG^*325",
             "AGgegeAeht221",
             "PPRREE11122",
@@ -823,5 +823,77 @@
     [
         "embed_ABC07",
         "1037780197702897805"
+    ],
+    [
+        "member_EDAGaga",
+        "1007034878111514634"
+    ],
+    [
+        "name_EDAGaga",
+        "راكان "
+    ],
+    [
+        "id_EDAGaga",
+        "Rakan-allhalide"
+    ],
+    [
+        "sector_EDAGaga",
+        "القوات الخاصة"
+    ],
+    [
+        "time_EDAGaga",
+        "10:30"
+    ],
+    [
+        "embed_EDAGaga",
+        "1037811375126347877"
+    ],
+    [
+        "member_ABC90",
+        "1033323494458540033"
+    ],
+    [
+        "name_ABC90",
+        "نواف"
+    ],
+    [
+        "id_ABC90",
+        "nawaf_alnodah"
+    ],
+    [
+        "sector_ABC90",
+        "حرس الحدود"
+    ],
+    [
+        "time_ABC90",
+        "10:30"
+    ],
+    [
+        "embed_ABC90",
+        "1037811572443197622"
+    ],
+    [
+        "member_OEOEO#%@#!",
+        "821918620040822785"
+    ],
+    [
+        "name_OEOEO#%@#!",
+        "نواف"
+    ],
+    [
+        "id_OEOEO#%@#!",
+        "naawaf2020"
+    ],
+    [
+        "sector_OEOEO#%@#!",
+        "القوات الخاصه"
+    ],
+    [
+        "time_OEOEO#%@#!",
+        "10:30"
+    ],
+    [
+        "embed_OEOEO#%@#!",
+        "1037811590914904135"
     ]
 ]
