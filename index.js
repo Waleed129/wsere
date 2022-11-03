@@ -554,7 +554,7 @@ if(message.author.bot) return;
 if (message.content.startsWith(prefix+"استدعاء-عسكري")) {
 let member = message.mentions.members.first();
 let user = message.mentions.members.first();
-if (!message.member.hasPermission('ADMINISTRATOR'))
+if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('980494296320999424'))
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__'  });
 if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
