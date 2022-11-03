@@ -1697,24 +1697,24 @@ client.on('messageCreate',async message => {
   if (message.content.startsWith(prefix+'اضافة')) {
  let member = message.mentions.members.first();
     let user = message.mentions.members.first();
-    let args = message.content.split(" ").slice(1).join(" ");
+    let args = message.content.slice(2).join(" ");
     if (!message.member.permissions.has('ADMINISTRATOR'))
       if (!message.member.roles.cache.has('980494296320999424'))
             return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
         //
-      if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك ! **__ ` });
+  //    if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك ! **__ ` });
         if(user.bot) return message.reply({ content: " __** لا يمكنك إعطاء البوتات :x: **__ " });
    //
     if(!args) return message.reply({ content: " __** يرجى كتابة رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 let args2 = parseInt(args)
 if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 //
-    let reason = message.content.split(' ').slice(2).join(' ')
+    let reason = message.content.slice(3).join(' ')
 if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
   //
-    let captcha = rn(100000)
-    let total =  amount - amount * (2 / 100) 
+    let captcha = (100000)
+    let total =  args - args2 * (2 / 100) 
     let filter1 = (m => m.author.id === message.author.id && m.content == captcha)
 var q1;
 let embed = new Discord.MessageEmbed()
@@ -1727,10 +1727,10 @@ fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
 .then(collected => {
 collected.first().delete();
 q1 = collected.first().content;
+message.delete();
 //
-let number = parseInt(args)
-message.reply({ content: ` __** تم إعطاء ${args} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
-user.send({ content: ` __** تم إعطائك ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإعطاء : ${reason} **__ ` });
+message.reply({ content: ` __** تم إعطاء ${args} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author} \n سبب الإعطاء : ${reason} **__ ` });
+user.send({ content: ` __** تم إعطائك ${args} تحاضير \n من قبل المسؤول ${message.author} \n سبب الإعطاء : ${reason} **__ ` });
 //
 dbp.add(`Police_${user.id}`, args)
 })})}});
