@@ -563,7 +563,7 @@ if(message.author.id == user.id) return message.reply({ content: ` __** لا ي�
 if(user.bot) return message.reply({ content: " __** لا يمكنك إستدعاء البوتات :x: **__ " })
 //
 if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** ${user} لا يمكن إستدعاء العضو ( موقوف عن الخدمة العسكرية ) 
-لعرض سبب الفصل : ${prefix}سبب-الفصل **__ ` })
+لعرض سبب الفصل : ${prefix}سبب-الفصل **__ ` });
 let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(` __** تم إستدعائك إلى : <#${message.channel.id}> 
