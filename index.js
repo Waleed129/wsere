@@ -86,6 +86,43 @@ client.on("ready", () => {
   }, 1000)
 });
 
+ client.on('messageCreate', async message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix+"شات-الخط")) {  
+      let args = message.content.split(/ +/);
+      let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
+      if(!channel) return message.reply({ content: ` __** منشن الشات أو أيدي الشات ! **__ ` });
+         dbl.push('channel', channel.id);
+        message.reply({ content: ` __** > تم إضافة ${channel} إلى الداتا بيس ! **__ ` });
+     }});
+  
+  client.on('messageCreate', async message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix+"الخط")) {  
+      let args = message.content.split(/ +/);      
+      let line = await message.content.split(" ").slice(1).join(" ");
+  
+      if(!line) return message.reply({ content: ` __** أرسل رابط الخط ! **__ ` });
+      if(!args[0].startsWith("https://media.discordapp.net/attachments/")) {
+      }
+       dbl.set('link', line);
+       message.reply({ content: ` __** > تم إضافة ${line} إلى الداتا بيس ! **__ ` });
+      }
+    }
+  );
+
+client.on('messageCreate', async (message) => {
+if (message.author.bot) return;
+let channel = await dbl.fetch(`channel`)
+let line = await dbl.fetch(`link`)
+if (channel == null) return;
+let ch = channel
+if (!ch.includes(message.channel.id)) return;
+await message.channel.send({ files : [line] }).then(c => {
+c.react('981644790649217054').then(() =>
+c.react('981644850350927973'))
+})});
+
 let owner = ['497796195104718888']
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
@@ -1008,43 +1045,6 @@ ${prefix}توضيح
   message.reply({ embeds: [embed] })
 }
 });
-
- client.on('messageCreate', async message => {
-    if(message.author.bot) return;
-    if(message.content.startsWith(prefix+"شات-الخط")) {  
-      let args = message.content.split(/ +/);
-      let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
-      if(!channel) return message.reply({ content: ` __** منشن الشات أو أيدي الشات ! **__ ` });
-         dbl.push('channel', channel.id);
-        message.reply({ content: ` __** > تم إضافة ${channel} إلى الداتا بيس ! **__ ` });
-     }});
-  
-  client.on('messageCreate', async message => {
-    if(message.author.bot) return;
-    if(message.content.startsWith(prefix+"الخط")) {  
-      let args = message.content.split(/ +/);      
-      let line = await message.content.split(" ").slice(1).join(" ");
-  
-      if(!line) return message.reply({ content: ` __** أرسل رابط الخط ! **__ ` });
-      if(!args[0].startsWith("https://media.discordapp.net/attachments/")) {
-      }
-       dbl.set('link', line);
-       message.reply({ content: ` __** > تم إضافة ${line} إلى الداتا بيس ! **__ ` });
-      }
-    }
-  );
-
-client.on('messageCreate', async (message) => {
-if (message.author.bot) return;
-let channel = await dbl.fetch(`channel`)
-let line = await dbl.fetch(`link`)
-if (channel == null) return;
-let ch = channel
-if (!ch.includes(message.channel.id)) return;
-message.channel.send({ files : [line] }).then(c => {
-c.react('981644790649217054').then(() =>
-c.react('981644850350927973'))
-})});
 
 /*client.on('messageCreate', message => {
   if (message.author.bot) return;
