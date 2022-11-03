@@ -1710,7 +1710,7 @@ client.on('messageCreate',async message => {
 let args2 = parseInt(args)
 if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
 //
-    let reason = message.content.slice(3).join(' ')
+    let reason = message.content.split(' ').slice(3).join(' ');
 if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
   //
     let captcha = (100000)
