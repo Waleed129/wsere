@@ -1016,7 +1016,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// جديد السيرفر
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1026,17 +1026,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-  if (message.guild.id !== '980493720233316372') return;
-  if (message.channel.id !== '1001653726546763898') return;
-  if (message) {
-    message.channel.send({ files: [line] });
-  }
-});
+});// التصويتات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1046,27 +1036,15 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-  if (message.guild.id !== '980493720233316372') return;
-  if (message.channel.id !== '1031239641036238928') return;
-  if (message) {
-    message.channel.send({ files: [line] });
-  }
-}); 
+});//التعاميم
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
   let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031239658434203748') return;
-  if (message) {
-    message.channel.send({ files: [line] });
-  }
-});
+  if (message) { message.channel.send({ files: [line] })};
+});// طلب نقل
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1076,7 +1054,17 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// طلب اجازة
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+  if (message.guild.id !== '980493720233316372') return;
+  if (message.channel.id !== '1031241528758255646') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+});// تعاميم المسؤولين
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1086,7 +1074,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// المخالفات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1096,7 +1084,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// المطلوبين
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1106,7 +1094,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// الإنذارات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1116,7 +1104,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// الترقيات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1126,7 +1114,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
+});// التخفيضات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -1136,18 +1124,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-  if (message.content === "خط" || message.content === "لاين" || message.content === "line") {
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-      if (!message.member.roles.cache.has('980494296320999424')) return;
-    message.delete()
-    message.channel.send({ files: [line] });
-  }
-});
+});// التحضير
 
 /*
 ايموجي صح ...
@@ -1177,61 +1154,13 @@ client.on('messageCreate', message => {
   }
 });
 
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994748592642347049') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994748676603924500') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994749086752313454') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '998296908420366447') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '999407762339540992') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '999407850403151942') return;
-  if (message) {
-    message.react("981644790649217054")
-  }
-});
-
 /*
 ايموجي غلط
 */
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  if (message.channel.id !== '980494420363313172') return;
+  if (message.channel.id !== '1034841770183381012') return;
   if (message) {
     message.react("981644850350927973")
   }
@@ -1239,7 +1168,7 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  if (message.channel.id !== '980494440357568562') return;
+  if (message.channel.id !== '1031233706473553992') return;
   if (message) {
     message.react("981644850350927973")
   }
@@ -1247,55 +1176,7 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  if (message.channel.id !== '980494453443813386') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994748592642347049') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994748676603924500') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '994749086752313454') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '998296908420366447') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '999407762339540992') return;
-  if (message) {
-    message.react("981644850350927973")
-  }
-});
-
-client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  if (message.channel.id !== '999407850403151942') return;
+  if (message.channel.id !== '1031241528758255646') return;
   if (message) {
     message.react("981644850350927973")
   }
