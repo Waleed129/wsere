@@ -1798,7 +1798,7 @@ let embed = new Discord.MessageEmbed()
 message.reply({ embeds: [embed] });
 }});
 
-client.on("messageCreate", wolf => {
+/* client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
        if(!wolf.channel.name.startsWith("ticket-")) return wolf.reply({ content: ` __** يجب إستخدام الامر بالتكتات ! **__ ` });
     //
@@ -1813,7 +1813,7 @@ const user = wolf.author
     if(user.roles.cache.some(r=> r.id == hrs)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
     if(user.roles.cache.some(r=> r.id == w9at)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
     if(user.roles.cache.some(r=> r.id == amn)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-      //*/
+      //*
     if (cooldown.has(user.id)) {
       wolf.reply({
         content: ` __** لا يمكنك التفعيل إلا مرة واحدة !
@@ -2231,6 +2231,6 @@ cooldown.delete(user.id)
         })
     }
   }
-});
+}); */
 
 client.login(process.env.token) 
