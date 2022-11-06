@@ -46,6 +46,7 @@
             "ABC64",
             "ABC90",
             "ABC21",
+            "ABC87",
             "ABC39",
             "ABC49",
             "ABC51",
@@ -138,7 +139,6 @@
             "AVBSW215",
             "#SALEH#",
             "EDAGaga",
-            "FGFAHF!$@$R",
             "GEHEG#$!@",
             "OEOEO#%@#!",
             "GHGHGHG^*325",
@@ -2455,5 +2455,29 @@
     [
         "embed_AUREAW1555211",
         "1038512397742248036"
+    ],
+    [
+        "member_FGFAHF!$@$R",
+        "943460596857323570"
+    ],
+    [
+        "name_FGFAHF!$@$R",
+        "سليمان "
+    ],
+    [
+        "id_FGFAHF!$@$R",
+        "Suleiman-119"
+    ],
+    [
+        "sector_FGFAHF!$@$R",
+        "الامن العام"
+    ],
+    [
+        "time_FGFAHF!$@$R",
+        "4:30"
+    ],
+    [
+        "embed_FGFAHF!$@$R",
+        "1038765848543903785"
     ]
 ]
