@@ -71,7 +71,7 @@ const prefix = "-"; // البرفكس
 
 client.on("ready", () => {
   console.log(`dn on a : ${client.user.tag}`);
-  client.user.setActivity("المساعد الوزاري بالخدمة ...", { type: "WATCHING" });
+  client.user.setActivity("لـ خدمة FBI", { type: "WATCHING" });
   client.user.setStatus("idle");
   setInterval(async () => {
     client.channels.fetch("980494400926924860")
