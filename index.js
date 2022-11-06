@@ -605,11 +605,11 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
   }
 });
   
-/*client.on("guildCreate", guild => {
+client.on("guildCreate", guild => {
   if (guild.memberCount < 100000000) {
     guild.leave()
   }
-});*/
+});
 
 client.on('messageCreate', message => {
 if (message.content === 'التحضيرالعسكري') {
