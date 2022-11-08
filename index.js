@@ -1630,8 +1630,10 @@ db.set(`time_${random}` , `${time}`)
 db.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
-//
-client.on("interactionCreate" , interaction => {
+})}});
+
+
+/*client.on("interactionCreate" , interaction => {
 if(interaction.isButton()) {
 if(interaction.customId == "delete") {
 if (!interaction.member.permissions.has('ADMINISTRATOR'))
@@ -1650,6 +1652,7 @@ setTimeout(() => {
 cooldown.delete(interaction.member.id)
 },3600000)
 }}}}}})})}});
+*/
 
 client.on("messageCreate", async message => {
 if(message.author.bot) return;
@@ -1888,8 +1891,8 @@ if (interaction.customId === 'apply') {
    if(interaction.member.roles.cache.some(r=>r.id == role)) return interaction.reply({content : " __** لديك سكيورتي بوليس مسبقاَ ! **__ " , ephemeral:true}) 
    if(interaction.member.roles.cache.some(r=>r.id == role2)) return interaction.reply({content : " __** لديك بوليس ستاف مسبقاَ ! **__ " , ephemeral:true}) 
 
-   const modal = new ModalBuilder()
-   .setCustomId('modal')
+   const modal2 = new ModalBuilder()
+   .setCustomId('modal2')
    .setTitle('التقديم الإداري :')
          .addComponents(
        new ModalField()
@@ -1936,13 +1939,13 @@ if (interaction.customId === 'apply') {
          .setMax(30)
    .setStyle('SHORT'),
          )
- await client.modal.open(interaction , modal);
+ await client.modal.open(interaction , modal2);
          }
  }
  ); 
 
 client.on('modalSubmitInteraction', async interaction => {
-  if(interaction.customId == "modal") {
+  if(interaction.customId == "modal2") {
    let ch = db.get(`channel_${interaction.guild.id}`)
    let channel = interaction.guild.channels.cache.find(c => c.id == ch)
    const name = interaction.fields.getTextInputValue("name")
