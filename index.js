@@ -1771,7 +1771,7 @@ const usersData = []
 message.guild.members.cache.forEach(user => { usersData.push(user) })
 var pointsContent = usersData.length;
 let usersContent = 0;
-let usersMaxContent = 16;
+let usersMaxContent = 21;
 let tempData = [];
 for (let i = 0; i < pointsContent; i++) {
 var database = dbp.fetch(`Police_${usersData[i].id}`)
@@ -1797,6 +1797,249 @@ let embed = new Discord.MessageEmbed()
 .setColor(`#32496b`)
 message.reply({ embeds: [embed] });
 }});
+
+
+client.on("messageCreate" , message => {
+  if(message.content.startsWith(prefix+"شات-التقديمات")) {
+      let channel = message.mentions.channels.first()
+      if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ ` });
+      db.set(`channel_${message.guild.id}` , channel.id)
+      message.reply({ content: ` __** تم تعيين ${channel} كـ شات للتقديمات ! **__ ` });
+  }
+});
+
+client.on("messageCreate" , message => {
+if(message.content.startsWith(prefix+"رتبة-الإدارة-1")) {
+  let r = message.content.split(" ").slice(1).join(" ")
+  let role = message.guild.roles.cache.find(r=> r.id == r)
+  if(!r) {
+    if(!role) {
+      message.reply({ content: ` __** منشن الرتبة ! **__ ` });
+    }
+  }
+  db.set(`role_${message.guild.id}` , r)
+  message.reply({ content: ` __** تم تعيين ${r} كـ رتبة للإدارة ! **__ ` })
+}
+});
+client.on("messageCreate" , message => {
+  if(message.content.startsWith(prefix+"رتبة-الإدارة-2")) {
+    let r2 = message.content.split(" ").slice(1).join(" ")
+    let role2 = message.guild.roles.cache.find(r2=> r2.id == r2)
+    if(!r2) {
+      if(!role2) {
+        message.reply({ content: ` __** منشن الرتبة ! **__ ` });
+      }
+    }
+    db.set(`role2_${message.guild.id}` , r2)
+    message.reply({ content: ` __** تم تعيين ${r2} كـ رتبة للإدارة ! **__ ` })
+  }
+  });
+
+client.on("messageCreate" , message => {
+if(message.content.startsWith(prefix+"رتبة-القبول")) {
+  let r = message.content.split(" ").slice(1).join(" ")
+  let role = message.guild.roles.cache.find(r=> r.id == r)
+  if(!r) {
+    if(!role) {
+      message.reply({ content: ` __** منشن رتبة المسؤولين ! **__ ` });
+    }
+  }
+  db.set(`rolehigh_${message.guild.id}` , r)
+  message.reply({ content: ` __** تم تعيين ${r} كـ رتبة مسؤولين القبول ! **__ ` });
+}
+});
+
+client.on("messageCreate" , message => {
+if(message.content == prefix+"التقديم") {
+  if(!db.has(`channel_${message.guild.id}`)) {
+    if(!db.has(`role_${message.guild.id}`)) {
+      if(!db.has(`role2_${message.guild.id}`)) {
+      if(!db.has(`rolehigh_${message.guild.id}`)) {
+      return  message.reply({ content: ` __** قم بتحديد الرتب و الشاتات و المسؤولين ! **__` });
+      }
+    }
+  }
+}
+  let embed = new Discord.MessageEmbed()
+.setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
+.setTitle(`التقديم الإداري`)
+.setDescription(` __** لـ التقديم الإداري يرجى الضغط على 👮🏻 . **__ `)
+.setColor("GREEN")
+let row = new Discord.MessageActionRow()
+.addComponents(
+new Discord.MessageButton()
+.setLabel(`التقديم الإداري`)
+.setEmoji('👮🏻')
+.setCustomId("apply")
+.setStyle("SUCCESS")
+)
+  message.delete()
+  message.channel.send({components:[row] , embeds:[embed]})
+}
+});
+
+client.on('interactionCreate', async interaction => {
+if (!interaction.isButton()) return;
+if (interaction.customId === 'apply') {
+   let role = db.get(`role_${interaction.guild.id}`)
+   let role2 = db.get(`role2_${interaction.guild.id}`)
+   let user = db.get(`user_${interaction.member.id}`)  
+   if(user) return interaction.reply({content : " __** لا يمكنك التقديم أكثر من مرة ! **__ " , ephemeral:true})
+   if(interaction.member.roles.cache.some(r=>r.id == role)) return interaction.reply({content : " __** لديك سكيورتي بوليس مسبقاَ ! **__ " , ephemeral:true}) 
+   if(interaction.member.roles.cache.some(r=>r.id == role2)) return interaction.reply({content : " __** لديك بوليس ستاف مسبقاَ ! **__ " , ephemeral:true}) 
+
+   const modal = new ModalBuilder()
+   .setCustomId('modal')
+   .setTitle('التقديم الإداري :')
+         .addComponents(
+       new ModalField()
+   .setCustomId('name')
+   .setLabel("اسمك ؟")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة إسمك هنا ... ")
+         .setMin(3)
+         .setMax(32)
+   .setStyle('SHORT'),
+           
+  new ModalField()
+   .setCustomId('id')
+   .setLabel("أيديك ؟")
+         .setRequired(true)
+         .setPlaceholder(" ... يرجى كتابة ايديك هنا ")
+         .setMin(4)
+         .setMax(100)
+   .setStyle('SHORT'),
+           
+       new ModalField()
+   .setCustomId('sector')
+   .setLabel("قطاعك العسكري ؟")
+         .setRequired(true)
+         .setPlaceholder(" ... يرجى كتابة قطاعك العسكري هنا ( اسم القطاع ) ")
+         .setMin(5)
+         .setMax(32)
+         .setStyle('SHORT'),
+ 
+         new ModalField()
+   .setCustomId('5brat')
+   .setLabel("خبراتك")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة خبراتك هنا ...")
+         .setMin(5)
+         .setMax(100)
+   .setStyle('PARAGRAPH'),
+   new ModalField()
+   .setCustomId('time')
+   .setLabel("وقت تفاعلك")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة وقت تفاعلك هنا ...")
+         .setMin(5)
+         .setMax(30)
+   .setStyle('SHORT'),
+         )
+ await client.modal.open(interaction , modal);
+         }
+ }
+ ); 
+
+client.on('modalSubmitInteraction', async interaction => {
+  if(interaction.customId == "modal") {
+   let ch = db.get(`channel_${interaction.guild.id}`)
+   let channel = interaction.guild.channels.cache.find(c => c.id == ch)
+   const name = interaction.fields.getTextInputValue("name")
+   const id = interaction.fields.getTextInputValue("id")
+   const sector = interaction.fields.getTextInputValue("sector")
+   const hbrat = interaction.fields.getTextInputValue("5brat")
+   const time = interaction.fields.getTextInputValue("time")
+   let row = new MessageActionRow().addComponents(
+     new Discord.MessageButton()
+     .setLabel("قبول ✅")
+     .setCustomId("acc")
+     .setStyle("SUCCESS"),
+     new Discord.MessageButton()
+     .setLabel("رفض ❌")
+     .setCustomId("dec")
+     .setStyle("DANGER")
+   )
+   interaction.reply( {content:" __** تم إرسال تقديمك ! **__ " , ephemeral:true})
+   db.set(`user_${interaction.member.id}` , interaction.member.id)
+   channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العسكري : ${name} \n أيدي العسكري : ${id} \n ق طاع العسكري: ${sector} \n خبراته : ${hbrat} \n وقت تفاعله : ${time} **__ ` , components:[row]}).then(m=> {
+   db.set(`userm_${interaction.member.id}` , m.id)
+   })
+ }
+});
+
+client.on("interactionCreate" , interaction => {
+if(interaction.isButton()) {
+  if(interaction.customId == "acc") {
+   // let high = db.get(`rolehigh_${interaction.guild.id}`)
+   let role1 = db.get(`role_${interaction.guild.id}`)
+   let role3 = db.get(`role2_${interaction.guild.id}`)
+   //  if(!interaction.member.roles.cache.some(r=>r.id == high)) return interaction.reply({content:"You Are Not A High Staff !" , ephemeral:true})
+    let filter = m => m.author.id == interaction.member.id
+    const collector = interaction.channel.createMessageCollector({ filter , max : 1 , time: 15000 });
+    interaction.reply({ content: " __** قم بإرسال أيدي الشخص بالدسكورد ! **__ " , ephemeral:true });
+    collector.on("collect" , m => {
+      let member = interaction.guild.members.cache.find(r=>r.id == m.content)
+      let m1 = db.get(`userm_${m.content}`)
+      let m2 = interaction.channel.messages.cache.find(m=> m.id == m1)
+      let user = db.get(`user_${m.content}`)
+      if(!user) {
+        if(!m1) {
+          m.delete()
+          interaction.editReply({ content: ` __** هذا الشخص لم يقدم من قبل ❌ ${interaction.member} **__ ` }).then(s=> {
+            setTimeout(() => {
+              s.delete()
+            } , 5000);
+          })
+       }}
+      if(user) {
+        if(m1) {
+          let role = interaction.guild.roles.cache.find(r=>r.id == role1)
+          let role2 = interaction.guild.roles.cache.find(r=>r.id == role3)
+            m2.edit({ content:` __** تم قبول : ${member}  **__ ` , components:[]})
+            interaction.deleteReply()
+            member.roles.add(role)
+            member.roles.add(role2)
+            member.send({ content: ` __** لقد تم قبول تقديمك ! **__ ` });
+            db.delete(`user_${m.content}`)
+            db.delete(`userm_${m.content}`)
+            m.delete()
+      }}
+    });
+  }    
+  if(interaction.customId == "dec") {
+    // let high = db.get(`rolehigh_${interaction.guild.id}`)
+  //  if(!interaction.member.roles.cache.some(r=>r.id == high)) return interaction.reply({content:"You Are Not A High Staff !" , ephemeral:true})
+    let filter = m => m.author.id == interaction.member.id
+    const collector = interaction.channel.createMessageCollector({ filter , max : 1 , time: 15000 });
+    interaction.reply({ content: " __** أرسل أيدي الشخص بالدسكورد ! **__ " , ephemeral:true })
+    collector.on("collect" , m => {
+      let member = interaction.guild.members.cache.find(r=>r.id == m.content)
+      let m1 = db.get(`userm_${m.content}`)
+      let m2 = interaction.channel.messages.cache.find(m=> m.id == m1)
+      let user = db.get(`user_${m.content}`)
+      if(!user) {
+        if(!m1) {
+          m.delete()
+          interaction.editReply({ content: ` __** هذا الشخص لم يقدم من قبل ❌ ${interaction.member} **__ ` }).then(s=> {
+            setTimeout(() => {
+              s.delete()
+            } , 5000);
+          })
+       }}
+      if(user) {
+        if(m1) {
+          m2.edit({ content: ` __** تم رفض : ${member} ❌ **__ ` , components:[]})
+          interaction.deleteReply()
+          member.send({ content: `__** لقد تم رفض تقديمك يرجى عدم محاولة التقديم مرى أخرة ! **__ ` });
+          db.delete(`user_${m.content}`)
+          db.delete(`userm_${m.content}`)
+          m.delete()
+      }}
+    });
+  }
+}
+});
 
 /* client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
