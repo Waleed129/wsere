@@ -113,186 +113,84 @@ client.on('messageCreate', message => {
   }
 }); 
 
- client.on('messageCreate', async message => {
-  if(message.author.bot) return;
-  if(message.content === prefix+'توضيح'){
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-    if (!message.member.roles.cache.has('980494296320999424'))
-    return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
-  let row = new Discord.MessageActionRow()
-  .addComponents(
-  new Discord.MessageSelectMenu()
-  .setMinValues(1)
-  .setMaxValues(1)
-  .setPlaceholder('إضغط هنا لرؤية خريطة التوضيح')
-  .setCustomId('لـ عرض خريطة التوضيح إضغط هنا')
-  .addOptions([
-  {
-  label: 'القسم التفعيل',
-  description: 'لـ عرض أوامر التفعيل يرجى الضغط هنا',
-  value: 'tf'
-  },
-  {
-  label: 'قسم الفصل',
-  description: 'لـ عرض أوامر الفصل يرجى الضغط هنا',
-  value: 'fvl'
-  },
-  {
-    label: 'قسم ترقيات الأفراد',
-    description: 'لـ عرض أوامر ترقيات الأفراد يرجى الضغط هنا',
-    value: 'frd'
+
+  client.on('messageCreate', async message => {
+    if(message.author.bot) return;
+    if(message.content === prefix+'توضيح'){
+    let row = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التوضيح')
+    .setCustomId('todeh')
+    .addOptions([
+    {
+    label: 'القسم الإداري',
+    description: 'لـ عرض أوامر الإدارة يرجى الضغط هنا',
+    value: 'tf'
     },
     {
-    label: 'قسم ترقيات الضباط',
-    description: 'لـ عرض أوامر ترقيات الضباط يرجى الضغط هنا',
-    value: 'dabd'
-    },
-  {
-    label: 'قسم اوامر التكت',
-    description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
-    value: 'gem'
-    } 
-  ])
-  )
-  let embed = new Discord.MessageEmbed()
-  .setColor('#32496b')
-  .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
+      label: 'القسم العام',
+      description: 'لـ عرض أوامر القسم العام يرجى الضغط هنا',
+      value: '3am'
+      },
+    {
+      label: 'قسم اوامر التكت',
+      description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
+      value: 'tkt'
+      } 
+    ])
+    )
+    let embed = new Discord.MessageEmbed()
+    .setColor('#32496b')
+    .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
+  
+ // let m =
+   await message.reply({ embeds: [ embed ], components: [ row ]});
+  }});
 
-let m = await message.reply({ embeds: [ embed ], components: [ row ]});
-
-  var iFilter = i => i.user.id === message.author.id;
-  let collector = m.createMessageComponentCollector({ filter: i => i.user.id})
-
-collector.on('collect', async i => {
-  if(i.values[0] === 'tf' || i.values[1] === 'tf') {
-    let embed2 = new Discord.MessageEmbed()
-    .setTitle(`أوامر التفعيل :`)
-    .setDescription(`__** FBI Police
-    
-    لـ , إعطاء شخص
-    رتبة , الأمن العام اكتب أمر
-    
-     ${prefix}عام
-    
-    لـ , إعطاء شخص
-    رتبة , حرس الحدود اكتب أمر
-    
-    ${prefix}حرس
-    
-    لـ , إعطاء شخص
-    رتبة ,القوات الخاصة اكتب أمر
-    
-    ${prefix}قوات
-    
-    لـ قبول إستقالة الشخص أكتب أمر
-    
-    ${prefix}استقالة
-    
-    مع منشن للشخص بعد كل أمر **__ `)
-    .setFooter({text:`حاكم الدولة بالخدمة`})
-    .setColor(`#32496b`)
-    .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-    i.reply({ embeds: [ embed2 ], ephemeral: true});
-    }
-    //
-    if(i.values[0] === 'fvl' || i.values[1] === 'fvl') {
-      let embed3 = new Discord.MessageEmbed()
-      .setTitle(`أوامر الفصل :`)
-      .setDescription(`__** FBI Police
-      
-      لـ فصل شخص اكتب أمر
-      
-       ${prefix}فصل
-      
-       لـ ازالة فصل شخص اكتب أمر
-      
-      ${prefix}ازالة-فصل
-
-      لـ معرفة سبب فصل شخص اكتب أمر
-    
-      ${prefix}سبب-الفصل
-      
-      لـ فحص شخص اكتب أمر
-      
-      ${prefix}فحص
-      
-      مع منشن للشخص بعد كل أمر **__ `)
+  client.on("interactionCreate" , interaction => {
+    if (!interaction.isSelectMenu()) return;
+    if (interaction.customId == "todeh") {
+    if(interaction.values[0] == 'tf') {
+      if (!interaction.member.permissions.has('ADMINISTRATOR'))
+      if (!interaction.member.roles.cache.has('980494296320999424'))
+      return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+      //
+      let embed2 = new Discord.MessageEmbed()
+      .setTitle(`الأوامر الإدارية :`)
+      .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
       .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-      i.reply({ embeds: [ embed3 ], ephemeral: true});
+      interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
-    //
-  if(i.values[0] === 'frd' || i.values[1] === 'frd') {
-    let embed5 = new Discord.MessageEmbed()
-    .setTitle(`أوامر ترقيات الأفراد :`)
-    .setDescription(`__** FBI Police
-    
-   > لـ الترقية إلى جندي تحت التدريب قم بكتابة : ${prefix}a .
-    
-   > لـ ترقية إلى جندي قم بكتابة : ${prefix}b .
-
-   > لـ ترقية إلى جندي اول قم بكتابة : ${prefix}c .
-
-   > لـ ترقية إلى عريف قم بكتابة : ${prefix}d .
-
-   > لـ ترقية إلى وكيل رقيب قم بكتابة : ${prefix}e .
-
-   > لـ ترقية إلى رقيب قم بكتابة : ${prefix}f .
-
-   > لـ ترقية إلى رقيب أول قم بكتابة : ${prefix}g .
-
-   > لـ ترقية إلى رئيس رقباء قم بكتابة : ${prefix}h .
-
-  > لا يهم كبتل أم سمول . **__ `)
-    .setFooter({text:`حاكم الدولة بالخدمة`})
-    .setColor(`#32496b`)
-    .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-    i.reply({ embeds: [ embed5 ], ephemeral: true});
-    }
-    //
-    if(i.values[0] === 'dabd' || i.values[1] === 'dabd') {
-      let embed6 = new Discord.MessageEmbed()
-      .setTitle(`أوامر ترقيات الضباط :`)
-      .setDescription(`__** FBI Police
-      
-     > لـ الترقية إلى ملازم قم بكتابة : ${prefix}i .
-      
-     > لـ ترقية إلى ملازم اول قم بكتابة : ${prefix}j .
-  
-     > لـ ترقية إلى نقيب قم بكتابة : ${prefix}k .
-  
-     > لـ ترقية إلى رائد قم بكتابة : ${prefix}L .
-  
-     > لـ ترقية إلى مقدم قم بكتابة : ${prefix}m .
-  
-     > لـ ترقية إلى عقيد قم بكتابة : ${prefix}n .
-  
-     > لـ ترقية إلى عميد قم بكتابة : ${prefix}o .
-  
-     > لـ ترقية إلى لواء قم بكتابة : ${prefix}p .
-  
-     > لـ ترقية إلى فريق قم بكتابة : ${prefix}q .
-
-     > لـ ترقية إلى فريق أول قم بكتابة : ${prefix}r .
-  
-    > لا يهم كبتل أم سمول . **__ `)
-      .setFooter({text:`حاكم الدولة بالخدمة`})
-      .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-      i.reply({ embeds: [ embed6 ], ephemeral: true});
-    }
-    //
-    if(i.values[0] === 'gem' || i.values[1] === 'gem') {
-      let embed7 = new Discord.MessageEmbed()
-      .setTitle(`أوامر التكت :`)
-      .setDescription(`__** مالكش دخل **__ `)
-      .setFooter({text:`حاكم الدولة بالخدمة`})
-      .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-      i.reply({ embeds: [ embed7 ], ephemeral: true });
-      }
-})}});
+      //
+      if(interaction.values[0] == '3am') {
+        let embed2 = new Discord.MessageEmbed()
+        .setTitle(`الأوامر العامة :`)
+        .setDescription(`__** FBI Police \n لـ معرفة تحاضير شخص او نفسك قم بكتابة : ${prefix}تحضيراتي \n لـ معرفة توب 20 تحاضير قم بكتابة : ${prefix}توب ! **__ `)
+        .setFooter({text:`حاكم الدولة بالخدمة`})
+        .setColor(`#32496b`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        interaction.reply({ embeds: [ embed2 ], ephemeral: true});
+        }
+        //
+      if(interaction.values[0] == 'tkt') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR'))
+        if (!interaction.member.roles.cache.has('980494296320999424'))
+        return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+        //
+        let embed7 = new Discord.MessageEmbed()
+        .setTitle(`أوامر التكت :`)
+        .setDescription(`__** مالكش دخل **__ `)
+        .setFooter({text:`حاكم الدولة بالخدمة`})
+        .setColor(`#32496b`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        interaction.reply({ embeds: [ embed7 ], ephemeral: true });
+        }
+    }});
 
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
