@@ -808,7 +808,7 @@ message.delete();
 }
 });
 
-client.on('messageCreate', message => {
+/* client.on('messageCreate', message => {
 if (message.content.toLowerCase().startsWith(prefix+"ping".toLowerCase())) {
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
@@ -816,6 +816,24 @@ let embed = new Discord.MessageEmbed()
 .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
   //
 message.channel.send({ embeds: [embed] });
+}
+}); */
+
+
+client.on('ready', async () => {
+await client.application?.commands.set([])
+client.guilds.cache.forEach(guild => {
+guild.commands?.set([{ 
+name: 'ping',
+description: "ping for bot",
+}])
+})
+});
+  
+client.on("interactionCreate", async interaction => {
+if (!interaction.channel.guild) return;
+if (interaction.commandName == 'ping') {
+interaction.reply({ content: ` __** ${client.ws.ping} ms! **__ ` });
 }
 });
 
