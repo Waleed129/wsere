@@ -192,6 +192,124 @@ client.on('messageCreate', message => {
         }
     }});
 
+
+client.on('messageCreate', async message => {
+  if(message.author.bot) return;
+  if(message.content === prefix+'تفعيل') {
+    if (!message.member.permissions.has('ADMINISTRATOR'))
+    if (!message.member.roles.cache.has('980494296320999424'))
+    return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+    let member = message.mentions.members.first();
+  let user = message.mentions.members.first();
+   if (!message.member.permissions.has('ADMINISTRATOR'))
+ //
+ if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
+\`${prefix}لوق-التفعيل\` **__ ` });
+ //
+   if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+ //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
+   if(member.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
+   //
+  // if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** لا يمكن تفعيل العسكري فهو مفصول \n اذا كنت تريد معرفة السبب قم بكتابة : "-سبب-الفصل" **__ ` });
+   // 
+let idps4 = message.content.split(' ').slice(2).join(' ')
+if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العسكري **__ ` })
+ //
+  let row = new Discord.MessageActionRow()
+  .addComponents(
+  new Discord.MessageSelectMenu()
+  .setMinValues(0)
+  .setMaxValues(1)
+  .setPlaceholder('إضغط هنا لرؤية خريطة التفعيل')
+  .setCustomId('tf3el')
+  .addOptions([
+  {
+  label: 'الأمن-العام',
+  description: 'لـ تفعيل شخص بـ قطاع الأمن العام',
+  value: 'amn3am'
+  },
+  {
+    label: 'حرس-الحدود',
+    description: 'لـ تفعيل شخص بـ قطاع حرس الحدود',
+    value: '7rs7dod'
+    },
+  {
+    label: 'القوات-الخاصة',
+    description: 'لـ تفعيل شخص بـ قطاع القوات الخاصة',
+    value: '8wat5a9h'
+    } 
+  ])
+  )
+  let embed = new Discord.MessageEmbed()
+  .setColor('#32496b')
+  .setDescription('__** لـ رؤية خريطة التفعيل قم بالضغط على الزر اللذي بالأسفل و تحديد القطاع **__')
+
+let m = message.reply({ embeds: [ embed ], components: [ row ]});
+  
+  let collector = m.createMessageComponentCollector({ filter: i => i.user.id})
+  
+  collector.on('collect', async i => {
+  if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
+    let ch = dbb.get(`logtf3el_${i.guild.id}`)
+    let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+  let hrs7dod = i.guild.channels.cache.get("1033297256465563738")
+   //
+   let da7leh = i.guild.roles.cache.get('980494313295331328');// الداخلية
+   let hrs = i.guild.roles.cache.get('980494332949844058');// القوات
+   let t7t = i.guild.roles.cache.get('980494360539987978');// تحت التدريب
+   //
+   if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+   if(user.roles.cache.some(r=> r.id == hrs)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+   if(user.roles.cache.some(r=> r.id == t7t)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+   //
+   member.roles.add(da7leh);
+   member.roles.add(hrs);
+   member.roles.add(t7t);
+   //
+      let count = dbb.fetch(`codehrs_${message.guild.id}`)
+       let embed = new MessageEmbed()
+     .setTitle("تفعيل الوزارة")
+     .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
+
+    <:emoji_20:981170142744567808> ┆┆ صاحب الأيدي : ${idps4} و الكود : T-${count || 0} \n <:emoji_20:981170142744567808> ┆┆ نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ \n <:emoji_20:981170142744567808> ┆┆ نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل  \n <:emoji_20:981170142744567808> ┆┆ و تم خصم رسوم التوضيف بنجاح **__ `)
+     .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+     .setThumbnail(user.user.avatarURL({ dynamic: true }))
+     .setTimestamp()
+     .setColor("#11e2e2")
+     i.reply({ embeds: [embed] });
+   //
+  dbb.add(`codehrs_${message.guild.id}`, 1)
+user.setNickname(`${idps4} ( T-${count || 0} )`);
+hrs7dod.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494332949844058> 
+\n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+   //
+   i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
+   i.channel.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] }); 
+   /*
+      dm
+      */
+   const embed1 = new MessageEmbed()
+     .setTitle("تفعيل الوزارة")
+     .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
+
+    <:emoji_20:981170142744567808> ┆┆ صاحب الأيدي : ${idps4} و الكود : T-${count || 0} \n <:emoji_20:981170142744567808> ┆┆ نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ \n <:emoji_20:981170142744567808> ┆┆ نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل  \n <:emoji_20:981170142744567808> ┆┆ و تم خصم رسوم التوضيف بنجاح **__ `)
+     .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+.setThumbnail(user.user.avatarURL({ dynamic: true }))
+     .setTimestamp()
+     .setColor("#11e2e2")
+   user.send({ embeds: [embed1] })
+   //
+     let embed2 = new Discord.MessageEmbed()
+   .setColor(`#32496b`)
+   .setDescription(` __** تم تفعيل ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
+
+logtf3el.send({ embeds: [embed2] });
+logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });      
+  }
+    //
+  })}
+  });
+
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix+"لوق-التفعيل")) {
