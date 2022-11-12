@@ -212,6 +212,18 @@ client.on('messageCreate', async message => {
    //
   // if(db.has(`userid_${user.id}`,`reason_${user.id}`)) return message.reply({ content: ` __** لا يمكن تفعيل العسكري فهو مفصول \n اذا كنت تريد معرفة السبب قم بكتابة : "-سبب-الفصل" **__ ` });
    // 
+   let ch = dbb.get(`logtf3el_${message.guild.id}`)
+   let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
+ let hrs7dod = message.guild.channels.cache.get("1033297256465563738")
+  //
+  let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+  let hrs = message.guild.roles.cache.get('980494332949844058');// القوات
+  let t7t = message.guild.roles.cache.get('980494360539987978');// تحت التدريب
+  //
+  if(user.roles.cache.some(r=> r.id == da7leh)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+  if(user.roles.cache.some(r=> r.id == hrs)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+  if(user.roles.cache.some(r=> r.id == t7t)) return message.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
+   //
 let idps4 = message.content.split(' ').slice(2).join(' ')
 if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العسكري **__ ` })
  //
@@ -250,23 +262,11 @@ let m = message.reply({ embeds: [ embed ], components: [ row ]});
   
   collector.on('collect', async i => {
   if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
-    let ch = dbb.get(`logtf3el_${i.guild.id}`)
-    let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
-  let hrs7dod = i.guild.channels.cache.get("1033297256465563738")
-   //
-   let da7leh = i.guild.roles.cache.get('980494313295331328');// الداخلية
-   let hrs = i.guild.roles.cache.get('980494332949844058');// القوات
-   let t7t = i.guild.roles.cache.get('980494360539987978');// تحت التدريب
-   //
-   if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-   if(user.roles.cache.some(r=> r.id == hrs)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-   if(user.roles.cache.some(r=> r.id == t7t)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
-   //
    member.roles.add(da7leh);
    member.roles.add(hrs);
    member.roles.add(t7t);
    //
-      let count = dbb.fetch(`codehrs_${message.guild.id}`)
+      let count = dbb.fetch(`codehrs_${i.guild.id}`)
        let embed = new MessageEmbed()
      .setTitle("تفعيل الوزارة")
      .setDescription(` __** ┆┆ عزيزنا العسكري : ${user} 
@@ -278,7 +278,7 @@ let m = message.reply({ embeds: [ embed ], components: [ row ]});
      .setColor("#11e2e2")
      i.reply({ embeds: [embed] });
    //
-  dbb.add(`codehrs_${message.guild.id}`, 1)
+  dbb.add(`codehrs_${i.guild.id}`, 1)
 user.setNickname(`${idps4} ( T-${count || 0} )`);
 hrs7dod.send({ content: ` __** العسكري : ${user} \n أيدي العسكري : ${idps4} \n كوده العسكري : T-${count || 0} \n القِطاع : <@&980494332949844058> 
 \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
