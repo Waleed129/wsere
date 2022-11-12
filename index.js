@@ -256,9 +256,9 @@ if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي ا
   .setColor('#32496b')
   .setDescription('__** لـ رؤية خريطة التفعيل قم بالضغط على الزر اللذي بالأسفل و تحديد القطاع **__')
 
-let m = message.reply({ embeds: [ embed ], components: [ row ]});
+let m = await message.reply({ embeds: [ embed ], components: [ row ]});
   
-  let collector = m.createMessageComponentCollector({ filter: i => i.user.id})
+let collector = m.createMessageComponentCollector({ filter: i => i.user.id === message.author.id, time: 3600000})
   
   collector.on('collect', async i => {
   if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
