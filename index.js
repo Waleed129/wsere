@@ -1065,7 +1065,7 @@ client.on('messageCreate', message => {
   if (message) {
     message.channel.send({ files: [line] });
   }
-});// التصويتات /*
+});// التصويتات */
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
