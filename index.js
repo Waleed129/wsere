@@ -1538,39 +1538,6 @@ client.on("messageCreate" , message => {
   }
 });
 
-client.on("messageCreate" , message => {
-  if(message.author.bot) return;
-if(message.content == prefix+"انشاء-التحضير") {
-if(!message.member.permissions.has("ADMINISTRATOR")) return;
-if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين شات التحضير قبل !
-\`${prefix}شات-التحضير\` **__ ` });
-if(!dbp.has(`codes_${message.guild.id}`)) return message.reply({ content: ` __** يرجى إضافة الأكواد من داخل البروجكت ! **__ ` });
-let embed = new Discord.MessageEmbed()
-.setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
-.setTitle(`التحضير العسكري`)
-.setDescription(` __** لـ التحضير العسكري يرجى الضغط على 👮🏻 . **__ `)
-.setColor("GREEN")
-let row = new Discord.MessageActionRow()
-.addComponents(
-new Discord.MessageButton()
-.setLabel(`التحضير العسكري`)
-.setEmoji('👮🏻')
-.setCustomId("التحضير العسكري")
-.setStyle("SUCCESS")
-)
-message.delete()
-message.channel.send({ embeds: [embed], components: [row] })
-}
-});
-
-client.on("interactionCreate" , async interaction => {
-if(interaction.isButton()) {
-if(interaction.customId == "التحضير العسكري") {
-if(cooldown.has(interaction.member.id)) {
-interaction.reply({ content: ` __** لا يمكنك التحضير إلا مرة واحدة !
-
-يرجى التحضير مرة أخرى بعد ساعة . **__ ` , ephemeral:true })
-      } else {
 		const modal = new ModalBuilder()
 			.setCustomId('modal')
 			.setTitle('التحضير العسكري :')
