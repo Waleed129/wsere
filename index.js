@@ -1537,15 +1537,33 @@ client.on("messageCreate" , message => {
     message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
   }
 });
+client.on("messageCreate" , message => {
+  if(message.content == prefix+"انشاء-التحضير") {
+    if(!message.member.permissions.has("ADMINISTRATOR")) return;
+    if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Suggestion Channel !**")
+    if(!dbp.has(`codes_${message.guild.id}`)) return message.reply("**I Can't Find The Suggestion Codes !**")
+    let embed = new Discord.MessageEmbed()
+    .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
+    .setTitle(`التحضير العسكري`)
+    .setDescription(` __** لـ التحضير العسكري يرجى الضغط على 👮🏻 . **__ `)
+    .setColor("GREEN")
+    let row = new Discord.MessageActionRow().addComponents(
+      new Discord.MessageButton()
+      .setEmoji('👮🏻')
+      .setCustomId("setup")
+      .setStyle("SUCCESS")
+    )
+    message.delete()
+    message.channel.send({embeds:[embed] , components:[row]})
+  }
+});
 
-  client.on("interactionCreate" , async message => {
-    if(message.isButton()) {
-    if(message.customId == "police") {
-    if(cooldown.has(message.member.id)) {
-    message.reply({ content: ` __** لا يمكنك التفعيل إلا مرة واحدة !
-    
-    يرجى التفعيل مرة أخرى بعد 10 ثواني . **__ ` , ephemeral:true })
-          } else { 
+client.on("interactionCreate" , async interaction => {
+  if(interaction.isButton()) {
+    if(interaction.customId == "setup") {
+      if(cooldown.has(interaction.member.id)) {
+        interaction.reply({ content: " __** يرجى الإنتظار ساعة كاملة قبل التحضير مجدداَ ! **__ " , ephemeral:true})
+      } else {
 		const modal = new ModalBuilder()
 			.setCustomId('modal')
 			.setTitle('التحضير العسكري :')
