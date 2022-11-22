@@ -1538,6 +1538,14 @@ client.on("messageCreate" , message => {
   }
 });
 
+  client.on("interactionCreate" , async message => {
+    if(message.isButton()) {
+    if(message.customId == "police") {
+    if(cooldown.has(message.member.id)) {
+    message.reply({ content: ` __** لا يمكنك التفعيل إلا مرة واحدة !
+    
+    يرجى التفعيل مرة أخرى بعد 10 ثواني . **__ ` , ephemeral:true })
+          } else { 
 		const modal = new ModalBuilder()
 			.setCustomId('modal')
 			.setTitle('التحضير العسكري :')
