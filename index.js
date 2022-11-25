@@ -156,7 +156,7 @@ client.on('messageCreate', message => {
     if(interaction.values[0] == 'tf') {
       if (!interaction.member.permissions.has('ADMINISTRATOR'))
       if (!interaction.member.roles.cache.has('980494296320999424'))
-      return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+      return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
       //
       let embed2 = new Discord.MessageEmbed()
       .setTitle(`الأوامر الإدارية :`)
@@ -180,7 +180,7 @@ client.on('messageCreate', message => {
       if(interaction.values[0] == 'tkt') {
         if (!interaction.member.permissions.has('ADMINISTRATOR'))
         if (!interaction.member.roles.cache.has('980494296320999424'))
-        return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+        return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
         //
         let embed7 = new Discord.MessageEmbed()
         .setTitle(`أوامر التكت :`)
