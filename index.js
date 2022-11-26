@@ -227,12 +227,12 @@ client.on("messageCreate", async message => {
     if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
-      if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
+      if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
   //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
         //
   let idps4 = message.content.split(' ').slice(2).join(' ')
-  if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العضو **__ ` })
+  if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العسكري **__ ` })
 //
   let row = new Discord.MessageActionRow()
   .addComponents(
@@ -316,8 +316,96 @@ let collector = m.createMessageComponentCollector({ filter: i => i.user.id === m
 logtf3el.send({ embeds: [embed2] });
 logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
 }
+//
+     if(i.values[0] === 'amn3am' || i.values[1] === 'amn3am') {
+    if (!i.member.permissions.has('ADMINISTRATOR'))
+    if (!i.member.roles.cache.has('980494296320999424'))
+      return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+    //
+    let amn3am = i.guild.channels.cache.get("1033297231756926977")  
+    let ch = dbb.get(`logtf3el_${message.guild.id}`)
+    let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
+    //
+    let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+    let amn = message.guild.roles.cache.get('980494327371399218');// القوات
+    let t7t = message.guild.roles.cache.get('980494360539987978');// تحت التدريب
+    //
+    if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    if(user.roles.cache.some(r=> r.id == amn)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    if(user.roles.cache.some(r=> r.id == t7t)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    //
+    member.roles.add(da7leh);
+    member.roles.add(amn);
+    member.roles.add(t7t);
+    //
+    let count = dbb.fetch(`codeamn_${message.guild.id}`)
+    let embed = new MessageEmbed()
+    .setTitle("التفعيل الوزاري")
+    .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : G-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
+    .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+    .setThumbnail(user.user.avatarURL({ dynamic: true }))
+    .setTimestamp()
+    .setColor("#11e2e2")
+    i.channel.send({ embeds: [embed] });
+  //
+  dbb.add(`codeamn_${message.guild.id}`, 1)
+  user.setNickname(`${idps4} ( G-${count || 0} )`);
+  amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : G-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+  //
+  i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
+  
+  let embed2 = new Discord.MessageEmbed()
+  .setColor(`#32496b`)
+  .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
 
-  // باقي الفاليو
+logtf3el.send({ embeds: [embed2] });
+logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
+}   
+//
+     if(i.values[0] === '8wat5a9h' || i.values[1] === '8wat5a9h') {
+    if (!i.member.permissions.has('ADMINISTRATOR'))
+    if (!i.member.roles.cache.has('980494296320999424'))
+      return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+    //
+    let gwat5a9h = i.guild.channels.cache.get("1033297213255852072")  
+    let ch = dbb.get(`logtf3el_${message.guild.id}`)
+    let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
+    //
+    let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+    let ha9h = message.guild.roles.cache.get('980494318580162590');// القوات
+    let t7t = message.guild.roles.cache.get('980494360539987978');// تحت التدريب
+    //
+    if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    if(user.roles.cache.some(r=> r.id == ha9h)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    if(user.roles.cache.some(r=> r.id == t7t)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
+    //
+    member.roles.add(da7leh);
+    member.roles.add(ha9h);
+    member.roles.add(t7t);
+    //
+    let count = dbb.fetch(`code8wat_${message.guild.id}`)
+    let embed = new MessageEmbed()
+    .setTitle("التفعيل الوزاري")
+    .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : S-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
+    .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+    .setThumbnail(user.user.avatarURL({ dynamic: true }))
+    .setTimestamp()
+    .setColor("#11e2e2")
+    i.channel.send({ embeds: [embed] });
+  //
+  dbb.add(`code8wat_${message.guild.id}`, 1)
+  user.setNickname(`${idps4} ( S-${count || 0} )`);
+  gwat5a9h.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : S-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+  //
+  i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
+  
+  let embed2 = new Discord.MessageEmbed()
+  .setColor(`#32496b`)
+  .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
+
+logtf3el.send({ embeds: [embed2] });
+logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
+}
 }
 })
 }});
