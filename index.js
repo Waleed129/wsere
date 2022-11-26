@@ -305,7 +305,7 @@ client.on("messageCreate", async message => {
       //
       dbb.add(`codehrs_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( T-${count || 0} )`);
-      hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : T-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+      hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : T-${count || 0} \n قطاعه : <@&980494318580162590> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
       
