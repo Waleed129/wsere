@@ -34,6 +34,8 @@ const ms = require("ms");
 const { joinVoiceChannel } = require('@discordjs/voice');
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
+const moment = require("moment")
+require("moment-duration-format");
 const Database = require("st.db")
 const db = new Database({path: "database.json"})
 const dbb = new Database({path: "tf3el.json"})
@@ -98,7 +100,15 @@ let owner = ['497796195104718888']
   }
 });
 
-require('discord-reply');
+client.on("messageCreate", message => {
+if (message.content.startsWith(prefix+'أفتار-البوت')) {
+if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' });
+let args = message.content.split(" ");
+let avatar = args.slice(1).join(" ");
+if (!avatar) return message.reply({ content: ` __** إرسل الأفتار ! **__ ` });
+client.user.setAvatar(`${avatar}`);
+message.reply({ content: ` __** تم تغيير أفتار البوت إلى : ${avatar} **__ ` });
+}});
 
 client.on('messageCreate', message => {
   let guildID = message.content.split(' ')[1]
@@ -111,7 +121,7 @@ client.on('messageCreate', message => {
 قود باي [${guild.name}] **__` })
     guild.leave()
   }
-}); 
+});
 
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
@@ -127,16 +137,19 @@ client.on('messageCreate', message => {
     {
     label: 'القسم الإداري',
     description: 'لـ عرض أوامر الإدارة يرجى الضغط هنا',
+    emoji: '👮🏻‍♂️',
     value: 'tf'
     },
     {
       label: 'القسم العام',
       description: 'لـ عرض أوامر القسم العام يرجى الضغط هنا',
+      emoji: '👮🏻‍♂️',
       value: '3am'
       },
     {
       label: 'قسم اوامر التكت',
       description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
+      emoji: '👮🏻‍♂️',
       value: 'tkt'
       } 
     ])
@@ -202,43 +215,6 @@ client.on("messageCreate" , message => {
   }
 });
 
-
-let owner = ['497796195104718888']
- client.on("messageCreate", message => {
-  if (message.content.startsWith(prefix+'إسم-البوت')) {
-    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-    let args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.reply({ content: ' __** إكتب الإسم الجديد ! **__ ' })
-    client.user.setUsername(args)
-    message.reply({ content: `__** ✅ | تم تغيير الإسم المستعار بنجاح
-
-تم تغييره إلى : ${args} **__` })
-  }
-});
-
-client.on("messageCreate", message => {
-if (message.content.startsWith(prefix+'أفتار-البوت')) {
-if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' });
-let args = message.content.split(" ");
-let avatar = args.slice(1).join(" ");
-if (!avatar) return message.reply({ content: ` __** إرسل الأفتار ! **__ ` });
-client.user.setAvatar(`${avatar}`);
-message.reply({ content: ` __** تم تغيير أفتار البوت إلى : ${avatar} **__ ` });
-}});
-
-client.on('messageCreate', message => {
-  let guildID = message.content.split(' ')[1]
-  let guild = client.guilds.cache.get(guildID)
-  if (message.content.startsWith(prefix+'لفت')) {
-    if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
-    if (!guild) return message.reply({ content: '__** يا مصدع ارسل أيدي السيرفر ! **__' })
-    message.reply({ content: `__** اخخخخخخخ وداعاً جاري تسجيل خروجي من السيرفر 
-
-قود باي [${guild.name}] **__` })
-    guild.leave()
-  }
-});
-
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"تفعيل")) {
@@ -296,18 +272,18 @@ let collector = m.createMessageComponentCollector({ filter: i => i.user.id === m
 
   collector.on('collect', async i => {
   if (i.customId == "tf3el") {
-  if(i.values[0] === 'amn3am' || i.values[1] === 'amn3am') {
+  if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
     if (!i.member.permissions.has('ADMINISTRATOR'))
     if (!i.member.roles.cache.has('980494296320999424'))
       return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
     //
-    let hrs7dod = i.guild.channels.cache.get("1006354092563644497")  
+    let hrs7dod = i.guild.channels.cache.get("1033297256465563738")  
     let ch = dbb.get(`logtf3el_${message.guild.id}`)
     let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
     //
-    let da7leh = message.guild.roles.cache.get('948329160479211530');// الداخلية
-    let hrs = message.guild.roles.cache.get('948325091480055930');// القوات
-    let t7t = message.guild.roles.cache.get('948329181031317555');// تحت التدريب
+    let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+    let hrs = message.guild.roles.cache.get('980494332949844058');// القوات
+    let t7t = message.guild.roles.cache.get('980494360539987978');// تحت التدريب
     //
     if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
     if(user.roles.cache.some(r=> r.id == hrs)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
@@ -340,50 +316,7 @@ let collector = m.createMessageComponentCollector({ filter: i => i.user.id === m
 logtf3el.send({ embeds: [embed2] });
 logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
 }
-if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
-  if (!i.member.permissions.has('ADMINISTRATOR'))
-  if (!i.member.roles.cache.has('980494296320999424'))
-    return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
-  //
-  let hrs7dod = i.guild.channels.cache.get("1006354092563644497")  
-  let ch = dbb.get(`logtf3el_${message.guild.id}`)
-  let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
-  //
-  let da7leh = message.guild.roles.cache.get('948329160479211530');// الداخلية
-  let hrs = message.guild.roles.cache.get('948325091480055930');// القوات
-  let t7t = message.guild.roles.cache.get('948329181031317555');// تحت التدريب
-  //
-  if(user.roles.cache.some(r=> r.id == da7leh)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
-  if(user.roles.cache.some(r=> r.id == hrs)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
-  if(user.roles.cache.some(r=> r.id == t7t)) return i.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` , ephemeral: true });
-  //
-  member.roles.add(da7leh);
-  member.roles.add(hrs);
-  member.roles.add(t7t);
-  //
-  let count = dbb.fetch(`codehrs_${message.guild.id}`)
-  let embed = new MessageEmbed()
-  .setTitle("التفعيل الوزاري")
-  .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : T-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
-  .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
-  .setThumbnail(user.user.avatarURL({ dynamic: true }))
-  .setTimestamp()
-  .setColor("#11e2e2")
-  i.channel.send({ embeds: [embed] });
-//
-dbb.add(`codehrs_${message.guild.id}`, 1)
-user.setNickname(`${idps4} ( T-${count || 0} )`);
-hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : T-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
-//
-i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
 
-let embed2 = new Discord.MessageEmbed()
-.setColor(`#32496b`)
-.setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
-
-logtf3el.send({ embeds: [embed2] });
-logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
-}
   // باقي الفاليو
 }
 })
@@ -1097,7 +1030,7 @@ if(message.content.includes(`<@${client.user.id}>`) || message.content.includes(
 //
 const duration = moment
 .duration(client.uptime)
-.format(" D [أيام], H [ساعات], m [دقائق], s [ثواني]");
+.format(" D [أيام], H [ساعات], m [دقائق], s [ثانية]");
 //
 let embed = new Discord.MessageEmbed()
 .setTitle("المساعد الوزاري")
