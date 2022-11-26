@@ -233,7 +233,7 @@ client.on("messageCreate", async message => {
   let idps4 = message.content.split(' ').slice(2).join(' ')
   if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العضو **__ ` })
 //
-  if (!message.guild.id == '980493720233316372') {
+  if (message.guild.id == '980493720233316372') {
     //
     let row = new Discord.MessageActionRow()
     .addComponents(
@@ -409,9 +409,10 @@ client.on("messageCreate", async message => {
     }
     })
   }
-      if (!message.guild.id == '980493720233316372') {
-        message.reply({ content: ` __** **__ ` });
-  } 
+if (message.guild.id == '996810757238968431') {
+return message.reply({ content: ` __** هش **__ ` });
+  }
+    
 }});
 
 /* client.on("messageCreate", async message => {
