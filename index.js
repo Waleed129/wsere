@@ -1213,42 +1213,6 @@ client.destroy()
 }
 }); 
 
-client.on("messageCreate", async message => {
-if(message.author.bot) return;
-if (message.content.startsWith(prefix+"استدعاء-عسكري")) {
-let member = message.mentions.members.first();
-     let user = message.mentions.members.first();
-      if (!message.member.permissions.has('ADMINISTRATOR'))
-        //
-              if (message.guild.id == '980493720233316372') {
-                //
-        if (!message.member.roles.cache.has('980494296320999424'))
-          return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
-    //
-      if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
-      if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
-        //
-let embed = new Discord.MessageEmbed()
-.setColor("RANDOM")
-.setDescription(` __** تم إستدعائك إلى : <#${message.channel.id}> 
-( لديك 24h في حال لم تحضر سيتم إتخاذ الإجرائات المناسبة معك ... )
-\n العسكري :  ${user} الشات : <#${message.channel.id}> ) **__ `)
-.setFooter(user.username, user.displayAvatarURL({ dynamic: true }))
-//
-user.send({ embeds: [embed] });
-//
-let embed2 = new Discord.MessageEmbed()
-.setTitle('الإستدعاء العسكري')
-.setColor("RED")
-.setDescription(` __** ✅ تم إستدعاء العسكري : ${user} ... **__ `)
-.setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
-.setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-message.reply({ embes: [embed2] });
-//
-  }
-}});
-
 client.on('messageCreate', message => {
   if (message.content.startsWith(prefix+'هير')) {
               if (message.author.bot) return
