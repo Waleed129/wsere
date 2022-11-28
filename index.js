@@ -224,10 +224,9 @@ client.on("messageCreate", async message => {
   if (message.content.startsWith(prefix+"تفعيل")) {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
+     if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
         //
-              if (message.guild.id == '980493720233316372') {
-//
         if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
@@ -431,11 +430,10 @@ client.on("messageCreate", async message => {
   if (message.content.startsWith(prefix+"ترقية")) {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
+                  if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
-        //
-              if (message.guild.id == '980493720233316372') {
 //
-        if (!message.member.roles.cache.has('980494296320999424'))
+if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
     if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
@@ -1208,10 +1206,9 @@ client.on("messageCreate", async message => {
   if (message.content.startsWith(prefix+"فصل")) {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
+                  if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
-        //
-              if (message.guild.id == '980493720233316372') {
-//
+       //
         if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
