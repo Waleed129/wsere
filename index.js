@@ -1139,7 +1139,7 @@ if (!message.member.roles.cache.has('980494296320999424'))
     message.delete();
     }
         //
-              if(i.values[0] === 'frd8aol' || i.values[1] === 'fre8aol') {
+              if(i.values[0] === 'fre8aol' || i.values[1] === 'fre8aol') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
