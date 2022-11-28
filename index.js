@@ -450,7 +450,7 @@ client.on("messageCreate", async message => {
     new Discord.MessageSelectMenu()
     .setMinValues(0)
     .setMaxValues(1)
-    .setPlaceholder('إضغط هنا لرؤية خريطة التفعيل')
+    .setPlaceholder('إضغط هنا لرؤية خريطة الترقيات')
     .setCustomId('tr8eh')
     .addOptions([
       {
@@ -1231,7 +1231,7 @@ client.on("messageCreate", async message => {
     .setCustomId('tr8eh')
     .addOptions([
       {
-        label: 'تحت-التدريب',
+        label: 'فصل',
         description: 'لـ ترقية شخص إلى جندي تحت التدريب',
         emoji: '👮🏻‍♂️',
         value: 't7taltdreb'
