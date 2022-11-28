@@ -2376,6 +2376,7 @@ client.on("messageCreate" , message => {
     message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
   }
 });
+
 client.on("messageCreate" , message => {
   if(message.content == prefix+"انشاء-التحضير") {
     if(!message.member.permissions.has("ADMINISTRATOR")) return;
