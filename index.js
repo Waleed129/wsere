@@ -1398,7 +1398,7 @@ return message.reply({ content: ` __** هش **__ ` });
   }
 }});
 
-client.on("guildMemberAdd" , member => {
+/*client.on("guildMemberAdd" , member => {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
@@ -1406,12 +1406,11 @@ if(db.has(`msfol_${member.id}`)) {
 member.roles.add(mfsol)
 }
 //
-});
+}); */
 
-const Owner = ['793487451888549908']
 client.on('messageCreate', message => {
 if (message.content === prefix+'نام') {
-if (Owner.includes(message.author.id)) return
+if (owner.includes(message.author.id)) return;
 message.channel.send({ content: "__** سيو برب **__ " })
 client.destroy()
 }
