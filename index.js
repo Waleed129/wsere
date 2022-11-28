@@ -524,7 +524,7 @@ client.on("messageCreate", async message => {
                         description: 'لـ ترقية شخص إلى فريق أول',
                         emoji: '👮🏻‍♂️',
                         value: 'fre8aol'
-                        },
+                        }
     ])
     )
     let embed = new Discord.MessageEmbed()
@@ -1245,12 +1245,12 @@ client.on("messageCreate", async message => {
         emoji: '👮🏻‍♂️',
         value: 'azalt-alfsl'
         },
-    {
-    label: 'سبب-الفصل',
-    description: 'لـ معرفة سبب فصل عسكري',
-    emoji: '👮🏻‍♂️',
-    value: 'sbb-alfsl'
-    },
+      {
+        label: 'سبب-الفصل',
+        description: 'لـ معرفة سبب فصل عسكري',
+        emoji: '👮🏻‍♂️',
+        value: 'sbb-alfsl'
+        }
     ])
     )
     let embed = new Discord.MessageEmbed()
@@ -1402,7 +1402,9 @@ client.on("guildMemberAdd" , member => {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
-if(db.has(`msfol_${member.id}`)) { member.add(mfsol) }
+if(db.has(`msfol_${member.id}`)) {
+member.roles.add(mfsol)
+}
 //
 });
 
