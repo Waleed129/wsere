@@ -226,15 +226,15 @@ client.on("messageCreate", async message => {
     if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
-      if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
+      if (message.guild.id == '980493720233316372') {
+//
+      if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
   //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
         //
   let idps4 = message.content.split(' ').slice(2).join(' ')
-  if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العضو **__ ` })
+  if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي العسكري **__ ` })
 //
-  if (message.guild.id == '980493720233316372') {
-    //
     let row = new Discord.MessageActionRow()
     .addComponents(
     new Discord.MessageSelectMenu()
@@ -314,7 +314,8 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
+        m.delete();  
     }
     //
          if(i.values[0] === 'amn3am' || i.values[1] === 'amn3am') {
@@ -359,7 +360,8 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
+           m.delete();  
     }   
     //
          if(i.values[0] === '8wat5a9h' || i.values[1] === '8wat5a9h') {
@@ -404,7 +406,8 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });   
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+m.delete();  
     }
     }
     })
