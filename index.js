@@ -1239,9 +1239,15 @@ client.on("messageCreate", async message => {
         emoji: '👮🏻‍♂️',
         value: 'fsl'
         },
+      {
+        label: 'ازالة-الفصل',
+        description: 'لـ إزالة فصل عسكري',
+        emoji: '👮🏻‍♂️',
+        value: 'fsl'
+        },
     {
     label: 'سبب-الفصل',
-    description: 'لـ ترقية شخص إلى جندي',
+    description: 'لـ معرفة سبب فصل عسكري',
     emoji: '👮🏻‍♂️',
     value: 'sbb-alfsl'
     },
@@ -1261,6 +1267,8 @@ client.on("messageCreate", async message => {
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
+        if(db.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** تم فصل العسكري مسبقاَ ! **__ ` , ephemeral: true });
+        //
         let ch = dbb.get(`logtf3el_${message.guild.id}`)
         let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
         //
@@ -1276,11 +1284,12 @@ client.on("messageCreate", async message => {
         let lwaaa = message.guild.roles.cache.get('980494345717305504');
         let fre8 = message.guild.roles.cache.get('980494341359411300');
         let fre8aol = message.guild.roles.cache.get('980494340516376606');
-        let da7leh = message.guild.roles.cache.get('980494340516376606');
-        let amn3am = message.guild.roles.cache.get('980494340516376606');
-        let hrs7dod = message.guild.roles.cache.get('980494340516376606');
-        let fre8aol = message.guild.roles.cache.get('980494340516376606');
-        let fre8aol = message.guild.roles.cache.get('980494340516376606');
+        let da7leh = message.guild.roles.cache.get('980494313295331328');
+        let amn3am = message.guild.roles.cache.get('980494327371399218');
+        let hrs7dod = message.guild.roles.cache.get('980494332949844058');
+        let gwat5ash = message.guild.roles.cache.get('980494318580162590');
+        let gwatmsl7h = message.guild.roles.cache.get('1045729509250449459');
+        let mfsol = message.guild.roles.cache.get('980494370623094814');
        //
         member.roles.remove(t7t);
         member.roles.remove(gnde);
@@ -1294,6 +1303,12 @@ client.on("messageCreate", async message => {
         member.roles.remove(lwaaa);
         member.roles.remove(fre8);
         member.roles.remove(fre8aol);
+        member.roles.remove(da7leh);
+        member.roles.remove(amn3am);
+        member.roles.remove(hrs7dod);
+        member.roles.remove(gwat5ash);
+        member.roles.remove(gwatmsl7h);
+        member.roles.add(mfsol);
         //
         let embed = new MessageEmbed()
         .setTitle("الفصل الوزاري")
@@ -1314,59 +1329,26 @@ client.on("messageCreate", async message => {
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
+    db.set(`msfol_${user.id}`, user.id)
+    db.set(`reason_${user.id}`, reson)
     }
         //
-          if(i.values[0] === 'gnde' || i.values[1] === 'gnde') {
+          if(i.values[0] === 'sbb-alfsl' || i.values[1] === 'sbb-alfsl') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
         //
-        let ch = dbb.get(`logtf3el_${message.guild.id}`)
-        let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
-        //
-        let t7t = message.guild.roles.cache.get('980494360539987978');
-        let gnde = message.guild.roles.cache.get('980494359508164628');
-        let gndeaol = message.guild.roles.cache.get('1005542090270318592');
-        let href = message.guild.roles.cache.get('1005543033363767336');
-        let r8eb = message.guild.roles.cache.get('980494355846561872');
-        let r8ebaol = message.guild.roles.cache.get('1005542165721665717');
-        let mlazm = message.guild.roles.cache.get('980494352495284326');
-        let mlazmaol = message.guild.roles.cache.get('980494350624641155');
-        let h8ed = message.guild.roles.cache.get('980494347491500034');
-        let lwaaa = message.guild.roles.cache.get('980494345717305504');
-        let fre8 = message.guild.roles.cache.get('980494341359411300');
-        let fre8aol = message.guild.roles.cache.get('980494340516376606');
-       //
-        member.roles.remove(t7t);
-        member.roles.add(gnde);
-        member.roles.remove(gndeaol);
-        member.roles.remove(href);
-        member.roles.remove(r8eb);
-        member.roles.remove(r8ebaol);
-        member.roles.remove(mlazm);
-        member.roles.remove(mlazmaol);
-        member.roles.remove(h8ed);
-        member.roles.remove(lwaaa);
-        member.roles.remove(fre8);
-        member.roles.remove(fre8aol);
-        //
+        if(!db.has(`mfsol_${user.id}`,`reason_${user.id}`)) return i.reply({ content: ` __** لم يتم فصل العسكري ! **__ ` , ephemeral: true });
+//
         let embed = new MessageEmbed()
-        .setTitle("الترقيات الوزارية")
-        .setDescription(` __** عزيزي العسكري : ${user} . \n يسرنا بأنه قم تم ترقيتك \n و لكن يرجى منك الإستمرار على هذا المجهود و ستصل إلى أعلى المراتب بإذن الله .\n و يرجى الحفاظ على القوانين و البورتوكولات و عدم الإغترار بنفسك و التصغير من زملائك . \n و قد تم ترقيتك من الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
+        .setTitle("الفصل الوزاري")
+        .setDescription(` __** عزيزي الإداري : ${message.a} . \n يسرنا بأنه قم تم ترقيتك \n و لكن يرجى منك الإستمرار على هذا المجهود و ستصل إلى أعلى المراتب بإذن الله .\n و يرجى الحفاظ على القوانين و البورتوكولات و عدم الإغترار بنفسك و التصغير من زملائك . \n و قد تم ترقيتك من الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
           //
-      i.channel.send({ content: " __** تم ترقية `العسكري` بـ نجاح **__ " });
-      
-      let embed2 = new Discord.MessageEmbed()
-      .setColor(`#32496b`)
-      .setDescription(` __** تم ترقية : ${user} \n إلى : جندي  . \n من قبل الإداري : ${message.author} **__ `);
-    
-    logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
     }
