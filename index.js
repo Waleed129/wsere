@@ -2673,6 +2673,7 @@ message.reply({ embeds: [embed] });
 
 client.on("messageCreate" , message => {
   if(message.content.startsWith(prefix+"شات-التقديمات")) {
+        if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
       let channel = message.mentions.channels.first()
       if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ ` });
       db.set(`channel_${message.guild.id}` , channel.id)
@@ -2682,6 +2683,7 @@ client.on("messageCreate" , message => {
 
 client.on("messageCreate" , message => {
 if(message.content.startsWith(prefix+"رتبة-الإدارة-1")) {
+      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
   let r = message.content.split(" ").slice(1).join(" ")
   let role = message.guild.roles.cache.find(r=> r.id == r)
   if(!r) {
@@ -2695,6 +2697,7 @@ if(message.content.startsWith(prefix+"رتبة-الإدارة-1")) {
 });
 client.on("messageCreate" , message => {
   if(message.content.startsWith(prefix+"رتبة-الإدارة-2")) {
+        if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
     let r2 = message.content.split(" ").slice(1).join(" ")
     let role2 = message.guild.roles.cache.find(r2=> r2.id == r2)
     if(!r2) {
@@ -2709,6 +2712,7 @@ client.on("messageCreate" , message => {
 
 client.on("messageCreate" , message => {
 if(message.content.startsWith(prefix+"رتبة-القبول")) {
+      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
   let r = message.content.split(" ").slice(1).join(" ")
   let role = message.guild.roles.cache.find(r=> r.id == r)
   if(!r) {
@@ -2723,6 +2727,7 @@ if(message.content.startsWith(prefix+"رتبة-القبول")) {
 
 client.on("messageCreate" , message => {
 if(message.content == prefix+"التقديم") {
+      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
   if(!db.has(`channel_${message.guild.id}`)) {
     if(!db.has(`role_${message.guild.id}`)) {
       if(!db.has(`role2_${message.guild.id}`)) {
