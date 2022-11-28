@@ -442,8 +442,8 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
-  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
-      if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك ترقية نفسك ! **__ ` });
+      if(user.bot) return message.reply({ content: " __** لا يمكن ترقية البوتات :x: **__ " });
     //
     let row = new Discord.MessageActionRow()
     .addComponents(
@@ -460,7 +460,7 @@ client.on("messageCreate", async message => {
         value: 't7taltdreb'
         },
     {
-    label: 'حندي',
+    label: 'جندي',
     description: 'لـ ترقية شخص إلى جندي',
     emoji: '👮🏻‍♂️',
     value: 'gnde'
@@ -1205,7 +1205,7 @@ return message.reply({ content: ` __** هش **__ ` });
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
-  if (message.content.startsWith(prefix+"ترقية")) {
+  if (message.content.startsWith(prefix+"فصل")) {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
       if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -1219,101 +1219,44 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
-  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
-      if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
+  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك فصل نفسك ! **__ ` });
+      if(user.bot) return message.reply({ content: " __** لا يمكن فصل البوتات :x: **__ " });
     //
+   let reson = message.content.split(' ').slice(2).join(' ')
+  if(!reson) return message.reply({ content: `__** يرجى كتابة سبب فصل العسكري **__ ` });
+//
     let row = new Discord.MessageActionRow()
     .addComponents(
     new Discord.MessageSelectMenu()
     .setMinValues(0)
     .setMaxValues(1)
     .setPlaceholder('إضغط هنا لرؤية خريطة الفصل')
-    .setCustomId('tr8eh')
+    .setCustomId('fcl')
     .addOptions([
       {
         label: 'فصل',
-        description: 'لـ ترقية شخص إلى جندي تحت التدريب',
+        description: 'لـ فصل عسكري',
         emoji: '👮🏻‍♂️',
-        value: 't7taltdreb'
+        value: 'fsl'
         },
     {
-    label: 'حندي',
+    label: 'سبب-الفصل',
     description: 'لـ ترقية شخص إلى جندي',
     emoji: '👮🏻‍♂️',
-    value: 'gnde'
+    value: 'sbb-alfsl'
     },
-    {
-      label: 'جندي-أول',
-      description: 'لـ ترقية شخص إلى جندي أول',
-      emoji: '👮🏻‍♂️',
-      value: 'gndeaol'
-      },
-      {
-        label: 'عريف',
-        description: 'لـ ترقية شخص إلى عريف',
-        emoji: '👮🏻‍♂️',
-        value: '3ref'
-        },
-        {
-          label: 'رقيب',
-          description: 'لـ ترقية شخص إلى رقيب',
-          emoji: '👮🏻‍♂️',
-          value: 'r8eb'
-          },
-          {
-            label: 'رقيب-أول',
-            description: 'لـ ترقية شخص إلى رقيب أول',
-            emoji: '👮🏻‍♂️',
-            value: 'r8ebaol'
-            },
-            {
-              label: 'ملازم',
-              description: 'لـ ترقية شخص إلى ملازم',
-              emoji: '👮🏻‍♂️',
-              value: 'mlazm'
-              },
-              {
-                label: 'ملازم-أول',
-                description: 'لـ ترقية شخص إلى ملازم أول',
-                emoji: '👮🏻‍♂️',
-                value: 'mlazmaol'
-                },
-                {
-                  label: 'عقيد',
-                  description: 'لـ ترقية شخص إلى عقيد',
-                  emoji: '👮🏻‍♂️',
-                  value: '38ed'
-                  },
-                  {
-                    label: 'لواء',
-                    description: 'لـ ترقية شخص إلى لواء',
-                    emoji: '👮🏻‍♂️',
-                    value: 'lwaaa'
-                    },
-                    {
-                      label: 'فريق',
-                      description: 'لـ ترقية شخص إلى فريق',
-                      emoji: '👮🏻‍♂️',
-                      value: 'fre8'
-                      },
-                      {
-                        label: 'فريق-أول',
-                        description: 'لـ ترقية شخص إلى فريق أول',
-                        emoji: '👮🏻‍♂️',
-                        value: 'fre8aol'
-                        },
     ])
     )
     let embed = new Discord.MessageEmbed()
     .setColor('#32496b')
-    .setDescription('__** لـ ترقية عسكري قم بإختيار الرتبة من الأسفل . **__')  
+    .setDescription('__** قم بتحديد ما تريده بالضغط على الزر بالأسفل . **__')  
     let m = await message.reply({ embeds: [ embed ], components: [ row ] });
   
     let collector = m.createMessageComponentCollector({ filter: i => i.user.id === message.author.id, time: 3600000})
     
       collector.on('collect', async i => {
-      if (i.customId == "tr8eh") {
-      if(i.values[0] === 't7taltdreb' || i.values[1] === 't7taltdreb') {
+      if (i.customId == "fcl") {
+      if(i.values[0] === 'fsl' || i.values[1] === 'fsl') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
@@ -1333,8 +1276,13 @@ client.on("messageCreate", async message => {
         let lwaaa = message.guild.roles.cache.get('980494345717305504');
         let fre8 = message.guild.roles.cache.get('980494341359411300');
         let fre8aol = message.guild.roles.cache.get('980494340516376606');
+        let da7leh = message.guild.roles.cache.get('980494340516376606');
+        let amn3am = message.guild.roles.cache.get('980494340516376606');
+        let hrs7dod = message.guild.roles.cache.get('980494340516376606');
+        let fre8aol = message.guild.roles.cache.get('980494340516376606');
+        let fre8aol = message.guild.roles.cache.get('980494340516376606');
        //
-        member.roles.add(t7t);
+        member.roles.remove(t7t);
         member.roles.remove(gnde);
         member.roles.remove(gndeaol);
         member.roles.remove(href);
@@ -1348,19 +1296,19 @@ client.on("messageCreate", async message => {
         member.roles.remove(fre8aol);
         //
         let embed = new MessageEmbed()
-        .setTitle("الترقيات الوزارية")
-        .setDescription(` __** عزيزي العسكري : ${user} . \n يسرنا بأنه قم تم ترقيتك \n و لكن يرجى منك الإستمرار على هذا المجهود و ستصل إلى أعلى المراتب بإذن الله .\n و يرجى الحفاظ على القوانين و البورتوكولات و عدم الإغترار بنفسك و التصغير من زملائك . \n و قد تم ترقيتك من الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
+        .setTitle("الفصل الوزاري")
+        .setDescription(` __** عزيزي العسكري : ${user} . \n لا يسرنا بأنه قم تم فصلك \n و لكن يرجى منك إتباع البروتوكولات و القوانين في المرة القادمة و ستصل إلى أعلى المراتب بإذن الله . \n و قد تم فصلك من الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
           //
-      i.channel.send({ content: " __** تم ترقية `العسكري` بـ نجاح **__ " });
+      i.channel.send({ content: " __** تم فصل `العسكري` بـ نجاح **__ " });
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم ترقية : ${user} \n إلى : جندي تحت التدريب . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم فصل : ${user} \n سبب الفصل : ${reson} . \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
