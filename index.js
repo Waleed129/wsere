@@ -2835,7 +2835,7 @@ client.on('modalSubmitInteraction', async interaction => {
      .setCustomId("dec")
      .setStyle("DANGER")
    )
-   interaction.reply( {content:" __** تم إرسال تقديمك ! **__ " , ephemeral:true})
+   interaction.reply({ content: " __** تم إرسال تقديمك ! **__ " , ephemeral:true})
    db.set(`user_${interaction.member.id}` , interaction.member.id)
    channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العسكري : ${name} \n أيدي العسكري : \`${id}\` \n قطاع العسكري : ${sector} \n خبراته : ${hbrat} \n وقت تفاعله : ${time} **__ ` , components:[row]}).then(m=> {
    db.set(`userm_${interaction.member.id}` , m.id)
