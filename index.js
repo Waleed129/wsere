@@ -1788,7 +1788,9 @@ message.reply({ content: `!! ✯ 𝗙𝗣・˹ id ˼` })
   
 client.on('messageCreate', message => {
 if(message.content.includes("السلام عليكم") || message.content.includes("سلام عليكم")) {
-message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه :police_officer: **~~__ `})
+if (!message.channel.id !== "980494452453949470") 
+return message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه :police_officer: **~~__` }).then(message => setTimeout(() => message.delete(), 5000));
+//message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه :police_officer: **~~__ `})
 }
 });
   
