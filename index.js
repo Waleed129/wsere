@@ -318,7 +318,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n و إسمه بالكامل : ${member.nickname} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
@@ -1780,13 +1780,21 @@ message.send(`__** مرحباً بالعُضو الجديد ${message} في ${me
 
 // رد
 
-client.on('messageCreate', message => {
-if(message.content.includes("شعار") || message.content.includes("وش الشعار")) {
-if (message.channel.id !== "1031233706473553992") 
-return message.reply({ content: `!! ✯ 𝗙𝗣・˹ ${message.name} ˼` });
-//message.reply({ content: `!! ✯ 𝗙𝗣・˹ id ˼` })
+  client.on('messageCreate', message => {
+    if(message.content.includes("شعار") || message.content.includes("وش الشعار")) {
+      let member = message.mentions.members.first();
+      let user = message.mentions.members.first();
+      //
+      if (message.guild.id == '980493720233316372') {
+       if (!message.member.permissions.has('ADMINISTRATOR'))
+         //
+         if (!message.member.roles.cache.has('980494296320999424'))
+           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+  //
+       if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+          return message.reply({ content: `!! ✯ 𝗙𝗣・˹ ${member.nickname} ˼` });
 }
-});
+}});
   
 client.on('messageCreate', message => {
 if(message.content.includes("السلام عليكم") || message.content.includes("سلام عليكم")) {
