@@ -2499,8 +2499,7 @@ new Discord.MessageButton()
 //
 channel1.send({ content: ` __** <:emoji_20:981170142744567808> تحضير جديد بواسطة : ${interaction.member} <:emoji_20:981170142744567808> **__ `, embeds:[embed] , components:[row] });
 channel1.send({ files: [line] });
-interaction.reply({ content: ` __** <:emoji_20:981170142744567808> تم إرسال تحضيرك بـ نجاح : ${interaction.member} <:emoji_20:981170142744567808> **__ `, ephemeral:true })
-.then(m=> {
+interaction.reply({ content: ` __** <:emoji_20:981170142744567808> تم إرسال تحضيرك بـ نجاح : ${interaction.member} <:emoji_20:981170142744567808> **__ `, ephemeral:true }).then(m=> {
 db.set(`member_${random}` , interaction.member.id)
 db.set(`name_${random}` , `${name}`)
 db.set(`id_${random}` , `${id}`)
