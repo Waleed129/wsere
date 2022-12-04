@@ -2510,7 +2510,6 @@ let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
 })}});
 
-
 /*client.on("interactionCreate" , interaction => {
 if(interaction.isButton()) {
 if(interaction.customId == "delete") {
