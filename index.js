@@ -1326,7 +1326,7 @@ client.on("messageCreate", async message => {
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
-    db.set(`msfol_${user.id}`, user.id)
+    db.set(`msfol`, user.id)
     db.set(`reason_${user.id}`, reson)
     }
         //
