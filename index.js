@@ -1395,13 +1395,14 @@ return message.reply({ content: ` __** هش **__ ` });
   }
 }});
 
-client.on("guildMemberAdd" , member => {
+client.on("guildMemberAdd" , member => { 
+if (message.guild.id == '980493720233316372') {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
 if(db.has(`msfol_${member.id}`)) {
 member.roles.add(mfsol)
-}
+}};
 //
 }); 
 
@@ -1441,6 +1442,7 @@ client.on("guildCreate", guild => {
 });
 
 client.on('messageCreate', message => {
+if (message.guild.id == '980493720233316372') {
 if (message.content === 'التحضيرالعسكري') {
 let embed = new Discord.MessageEmbed()
 .setTitle('التحضير العسكري')
@@ -1462,7 +1464,7 @@ let embed = new Discord.MessageEmbed()
 message.delete();
 message.channel.send({ embeds: [embed] })
 }
-});
+}});
 
 client.on('messageCreate', async message => {
 if(message.content === prefix+'خريطة-السيرفر'){
@@ -1721,7 +1723,7 @@ message.channel.send({ content: "https://cdn.discordapp.com/attachments/97946875
 }}); 
 
 client.on("messageCreate" , message => {
-if(message.content.startsWith(prefix+'say')){
+if(message.content.startsWith(prefix+'say')) {
 setTimeout(() => message.delete(), 5000)
   //
 if (!message.member.permissions.has('ADMINISTRATOR'))
@@ -1729,6 +1731,7 @@ return message.reply({ content: ' __** أنت لاتملك صلاحيات كاف
 let args = message.content.split(' ').slice(1).join(' ')
 if (!args) return message.reply({ content: ' __** ❌ أرسل النص !! **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
   //
+ if (message.guild.id == '980493720233316372') {
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
 .setDescription(`${args}`)
@@ -1736,6 +1739,12 @@ let embed = new Discord.MessageEmbed()
 //
 message.channel.send({ embeds: [embed] });
 message.delete();
+}
+if (message.guild.id == '996810757238968431') { let embed2 = new Discord.MessageEmbed() 
+.setColor("RED")
+.setDescription(`${args}`)
+.setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
+}
 }
 });
 
