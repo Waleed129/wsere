@@ -1741,12 +1741,13 @@ message.channel.send({ embeds: [embed] });
 message.delete();
 }
 if (message.guild.id == '996810757238968431') {
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
 let embed2 = new Discord.MessageEmbed() 
 .setColor("RED")
 .setDescription(`${args}`)
-.setImage(`${line}`)
-message.channel.send({ embeds:[embed2] });
+.setImage(`https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png`)
+//
+message.channel.send({ embeds: [embed2] });
+message.delete();
 }
 }
 });
