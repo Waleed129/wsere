@@ -2392,8 +2392,8 @@ client.on("messageCreate" , message => {
 client.on("messageCreate" , message => {
   if(message.content == prefix+"انشاء-التحضير") {
     if(!message.member.permissions.has("ADMINISTRATOR")) return;
-    if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Suggestion Channel !**")
-    if(!dbp.has(`codes_${message.guild.id}`)) return message.reply("**I Can't Find The Suggestion Codes !**")
+    if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Channel !**")
+    if(!dbp.has(`codes_${message.guild.id}`)) return message.reply("**I Can't Find The Codes !**")
     let embed = new Discord.MessageEmbed()
     .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
     .setTitle(`التحضير العسكري`)
