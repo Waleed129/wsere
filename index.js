@@ -1395,7 +1395,7 @@ return message.reply({ content: ` __** هش **__ ` });
   }
 }});
 
-/*client.on("guildMemberAdd" , member => {
+client.on("guildMemberAdd" , member => {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
@@ -1403,7 +1403,7 @@ if(db.has(`msfol_${member.id}`)) {
 member.roles.add(mfsol)
 }
 //
-}); */
+}); 
 
 client.on('messageCreate', message => {
 if (message.content === prefix+'نام') {
