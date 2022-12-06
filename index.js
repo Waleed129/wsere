@@ -1807,18 +1807,33 @@ message.send(`__** مرحباً بالعُضو الجديد ${message} في ${me
        if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
           return message.reply({ content: `!! ✯ 𝗙𝗣・˹ ${member.nickname} ˼` });
 }
+            if (message.guild.id == '996810757238968431') {
+       if (!message.member.permissions.has('ADMINISTRATOR'))
+         //
+         if (!message.member.roles.cache.has('996820405828464742'))
+           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+  //
+       if (!member) return message.reply({ content: ' __** منشن الإداري **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+          return message.reply({ content: `!! ✯ 𝗙𝗚・˹ ${member.nickname} ˼` });
+}
 }});
   
 client.on('messageCreate', message => {
 if(message.content.includes("السلام عليكم") || message.content.includes("سلام عليكم")) {
+if (message.guild.id == '980493720233316372') {
+
 if (message.channel.id !== "1031233706473553992") 
-return message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه :police_officer: **~~__` });
-//message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه :police_officer: **~~__ `})
+return message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه 👮‍♂️ **~~__` });
+}
+if (message.guild.id == '996810757238968431') {
+return message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه ☠️ **~~__` });
+}
 }
 });
   
 client.on('messageCreate', message => {
 if(message.author.bot) return;
+if (message.guild.id == '980493720233316372') {
 if(message.content.includes("كيف احضر") || message.content.includes("احضر")) {
 let embed = new Discord.MessageEmbed()
 .setTitle('التحضير العسكري')
@@ -1837,11 +1852,13 @@ let embed = new Discord.MessageEmbed()
 
 > ${prefix}تحاضيري **__`)
 .setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
-message.reply({ embeds: [embed] })
+message.reply({ embeds: [embed] });
+}
 }
 });
 
 client.on('messageCreate', message => {
+if (message.guild.id == '980493720233316372') {
 if(message.author.bot) return;
 if(message.content.includes("كيف اترقى") || message.content.includes("اترقى")) {
 let embed = new Discord.MessageEmbed()
@@ -1857,7 +1874,8 @@ let embed = new Discord.MessageEmbed()
   
 # - 4 : تنظيمك و إحترامك **__ `)
 .setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
-message.reply({ embeds: [embed] })
+message.reply({ embeds: [embed] });
+}
 }
 });
   
@@ -1894,7 +1912,7 @@ client.on('messageCreate', message => {
   }
 });// جديد السيرفر
 
-/*client.on('messageCreate', message => {
+/* client.on('messageCreate', message => {
   if (message.author.bot) return;
   let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
@@ -2003,17 +2021,6 @@ client.on('messageCreate', message => {
 });// التحضير
 
 client.on('messageCreate', message => {
-  if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-  if (message.guild.id !== '980493720233316372') return;
-  if (message.channel.id !== '1045964439960174662') return;
-  if (message) {
-    message.channel.send({ files: [line] });
-  }
-});// تعاميم الوقوات المسلحة
-
-
-client.on('messageCreate', message => {
     let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
     if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
    if (!message.member.permissions.has('ADMINISTRATOR')) return;
@@ -2022,6 +2029,29 @@ client.on('messageCreate', message => {
     message.channel.send({ files: [line] });
     }
   });
+
+// العصابات
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '996820476892545134') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تنبيهات السيرفر
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '1041751365757702174') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); //  تعاميم العصابات
+
 
 /*
 ايموجي صح ...
