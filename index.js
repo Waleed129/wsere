@@ -164,6 +164,35 @@ client.on('messageCreate', message => {
  // let m =
    await message.reply({ embeds: [ embed ], components: [ row ]});
       }
+if (message.guild.id == '980493720233316372') {
+let row2 = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التوضيح')
+    .setCustomId('todehgang')
+    .addOptions([
+    {
+    label: 'القسم الإداري',
+    description: 'لـ عرض أوامر الإدارة يرجى الضغط هنا',
+    emoji: '☠️',
+    value: 'tfgang'
+    },
+    {
+      label: 'قسم اوامر التكت',
+      description: 'لـ عرض أوامر التكت يرجى الضغط هنا',
+      emoji: '☠️',
+      value: 'tktgang'
+      } 
+    ])
+    )
+    let embed2 = new Discord.MessageEmbed()
+    .setColor('#32496b')
+    .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
+  
+   await message.reply({ embeds: [embed2], components: [row2] });
+            }
   }});
 
   client.on("interactionCreate" , interaction => {
@@ -206,7 +235,37 @@ client.on('messageCreate', message => {
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
-    }});
+    }
+     if (interaction.customId == "todehgang") {
+    if(interaction.values[0] == 'tfgang') {
+      if (!interaction.member.permissions.has('ADMINISTRATOR'))
+      if (!interaction.member.roles.cache.has('996820405828464742'))
+      return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
+      //
+      let embed2 = new Discord.MessageEmbed()
+      .setTitle(`الأوامر الإدارية :`)
+      .setDescription(`__** FBI Gang \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
+      .setFooter({text:`مسؤول العصابات بالخدمة`})
+      .setColor(`#32496b`)
+      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+      interaction.reply({ embeds: [ embed2 ], ephemeral: true});
+      }
+      //
+      if(interaction.values[0] == 'tktgang') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR'))
+        if (!interaction.member.roles.cache.has('996820405828464742'))
+        return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral: true });
+        //
+        let embed7 = new Discord.MessageEmbed()
+        .setTitle(`أوامر التكت :`)
+        .setDescription(`__** مالكش دخل **__ `)
+        .setFooter({text:`مسؤول العصابات بالخدمة`})
+        .setColor(`#32496b`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        interaction.reply({ embeds: [ embed7 ], ephemeral: true });
+        }
+     }
+  });
 
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
@@ -3084,7 +3143,7 @@ const user = wolf.author
                                                                               q9 = collected.first().content;
                                                                               //  
                                                                               var q10;
-                                                                              fox.edit({
+                                                                              await fox.edit({
                                                                                 content: ` __** أعلى رتبة هو من يستلم التنظيم ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3096,7 +3155,7 @@ const user = wolf.author
                                                                                       q10 = collected.first().content;
                                                                                       //  
                                                                                       var q11;
-                                                                                      fox.edit({
+                                                                                     await fox.edit({
                                                                                         content: ` __** المطاردات تكون فردية ؟ 
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيصحة قم بكتابة نعم
@@ -3108,7 +3167,7 @@ const user = wolf.author
                                                                                               q11 = collected.first().content;
                                                                                               //  
                                                                                               var q12;
-                                                                                              fox.edit({
+                                                                                              await fox.edit({
                                                                                                 content: ` __** انزال التحية من دون إذن يعد اهانة للأفراد ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3120,7 +3179,7 @@ const user = wolf.author
                                                                                                       q12 = collected.first().content;
                                                                                                       //  
                                                                                                       var q13;
-                                                                                                      fox.edit({
+                                                                                                      await fox.edit({
                                                                                                         content: ` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3132,7 +3191,7 @@ const user = wolf.author
                                                                                                               q13 = collected.first().content;
                                                                                                               //  
                                                                                                               var q14;
-                                                                                                              fox.edit({
+                                                                                                              await fox.edit({
                                                                                                                 content: ` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3144,7 +3203,7 @@ const user = wolf.author
                                                                                                                       q14 = collected.first().content;
                                                                                                                       //  
                                                                                                                       var q15;
-                                                                                                                      fox.edit({
+                                                                                                                      await fox.edit({
                                                                                                                         content: ` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا . ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3156,7 +3215,7 @@ const user = wolf.author
                                                                                                                               q15 = collected.first().content;
                                                                                                                               //  
                                                                                                                               var q16;
-                                                                                                                              fox.edit({
+                                                                                                                              await fox.edit({
                                                                                                                                 content: ` __** البند الثلاثون هو : إحترام المسؤولين . ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3168,7 +3227,7 @@ const user = wolf.author
                                                                                                                                       q16 = collected.first().content;
                                                                                                                                       // 
                                                                                                                                       var q17;
-                                                                                                                                      fox.edit({
+                                                                                                                                      await fox.edit({
 content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3180,7 +3239,7 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                               q17 = collected.first().content;
                                                                                                                                               // 
                                                                                                                                               var q18;
-                                                                                                                                              fox.edit({
+                                                                                                                                             await fox.edit({
                                                                                                                                                 content: ` __** يسمح بـ إعدام إي عضو عصابة ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيصحة قم بكتابة نعم
@@ -3192,7 +3251,7 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                                       q18 = collected.first().content;
                                                                                                                                                       // 
                                                                                                                                                       var q19;
-                                                                                                                                                      fox.edit({
+                                                                                                                                                      await fox.edit({
                                                                                                                                                         content: ` __** عدد البنود العسكرية 25 ؟ 
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3204,7 +3263,7 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                                               q19 = collected.first().content;
                                                                                                                                                               // 
                                                                                                                                                               var q20;
-                                                                                                                                                              fox.edit({
+                                                                                                                                                              await fox.edit({
                                                                                                                                                                 content: ` __** التجمهر غرامته 1000 ﷼ ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3216,84 +3275,84 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                                                       q20 = collected.first().content;
                                                                                                                                                                       //
                                                                                                                                                                       if (q5 === "نعم") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                       await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q5 === "لا") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q6 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
 } else if (q6 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
 }
                                                                                                                                                                       if (q7 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q7 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q8 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q8 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q9 === "نعم") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q9 === "لا") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q10 === "نعم") {
                                                                                                                                                                         dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q10 === "لا") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q11 === "لا") {
                                                                                                                                                                         dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q11 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q12 === "لا") {
                                                                                                                                                                         dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q12 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q13 === "لا") {
                                                                                                                                                                         dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q13 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q14 === "نعم") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q14 === "لا") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q15 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                       await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q15 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q16 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q16 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q17 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q17 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q18 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q18 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                       await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q19 === "نعم") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                       await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q19 === "لا") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       if (q20 === "لا") {
-                                                                                                                                                                        dbb.add(`true_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`true_${user.id}`, 1)
                                                                                                                                                                       } else if (q20 === "نعم") {
-                                                                                                                                                                        dbb.add(`false_${user.id}`, 1)
+                                                                                                                                                                        await dbb.add(`false_${user.id}`, 1)
                                                                                                                                                                       }
                                                                                                                                                                       let truee = dbb.fetch(`true_${user.id}`)
                                                                                                                                                                       let falsee = dbb.fetch(`false_${user.id}`)
@@ -3310,7 +3369,7 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                                                       var sector = dbb.fetch(`guild=${fox.guild.id}_user=${user.id}_sector`)
                                                                                                                                                                       var id = dbb.fetch(`guild=${fox.guild.id}_user=${user.id}_id`)
                                                                                                                                                                       //
-fox.reply({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${user.id}> .
+await fox.reply({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${user.id}> .
 . إسم العسكري : ${name} 
 . عمر العسكري : ${aeg} 
 . قطاع العسكري : ${sector} 
@@ -3320,7 +3379,7 @@ fox.reply({ content: ` __** FBI Police || التفعيل العسكري . \n  ه
 . الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ ` });
 fox.delete();
 //
-sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${user.id}> .
+await sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${user.id}> .
 . إسم العسكري : ${name} 
 . عمر العسكري : ${aeg} 
 . قطاع العسكري : ${sector} 
@@ -3332,17 +3391,17 @@ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . 
                                                                                                                                                                       w8wanen2.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
                                                                                                                                                                       w8wanen3.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: null });
 //
-dbb.delete(`guild=${fox.guild.id}_user=${user.id}_name`)
-dbb.delete(`guild=${fox.guild.id}_user=${user.id}_age`)
-dbb.delete(`guild=${fox.guild.id}_user=${user.id}_sector`)
-dbb.delete(`guild=${fox.guild.id}_user=${user.id}_id`)
+await dbb.delete(`guild=${fox.guild.id}_user=${user.id}_name`)
+await dbb.delete(`guild=${fox.guild.id}_user=${user.id}_age`)
+await dbb.delete(`guild=${fox.guild.id}_user=${user.id}_sector`)
+await dbb.delete(`guild=${fox.guild.id}_user=${user.id}_id`)
 //
-dbb.delete(`true_${user.id}`)
-dbb.delete(`false_${user.id}`)
+await dbb.delete(`true_${user.id}`)
+await dbb.delete(`false_${user.id}`)
 //
-cooldown.add(user.id)
+await cooldown.add(user.id)
 setTimeout(() => {
-cooldown.delete(user.id)
+await cooldown.delete(user.id)
 }, 90000)
 })
                                                                                                                                                                 })
