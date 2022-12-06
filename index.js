@@ -2111,7 +2111,7 @@ if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('980494295444361216'))
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete()
+message.delete();
 message.channel.send({ files: [line] });
 } 
 //
@@ -2119,7 +2119,7 @@ if (message.guild.id == '996810757238968431') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
 if (!message.member.roles.cache.has('996820405828464742')) 
 return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete()
+message.delete();
 message.channel.send({ files: [line2] });
 }
 }
@@ -2205,7 +2205,7 @@ client.on("messageCreate", async message => {
         let member = message.member;
         let embed = new Discord.MessageEmbed()
           .setAuthor(message.author.username, message.author.displayAvatarURL())
-          .setTitle("الحماية العسكرية")
+          .setTitle("الحماية")
           .setDescription(`__** تم إعطائك تايم اوت في : \`${message.guild.name}\` لـ مدة ساعة واحدة \n لإرسالك رسائل مخالفة . \n رسالتك : \`${message.content}\` **__ `)
           .setThumbnail(message.guild.iconURL())
           .setFooter(message.guild.name, message.guild.iconURL())
@@ -2217,145 +2217,6 @@ client.on("messageCreate", async message => {
     }
   }
 });
-
-/*client.on('messageCreate',async message => {
-      if(message.author.bot) return;
-  if (message.content.startsWith(prefix+'سجن')) {
- let member = message.mentions.members.first();
-    let user = message.mentions.members.first();
-    let args = message.content.split(" ").slice(1).join(" ");
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-      if (!message.member.roles.cache.has('980494296320999424'))
-    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-      //
-    let role = message.guild.roles.cache.find(ro => ro.id === '980494370623094814')
-    const row = new Discord.MessageActionRow()
-    .addComponents(
-    new Discord.MessageSelectMenu()
-    .setCustomId('select')
-    .setPlaceholder('Nothing selected')
-    .addOptions([{label: 'حمل سلاح ثقيل [سجن 25 شهر]',value: 'reson1'},{label: '[حمل سلاح غير مرخص [سجن 10 شهور',value: 'reson2'},{label: 'الهروب من الشرطة [سجن 20 شهر]',value: 'reson3'},{label: 'القتل المتعمد [سجن سنتين]',value: 'reson4'},{label: 'الخطف [ سجن 30 شهر]',value: 'reson5'},{label: 'محاولة الخطف [ سجن 15 شهر]',value: 'reson6'},{label: 'احتجاز الرهائن [ سجن 10  شهر]',value: 'reson7'},{label: 'سرقة بقالة [ سجن 5  شهر]',value: 'reson8'},{label: 'سرقة منزل [ سجن 10  شهر]',value: 'reson3'},{label: 'سرقة مصرف [ سجن 17  شهر]',value: 'reson9'},{label: 'سرقة مجوهرات [ سجن 20  شهر]',value: 'reson10'},{label: 'سرقة متحف [ سجن 27  شهر]',value: 'reson11'},{label: 'سرقة بنك بوليتو [ سجن 37  شهر]',value: 'reson12'},{label: 'سرقة البنك المركزي [ سجن 45  شهر]',value: 'reson13'},{label: 'إلغاء عملية السجن',value: 'delete'}]));
-let message2 = await message.reply({ content: ' اختار سبب من الاسباب في الاسفل ', components: [row] });
-    const ThailandCodes = message2.channel.createMessageComponentCollector({componentType: "SELECT_MENU"})
-    ThailandCodes.on("collect", async th =>{
-        const value = await th.values[0]
-        if (value === 'reson1') {
-            user.roles.add(role)
-            message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-        }
-        if (value === 'reson2') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-        }
-        if (value === 'reson3') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-        }
-        if (value === 'reson4') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson5') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson6') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson7') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson8') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson9') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson10') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson11') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-              if (value === 'reson12') {
-          user.roles.add(role)
-          message2.delete()
-          message.reply({content: `تم اعطاء ${user} سجن بنجاح`})
-              }
-        if (value === 'delete') {
-          message2.delete()
-        }})
-  }
-});
-
-//اوامر MDT
-
-client.on("messageCreate", async message => {
-  if (message.content.startsWith(prefix + "add-MDT")) {
-    
-    if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "You Dont have permission" });
-    
-    let args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.channel.send({ content: "content???" });
-
-    db.set(`content_${args}`)
-    message.channel.send({ content: `✅ Done` })
-  }
-});
-
-client.on("messageCreate" , message => {
-  if (message.content === prefix + "MDT") {
-    if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "You Dont have permission" });
-    let data = []
-   
-  if(data.length === 0) return message.channel.send({ content: "database empty!" });
-
-      let embed = new MessageEmbed()
-      .setDescription(data.join("\n\n"))
-      .setFooter("Florida Country Police Department")
-      .setColor("#4453F5")
-      .setThumbnail(message.guild.iconURL({dynamic:true}))
-      .setAuthor(message.author.tag,message.author.displayAvatarURL({dynamic:true})) 
-
-      message.channel.send({ embeds: [embed] })
-    }
-  });   
-
-client.on("messageCreate", async message => {
-  if (message.content.startsWith(prefix + "remove-MDT")) {
-    
-    if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "You Dont have permission" });
-    
-    let args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.channel.send({ content: "content???" });
-    
-    let data = {
-      content:args,
-      by: message.author.tag
-    }
-    
-    if(!db.push(`admin_${message.guild.id}`, data)) return message.channel.send({ content: "Add it first" })
-    db.delete(`admin_${message.guild.id}`, data)
-    message.channel.send({ content: `✅ Done` })
-  }
-});*/
 
 client.on("ready" , () => {
   let guild = `980493720233316372`
@@ -2496,18 +2357,38 @@ client.on("ready" , () => {
 client.on("messageCreate" , message => {
   if(message.author.bot) return;
   if(message.content.startsWith(prefix+"شات-التحضير")) {
-    if(!message.member.permissions.has("ADMINISTRATOR")) return;
-    let channel = message.mentions.channels.first()
-    if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
-    dbp.set(`channel1_${message.guild.id}` , channel.id)
-    message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
-  }
+if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+  //
+let channel = message.mentions.channels.first()
+if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
+dbp.set(`channel1_${message.guild.id}` , channel.id)
+message.reply({ content: ` > __** تم تعيين ${channel} كـ شات التحضير **__ ` })
+}
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
+}
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+}
 });
 
 client.on("messageCreate" , message => {
   if(message.content == prefix+"انشاء-التحضير") {
-    if(!message.member.permissions.has("ADMINISTRATOR")) return;
-    if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Channel !**")
+    if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+  //
+   if(!dbp.has(`channel1_${message.guild.id}`)) return message.reply("**I Can't Find The Channel !**")
     if(!dbp.has(`codes_${message.guild.id}`)) return message.reply("**I Can't Find The Codes !**")
     let embed = new Discord.MessageEmbed()
     .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
@@ -2521,8 +2402,18 @@ client.on("messageCreate" , message => {
       .setStyle("SUCCESS")
     )
     message.delete()
-    message.channel.send({embeds:[embed] , components:[row]})
-  }
+    message.channel.send({ embeds: [embed], components:[row] })
+}
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
+}
+if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+}
 });
 
 client.on("interactionCreate" , async interaction => {
@@ -2603,14 +2494,6 @@ let embed = new Discord.MessageEmbed()
 .setThumbnail(interaction.guild.iconURL())
 .setColor("RANDOM")
 .setTimestamp();
-let row = new Discord.MessageActionRow()
-.addComponents(
-new Discord.MessageButton()
-.setLabel(`حذف التحضير`)
-.setEmoji('⛔')
-.setCustomId("delete")
-.setStyle("DANGER")
-)
 //
 channel1.send({ content: ` __** <:emoji_20:981170142744567808> تحضير جديد بواسطة : ${interaction.member} <:emoji_20:981170142744567808> **__ `, embeds:[embed] });
 channel1.send({ files: [line] });
@@ -2624,27 +2507,6 @@ db.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
 })}});
-
-/*client.on("interactionCreate" , interaction => {
-if(interaction.isButton()) {
-if(interaction.customId == "delete") {
-if (!interaction.member.permissions.has('ADMINISTRATOR'))
-if (!interaction.member.roles.cache.has('980494298225201203'))
-return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ', ephemeral:true });    
-          m.delete()
-        if(db.has(`member_${random}`)) {
-          if(db.has(`sug_${random}`)) {
-            if(db.has(`embed_${random}`)) {
-        db.delete(`member_${random}`)
-        db.delete(`sug_${random}`)
-        db.delete(`embed_${random}`)
-//
-cooldown.add(interaction.member.id)
-setTimeout(() => {
-cooldown.delete(interaction.member.id)
-},3600000)
-}}}}}})})}});
-*/
 
 client.on("messageCreate", async message => {
 if(message.author.bot) return;
