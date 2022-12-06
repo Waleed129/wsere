@@ -363,7 +363,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
@@ -409,7 +409,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
@@ -1413,7 +1413,7 @@ if (!message.member.roles.cache.has('980494296320999424'))
     })
   }
     if (message.guild.id == '996810757238968431') {
-return message.reply({ content: ` __** هش **__ ` });
+return message.reply({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
   }
 }});
 
@@ -1432,7 +1432,7 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العضو **__ ' });
-  //   if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك فصل نفسك ! **__ ` });
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك فصل نفسك ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن فصل البوتات :x: **__ " });
     //
    let reson = message.content.split(' ').slice(2).join(' ')
@@ -1602,17 +1602,21 @@ client.on("messageCreate", async message => {
     message.delete();
     db.delete(`mfsol_${user.id}`)
     db.delete(`reason_${user.id}`)
-    } 
+    }
     }
     })
   }
     if (message.guild.id == '996810757238968431') {
 return message.reply({ content: ` __** هش **__ ` });
-  }
+    }
+    }
+    })
+}
+    //
 }});
 
 client.on("guildMemberAdd" , member => { 
-if (message.guild.id == '980493720233316372') {
+if (member.guild.id == '980493720233316372') {
 //
 let mfsol = member.guild.roles.cache.get('980494370623094814');
 //
