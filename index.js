@@ -2020,16 +2020,6 @@ client.on('messageCreate', message => {
   }
 });// التحضير
 
-client.on('messageCreate', message => {
-    let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-    if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
-   if (!message.member.permissions.has('ADMINISTRATOR')) return;
-      if (!message.member.roles.cache.has('980494296320999424')) return;
-          message.delete()
-    message.channel.send({ files: [line] });
-    }
-  });
-
 // العصابات
 
 client.on('messageCreate', message => {
@@ -2052,6 +2042,88 @@ client.on('messageCreate', message => {
   }
 }); //  تعاميم العصابات
 
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '996820489550962769') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تنبيهات المسؤولين
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '996820502322610256') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تعاميم بلود
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '996820497952149605') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تعاميم مافيا
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '998951014226989086') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تعاميم بيكي
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '999370556128383066') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تعاميم بلاك
+
+client.on('messageCreate', message => {
+  if (message.author.bot) return;
+  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+  if (message.guild.id !== '996810757238968431') return;
+  if (message.channel.id !== '996820519150178334') return;
+  if (message) {
+    message.channel.send({ files: [line] });
+  }
+}); // تنبيهات الإدارة
+
+client.on('messageCreate', message => {
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
+if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
+//
+if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete()
+message.channel.send({ files: [line] });
+} 
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete()
+message.channel.send({ files: [line2] });
+}
+}
+});
 
 /*
 ايموجي صح ...
