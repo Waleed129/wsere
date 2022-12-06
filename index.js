@@ -164,7 +164,7 @@ client.on('messageCreate', message => {
  // let m =
    await message.reply({ embeds: [ embed ], components: [ row ]});
       }
-if (message.guild.id == '980493720233316372') {
+if (message.guild.id == '996810757238968431') {
 let row2 = new Discord.MessageActionRow()
     .addComponents(
     new Discord.MessageSelectMenu()
@@ -244,7 +244,7 @@ let row2 = new Discord.MessageActionRow()
       //
       let embed2 = new Discord.MessageEmbed()
       .setTitle(`الأوامر الإدارية :`)
-      .setDescription(`__** FBI Gang \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
+      .setDescription(`__** FBI Gang \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`مسؤول العصابات بالخدمة`})
       .setColor(`#32496b`)
       .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
