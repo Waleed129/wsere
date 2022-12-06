@@ -2513,7 +2513,10 @@ if(message.author.bot) return;
 let user = message.mentions.users.first() || message.author;
 //
 if(message.content.startsWith(prefix+"تحضيراتي")) {
-//
+if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
 if(!user){
 
 user = message.author;
@@ -2524,106 +2527,25 @@ let points = dbp.get(`Police_${user.id}`);
 message.reply({ content: ` __** عدد تحضيرات العسكري <@${user.id}>
 
 هيا : "${points || 0}" **__ ` })
-}});
-
-client.on('messageCreate',async message => {
-      if(message.author.bot) return;
-  if (message.content.startsWith(prefix+'تصفير')) {
- let member = message.mentions.members.first();
-    let user = message.mentions.members.first();
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-          return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
-    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-    //
-    if(!dbp.has(`Police_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
- //    if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تصفير نفسك ! **__ ` });
-        if(user.bot) return message.reply({ content: " __** لا يمكنك تصفير البوتات :x: **__ " });
-     //
-    let reason = message.content.split(' ').slice(2).join(' ')
-if(!reason) return message.reply({ content: `__** يرجى كتابة سبب التصفير **__ ` });
-    //
-message.reply({ content: ` __** تم تصفير جميع تحاضير العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب التصفير : ${reason} **__ ` });
-user.send({ content: ` __** تم تصفير جميع تحاضيرك \n من قبل المسؤول ${message.author} \n سبب التصفير : ${reason} **__ ` });
-//
-let points = dbp.get(`Police_${user.id}`)
-dbp.subtract(`Police_${user.id}`)
-}});
-
-client.on('messageCreate',async message => {
-      if(message.author.bot) return;
-  if (message.content.startsWith(prefix+'اضافة')) {
- let member = message.mentions.members.first();
-    let user = message.mentions.members.first();
-    let args = message.content.slice(2).join(" ");
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-      if (!message.member.roles.cache.has('980494296320999424'))
-            return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
-    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-        //
-  //    if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك ! **__ ` });
-        if(user.bot) return message.reply({ content: " __** لا يمكنك إعطاء البوتات :x: **__ " });
-   //
-    if(!args) return message.reply({ content: " __** يرجى كتابة رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-let args2 = parseInt(args)
-if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-//
-    let reason = message.content.split(' ').slice(3).join(' ');
-if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
-  //
-    let captcha = (100000)
-    let total =  args - args2 * (2 / 100) 
-    let filter1 = (m => m.author.id === message.author.id && m.content == captcha)
-var q1;
-let embed = new Discord.MessageEmbed()
-.setTitle(`التحقق العسكري`)
-.setColor("RED")
-.setDescription(` __** إكتب الأرقام الأتية لإكمال الإضافة : **__ \`${captcha}\``)
-message.reply({ embeds: [embed] })
-.then(fox => {
-fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
-.then(collected => {
-collected.first().delete();
-q1 = collected.first().content;
-message.delete();
-//
-message.reply({ content: ` __** تم إعطاء ${args} تحاضير للعسكري : ${user} \n من قبل المسؤول ${message.author} \n سبب الإعطاء : ${reason} **__ ` });
-user.send({ content: ` __** تم إعطائك ${args} تحاضير \n من قبل المسؤول ${message.author} \n سبب الإعطاء : ${reason} **__ ` });
-//
-dbp.add(`Police_${user.id}`, args)
-})})}});
-
-client.on('messageCreate',async message => {
-      if(message.author.bot) return;
-  if (message.content.startsWith(prefix+'ازالة')) {
- let member = message.mentions.members.first();
-    let user = message.mentions.members.first();
-    let args = message.content.split(" ").slice(1).join(" ");
-    if (!message.member.permissions.has('ADMINISTRATOR'))
-      if (!message.member.roles.cache.has('980494296320999424'))
-            return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
-    if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-      if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك الإزالة من نفسك ! **__ ` });
-        if(user.bot) return message.reply({ content: " __** لا يمكنك الإزالة من البوتات :x: **__ " });
-   //
-      //
-    if(!args) return message.reply({ content: " __** يرجى كتابة رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-let args2 = parseInt(args)
-if(!args2) return message.reply({ content: " __**  هذا ليس رقم ! **__ " }).then(message => setTimeout(() => message.delete(), 5000));
-//
-    let reason = message.content.split(' ').slice(2).join(' ')
-if(!reason) return message.reply({ content: `__** يرجى كتابة سبب الإزالة **__ ` });
- //
-let number = parseInt(args)
-message.reply({ content: ` __** تم ازالة ${args} تحاضير من العسكري : ${user} \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
-user.send({ content: ` __** تم إزالة ${args} تحاضير \n من قبل المسؤول ${message.author.id} \n سبب الإزالة : ${reason} **__ ` });
-//
-dbp.subtract(`Police_${user.id}`, args)
 }
-});
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
+}
+}});
 
 client.on("messageCreate", (message) => {
 if(message.author.bot) return;
 if (message.content.startsWith(prefix+"توب")) {
+
+if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
 const usersData = []
 message.guild.members.cache.forEach(user => { usersData.push(user) })
 var pointsContent = usersData.length;
@@ -2653,8 +2575,16 @@ let embed = new Discord.MessageEmbed()
 .setTimestamp()
 .setColor(`#32496b`)
 message.reply({ embeds: [embed] });
+}
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
+}
 }});
-
 
 client.on("messageCreate" , message => {
   if(message.content.startsWith(prefix+"شات-التقديمات")) {
@@ -2712,7 +2642,10 @@ if(message.content.startsWith(prefix+"رتبة-القبول")) {
 
 client.on("messageCreate" , message => {
 if(message.content == prefix+"التقديم") {
-      if (!owner.includes(message.author.id)) return message.reply({ content: ' __** منت ستيفن لا تحاول هعهعهعهع **__ ' })
+if (message.guild.id == '980493720233316372') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
   if(!db.has(`channel_${message.guild.id}`)) {
     if(!db.has(`role_${message.guild.id}`)) {
       if(!db.has(`role2_${message.guild.id}`)) {
@@ -2722,7 +2655,7 @@ if(message.content == prefix+"التقديم") {
     }
   }
 }
-  let embed = new Discord.MessageEmbed()
+let embed = new Discord.MessageEmbed()
 .setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
 .setTitle(`التقديم الإداري`)
 .setDescription(` __** لـ التقديم الإداري يرجى الضغط على 👮🏻 . **__ `)
@@ -2735,13 +2668,45 @@ new Discord.MessageButton()
 .setCustomId("apply")
 .setStyle("SUCCESS")
 )
-  message.delete()
-  message.channel.send({components:[row] , embeds:[embed]})
+message.delete()
+message.channel.send({ components:[row], embeds:[embed] });
 }
-});
+//
+if (message.guild.id == '996810757238968431') {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('996820405828464742')) 
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+message.delete();
+  if(!db.has(`channel_${message.guild.id}`)) {
+    if(!db.has(`role_${message.guild.id}`)) {
+      if(!db.has(`role2_${message.guild.id}`)) {
+      if(!db.has(`rolehigh_${message.guild.id}`)) {
+      return  message.reply({ content: ` __** قم بتحديد الرتب و الشاتات و المسؤولين ! **__` });
+      }
+    }
+  }
+}
+  
+let embed = new Discord.MessageEmbed()
+.setAuthor({name:`${message.guild.name}` , iconURL:`${message.guild.iconURL()}`})
+.setTitle(`التقديم الإداري`)
+.setDescription(` __** لـ التقديم الإداري يرجى الضغط على ☠️ . **__ `)
+.setColor("GREEN")
+let row = new Discord.MessageActionRow()
+.addComponents(
+new Discord.MessageButton()
+.setLabel(`التقديم الإداري`)
+.setEmoji('☠️')
+.setCustomId("applygang")
+.setStyle("SUCCESS")
+)
+message.delete()
+message.channel.send({ components:[row], embeds:[embed] });}
+}});
 
 client.on('interactionCreate', async interaction => {
 if (!interaction.isButton()) return;
+if (interaction.guild.id == '980493720233316372') {
 if (interaction.customId === 'apply') {
    let role = db.get(`role_${interaction.guild.id}`)
    let role2 = db.get(`role2_${interaction.guild.id}`)
@@ -2800,6 +2765,67 @@ if (interaction.customId === 'apply') {
          )
  await client.modal.open(interaction , modal2);
          }
+}
+  if (interaction.guild.id == '980493720233316372') {
+if (interaction.customId === 'applygang') {
+   let role = db.get(`role_${interaction.guild.id}`)
+   let role2 = db.get(`role2_${interaction.guild.id}`)
+   let user = db.get(`user_${interaction.member.id}`)  
+   if(user) return interaction.reply({content : " __** لا يمكنك التقديم أكثر من مرة ! **__ " , ephemeral:true})
+   if(interaction.member.roles.cache.some(r=>r.id == role)) return interaction.reply({content : " __** لديك سكيورتي بوليس مسبقاَ ! **__ " , ephemeral:true}) 
+   if(interaction.member.roles.cache.some(r=>r.id == role2)) return interaction.reply({content : " __** لديك بوليس ستاف مسبقاَ ! **__ " , ephemeral:true}) 
+
+   const modal3 = new ModalBuilder()
+   .setCustomId('modal3')
+   .setTitle('التقديم الإداري :')
+         .addComponents(
+       new ModalField()
+   .setCustomId('namegang')
+   .setLabel("اسمك ؟")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة إسمك هنا ... ")
+         .setMin(3)
+         .setMax(32)
+   .setStyle('SHORT'),
+           
+  new ModalField()
+   .setCustomId('idgang')
+   .setLabel("أيديك ؟")
+         .setRequired(true)
+         .setPlaceholder(" ... يرجى كتابة ايديك هنا ")
+         .setMin(4)
+         .setMax(100)
+   .setStyle('SHORT'),
+           
+       new ModalField()
+   .setCustomId('sectorgang')
+   .setLabel("عصابتك ؟")
+         .setRequired(true)
+         .setPlaceholder(" ... يرجى كتابة عصابتك هنا ( اسم العصابة ) ")
+         .setMin(5)
+         .setMax(32)
+         .setStyle('SHORT'),
+ 
+         new ModalField()
+   .setCustomId('5bratgang')
+   .setLabel("خبراتك")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة خبراتك هنا ...")
+         .setMin(5)
+         .setMax(100)
+   .setStyle('PARAGRAPH'),
+   new ModalField()
+   .setCustomId('timegang')
+   .setLabel("وقت تفاعلك")
+         .setRequired(true)
+         .setPlaceholder("يرجى كتابة وقت تفاعلك هنا ...")
+         .setMin(5)
+         .setMax(30)
+   .setStyle('SHORT'),
+         )
+ await client.modal.open(interaction , modal3);
+         }
+}
  }
  ); 
 
@@ -2825,6 +2851,30 @@ client.on('modalSubmitInteraction', async interaction => {
    interaction.reply({ content: " __** تم إرسال تقديمك ! **__ " , ephemeral:true})
    db.set(`user_${interaction.member.id}` , interaction.member.id)
    channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العسكري : ${name} \n أيدي العسكري : \`${id}\` \n قطاع العسكري : ${sector} \n خبراته : ${hbrat} \n وقت تفاعله : ${time} **__ ` , components:[row]}).then(m=> {
+   db.set(`userm_${interaction.guild.id}_${interaction.member.id}` , m.id)
+   })
+ }
+    if(interaction.customId == "modal3") {
+   let ch = db.get(`channel_${interaction.guild.id}`)
+   let channel = interaction.guild.channels.cache.find(c => c.id == ch)
+   const namegang = interaction.fields.getTextInputValue("namegang")
+   const idgang = interaction.fields.getTextInputValue("idgang")
+   const sectorgang = interaction.fields.getTextInputValue("sectorgang")
+   const hbratgang = interaction.fields.getTextInputValue("5bratgang")
+   const timegang = interaction.fields.getTextInputValue("timegang")
+   let row = new MessageActionRow().addComponents(
+     new Discord.MessageButton()
+     .setLabel("قبول ✅")
+     .setCustomId("acc")
+     .setStyle("SUCCESS"),
+     new Discord.MessageButton()
+     .setLabel("رفض ❌")
+     .setCustomId("dec")
+     .setStyle("DANGER")
+   )
+   interaction.reply({ content: " __** تم إرسال تقديمك ! **__ " , ephemeral:true})
+   db.set(`user_${interaction.member.id}` , interaction.member.id)
+   channel.send({ content:` __** تقديم جديد من : <@${interaction.member.id}> \n  إسم العضو : ${namegang} \n أيدي العضو : \`${idgang}\` \n عصابة العضو : ${sectorgang} \n خبراته : ${hbratgang} \n وقت تفاعله : ${timegang} **__ ` , components:[row]}).then(m=> {
    db.set(`userm_${interaction.member.id}` , m.id)
    })
  }
@@ -2920,7 +2970,7 @@ const user = wolf.author
     if(user.roles.cache.some(r=> r.id == amn)) return wolf.reply({ content: ` __** تم تفعيل العسكري مسبقاُ **__ ` });
       //*
     if (cooldown.has(user.id)) {
-      wolf.reply({
+    await wolf.reply({
         content: ` __** لا يمكنك التفعيل إلا مرة واحدة !
     
     يرجى إعادة التفعيل مرة أخرى بعد 5 دقائق . **__ ` });
@@ -2938,7 +2988,7 @@ const user = wolf.author
       w8wanen3.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: false });
       //
       var q1;
-      wolf.reply({ content: ` __** اسمك ؟ **__ ` })
+     await wolf.reply({ content: ` __** اسمك ؟ **__ ` })
         .then(fox => {
           fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
             .then(collected => {
@@ -2947,7 +2997,7 @@ const user = wolf.author
               q1 = collected.first().content;
               //
               var q2;
-              fox.edit({ content: ` __** عمرك ؟ **__ ` })
+              await fox.edit({ content: ` __** عمرك ؟ **__ ` })
                 .then(fox => {
                   fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                     .then(collected => {
@@ -2956,7 +3006,7 @@ const user = wolf.author
                       q2 = collected.first().content;
                       //
                       var q3;
-                      fox.edit({ content: ` __** ايديك ؟ **__ ` })
+                      await fox.edit({ content: ` __** ايديك ؟ **__ ` })
                         .then(fox => {
                           fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                             .then(collected => {
@@ -2965,7 +3015,7 @@ const user = wolf.author
                               q3 = collected.first().content;
                               //
                               var q4;
-                              fox.edit({ content: ` __** قطاعك ؟ **__ ` })
+                              await fox.edit({ content: ` __** قطاعك ؟ **__ ` })
                                 .then(fox => {
                                   fox.channel.awaitMessages({ filter1, max: 1, time: 3600000, errors: ['time'] })
                                     .then(collected => {
@@ -2974,7 +3024,7 @@ const user = wolf.author
                                       q4 = collected.first().content;
                                       //
                                       var q5;
-                                      fox.edit({
+                                     await fox.edit({
                                         content: ` __** هل يجب التعامل مع المواطنين بإسلوب جيد ؟ 
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم .
@@ -2986,7 +3036,7 @@ const user = wolf.author
                                               q5 = collected.first().content;
                                               //
                                               var q6;
-                                              fox.edit({
+                                             await fox.edit({
                                                 content: ` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -2998,19 +3048,19 @@ const user = wolf.author
                                                       q6 = collected.first().content;
                                                       //  
                                                       var q7;
-                                                      fox.edit({
+                                                      await fox.edit({
                                                         content: ` __** يسمح بـ رفع السلاح بالمنطقة الآمنة ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
  و إذا كانت خاطئة قم بكتابة لا . **__ ` })
                                                         .then(fox => {
-                                                          fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
+                                                         fox.channel.awaitMessages({ filter2, max: 1, time: 3600000, errors: ['time'] })
                                                             .then(collected => {
                                                               collected.first().delete();
                                                               q7 = collected.first().content;
                                                               //  
                                                               var q8;
-                                                              fox.edit({
+                                                              await fox.edit({
                                                                 content: ` __** يسمح بـ عدم دخول الراديو ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
@@ -3022,7 +3072,7 @@ const user = wolf.author
                                                                       q8 = collected.first().content;
                                                                       //  
                                                                       var q9;
-                                                                      fox.edit({
+                                                                      await fox.edit({
                                                                         content: ` __** الجدية بالعمل من أساسيات العسكري ؟
 هل الجملة صحيحة أم خاطئة ؟ 
  اذا كانت صحيحة قم بكتابة نعم
