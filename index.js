@@ -1684,7 +1684,7 @@ member.roles.add(mfsol)
 //
 });
 
-client.on("messageCreate", async message => {
+/* client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"role")) {
  let member = message.mentions.members.first();
@@ -1699,7 +1699,7 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك رتب ! **__ ` });
+ //    if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك رتب ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن إعطاء الرتب للبوتات :x: **__ " });
     //
 let mgaz = message.guild.roles.cache.get('980494363606016071');
@@ -2253,8 +2253,8 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-     if (i.member.roles.cache.has(astfaf.id)) {
-      i.member.roles.remove(astfaf.id)
+     if (i.user.roles.cache.has(astfaf.id)) {
+      i.user.roles.remove(astfaf.id)
        //
       let embed = new Discord.MessageEmbed() 
       .setDescription(` __** تم إزالة الرتبة : ${astfaf} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
@@ -2288,7 +2288,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       message.reply({ content: ` __** عذراً أمر الرول موقف . **__ ` });
 }
     //
-}});
+}}); */
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
