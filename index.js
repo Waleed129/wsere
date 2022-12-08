@@ -1701,20 +1701,19 @@ client.on("messageCreate", async message => {
       if(user.bot) return message.reply({ content: " __** لا يمكن إعطاء الرتب للبوتات :x: **__ " });
     //
 let mgaz = message.guild.roles.cache.get('980494363606016071');
-let mtlob = message.guild.roles.cache.get('1001234400027099216');
-let anzaraol = message.guild.roles.cache.get('1001234400027099216');
-let anzartane = message.guild.roles.cache.get('1001234400027099216');
-let mrkzal3mluat = message.guild.roles.cache.get('1001234400027099216');
-let gna9 = message.guild.roles.cache.get('1001234400027099216');
-let mtfa3l = message.guild.roles.cache.get('1001234400027099216');
-let medaleaol = message.guild.roles.cache.get('1001234400027099216');
-let medaletane = message.guild.roles.cache.get('1001234400027099216');
-let medaletalt = message.guild.roles.cache.get('1001234400027099216');
-let gaad = message.guild.roles.cache.get('1001234400027099216');
-let medaleaol = message.guild.roles.cache.get('1001234400027099216');
-let medaleaol = message.guild.roles.cache.get('1001234400027099216');
-let medaleaol = message.guild.roles.cache.get('1001234400027099216');
-let medaleaol = message.guild.roles.cache.get('1001234400027099216');
+let mtlob = message.guild.roles.cache.get('980494369536765982');
+let anzaraol = message.guild.roles.cache.get('980494366470713374');
+let anzartane = message.guild.roles.cache.get('980494367460569108');
+let mrkzal3mluat = message.guild.roles.cache.get('1049010603097858128');
+let gna9 = message.guild.roles.cache.get('1049384701346992200');
+let mtfa3l = message.guild.roles.cache.get('1049384853617000528');
+let medaleaol = message.guild.roles.cache.get('1049385030713090058');
+let medaletane = message.guild.roles.cache.get('1049385162330361987');
+//let medaletalt = message.guild.roles.cache.get('1001234400027099216');
+let gaad = message.guild.roles.cache.get('1049385611913601065');
+let mbd3 = message.guild.roles.cache.get('1049385685112598538');
+let adare = message.guild.roles.cache.get('1049385764766629958');
+let astfaf = message.guild.roles.cache.get('1049754868144939108');
                  //
       let row = new Discord.MessageActionRow()
       .addComponents(
@@ -1777,12 +1776,6 @@ let medaleaol = message.guild.roles.cache.get('1001234400027099216');
                       emoji: '👮🏻‍♂️',
                       value: 'medaletane'
                       },
-                      {
-                        label: 'الميدالية ・الذهبية・الثالثة | 🎖',
-                        description: 'لـ إعطاء عسكري الميدالية الثانية',
-                        emoji: '👮🏻‍♂️',
-                        value: 'medaletalt'
-                        },
                         {
                           label: 'ميدالية ・القائد・المثالي | 🎖',
                           description: 'لـ إعطاء عسكري ميدالية القائد',
@@ -1818,7 +1811,7 @@ let medaleaol = message.guild.roles.cache.get('1001234400027099216');
     
       collector.on('collect', async i => {
       if (i.customId == "rolemeun") {
-      if(i.values[0] === 'astfaf' || i.values[1] === 'astfaf') {
+      if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
@@ -1826,24 +1819,27 @@ let medaleaol = message.guild.roles.cache.get('1001234400027099216');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-     if (i.member.roles.cache.has(t7t.id)) {
-      i.member.roles.remove(t7t.id)
+     if (i.member.roles.cache.has(mgaz.id)) {
+      i.member.roles.remove(mgaz.id)
+       //
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة ${t7t} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
-    //  i.reply({ content: ` __** Removed The ${t7t} Role ! **__ `, ephemeral: true })
+       //
 } else {
-      i.member.roles.add(t7t.id)
-      i.reply({ content: `Added The ${t7t} Role!`, ephemeral: true })
-}
+      i.member.roles.add(mgaz.id)
+  //
+      let embed2 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed2] });}
           //
    //   i.channel.send({ content: " __** تم إعطاء `العسكري` الرتبة بـ نجاح **__ " });
       //
-      let embed2 = new Discord.MessageEmbed()
+      let embed3 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم فصل : ${user} \n سبب الفصل : ${reson} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم فصل : ${user} \n سبب الفصل : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
     
-    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ embeds: [embed3] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     m.delete();  
     message.delete();
