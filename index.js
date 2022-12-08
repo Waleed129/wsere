@@ -1821,19 +1821,12 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
+             member.roles.add(mgaz) 
              member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
                 member.roles.remove(mgaz)
             })
                 if (member.roles.cache.has(mgaz.id)) {
                   member.roles.remove(mgaz).then(() => {
-                    return message.channel.send('✅ - Color removed successfully.');
-                  });
-                } else {
-                  member.roles.add(mgaz).then(() => {
-                        return message.channel.send('✅ - Color has been changed successfully.');
-           })
-        }
-       //
       let embed = new Discord.MessageEmbed() 
       .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
@@ -1843,10 +1836,10 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
-       //
-//} else {
-        member.roles.remove(mgaz);
-  //
+    });
+                  //
+                } else {
+                  member.roles.add(mgaz).then(() => {
       let embed3 = new Discord.MessageEmbed() 
       .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
@@ -1857,6 +1850,8 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
+         })
+        }
     }
   if(i.values[0] === 'mtlob' || i.values[1] === 'mtlob') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
