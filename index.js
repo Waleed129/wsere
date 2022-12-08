@@ -1821,7 +1821,18 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-             member.roles.add(mgaz) 
+             member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
+                member.roles.remove(mgaz)
+            })
+                if (member.roles.cache.has(mgaz.id)) {
+                  member.roles.remove(mgaz).then(() => {
+                    return message.channel.send('✅ - Color removed successfully.');
+                  });
+                } else {
+                  member.roles.add(mgaz).then(() => {
+                        return message.channel.send('✅ - Color has been changed successfully.');
+           })
+        }
        //
       let embed = new Discord.MessageEmbed() 
       .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
