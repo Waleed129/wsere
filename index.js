@@ -1813,7 +1813,43 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     
       collector.on('collect', async i => {
       if (i.customId == "rolemeun") {
-      if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
+      if(i.values[0] === 'mtlob' || i.values[1] === 'mtlob') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(mtlob.id)) {
+      i.member.roles.remove(mgaz.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(mgaz.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
@@ -1848,9 +1884,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
     }
-      }
-      // هنا باقي الكولكتر / الفاليو
-    }
+      }    }
     })
    }
     if (message.guild.id == '996810757238968431') {
