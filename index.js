@@ -1591,6 +1591,7 @@ client.on("messageCreate", async message => {
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
           //
+      user.setNickname(`مفصول ${reson}`);
       i.channel.send({ content: " __** تم فصل `العسكري` بـ نجاح **__ " });
       
       let embed2 = new Discord.MessageEmbed()
@@ -1649,6 +1650,7 @@ client.on("messageCreate", async message => {
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
           //
+      user.setNickname(`${user.name}`);
       i.channel.send({ content: " __** تم إزالة الفصل عن `العسكري` بـ نجاح **__ " });
       
       let embed2 = new Discord.MessageEmbed()
@@ -1826,21 +1828,25 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
 } else {
       i.member.roles.add(mgaz.id)
   //
-      let embed2 = new Discord.MessageEmbed() 
+      let embed3 = new Discord.MessageEmbed() 
       .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
-      message.channel.send({ embeds:[embed2] });}
-          //
-   //   i.channel.send({ content: " __** تم إعطاء `العسكري` الرتبة بـ نجاح **__ " });
-      //
-      let embed3 = new Discord.MessageEmbed()
+      message.channel.send({ embeds:[embed3] });}
+         //
+      let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم فصل : ${user} \n سبب الفصل : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
-    
-    logtf3el.send({ embeds: [embed3] });
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
     m.delete();  
     message.delete();
     }
