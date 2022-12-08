@@ -1692,7 +1692,7 @@ member.roles.add(mfsol)
                if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
        //
-  //      if (!message.member.roles.cache.has('980494296320999424'))
+        if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
     if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
@@ -1860,31 +1860,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                  member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                  member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mtlob => {
+                member.roles.remove(mtlob)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(mtlob.id)) {
+                  member.roles.remove(mtlob).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${mtlob} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mtlob} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(mtlob).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${mtlob} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mtlob} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -1899,31 +1899,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(anzaraol => {
+                member.roles.remove(anzaraol)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(anzaraol.id)) {
+                  member.roles.remove(anzaraol).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${anzaraol} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${anzaraol} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(anzaraol).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${anzaraol} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${anzaraol} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -1938,31 +1938,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(anzartane => {
+                member.roles.remove(anzartane)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(anzartane.id)) {
+                  member.roles.remove(anzartane).then(() => {
       let embed = new Discord.MessageEmbed() 
       .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${anzartane} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(anzartane).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${anzartane} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${anzartane} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -1977,31 +1977,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                  member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                  member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mrkzal3mluat => {
+                member.roles.remove(mrkzal3mluat)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(mrkzal3mluat.id)) {
+                  member.roles.remove(mrkzal3mluat).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${mrkzal3mluat} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mrkzal3mluat} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(mrkzal3mluat).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${mrkzal3mluat} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mrkzal3mluat} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -2016,31 +2016,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(gna9 => {
+                member.roles.remove(gna9)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(gna9.id)) {
+                  member.roles.remove(gna9).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${gna9} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${gna9} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(gna9).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${gna9} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${gna9} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -2055,31 +2055,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                 member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mtfa3l => {
+                member.roles.remove(mtfa3l)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(mtfa3l.id)) {
+                  member.roles.remove(mtfa3l).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${mtfa3l} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mtfa3l} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(mtfa3l).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${mtfa3l} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mtfa3l} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -2094,31 +2094,31 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-             member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+             member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(medaleaol => {
+                member.roles.remove(medaleaol)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(medaleaol.id)) {
+                  member.roles.remove(medaleaol).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${medaleaol} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${medaleaol} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(medaleaol).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${medaleaol} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${medaleaol} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
@@ -2133,38 +2133,38 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-                member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(mgaz => {
-                member.roles.remove(mgaz)
+                member.roles.cache.filter(rolee => !isNaN(rolee.name)).forEach(medaletane => {
+                member.roles.remove(medaletane)
             })
-                if (member.roles.cache.has(mgaz.id)) {
-                  member.roles.remove(mgaz).then(() => {
+                if (member.roles.cache.has(medaletane.id)) {
+                  member.roles.remove(medaletane).then(() => {
       let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إزالة الرتبة : ${medaletane} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed] });
        //
              let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${medaletane} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     });
                   //
                 } else {
-                  member.roles.add(mgaz).then(() => {
+                  member.roles.add(medaletane).then(() => {
       let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      .setDescription(` __** تم إعطاء الرتبة : ${medaletane} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
       message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${medaletane} . \n من قبل الإداري : ${message.author} **__ `);
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
          })
         }
     }
-        if(i.values[0] === 'gaad' || i.values[1] === 'gaad') {
+        if(i.values[0] === '8aad' || i.values[1] === '8aad') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
