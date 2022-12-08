@@ -127,8 +127,6 @@ client.on('messageCreate', message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
      // 
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
       if (message.guild.id == '980493720233316372') {
               //
     let row = new Discord.MessageActionRow()
@@ -199,8 +197,6 @@ let row2 = new Discord.MessageActionRow()
 
   client.on("interactionCreate" , interaction => {
     if (!interaction.isSelectMenu()) return;
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
     if (interaction.customId == "todeh") {
     if(interaction.values[0] == 'tf') {
       if (!interaction.member.permissions.has('ADMINISTRATOR'))
@@ -212,7 +208,7 @@ let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachment
       .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
-      .setThumbnail(`${line}`)
+      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -251,7 +247,7 @@ let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachment
       .setDescription(`__** FBI Gang \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`مسؤول العصابات بالخدمة`})
       .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+      .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -265,7 +261,7 @@ let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachment
         .setDescription(`__** مالكش دخل **__ `)
         .setFooter({text:`مسؤول العصابات بالخدمة`})
         .setColor(`#32496b`)
-        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
      }
@@ -2294,6 +2290,77 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     //
 }});
 
+client.on("messageCreate", async message => {
+  if(message.author.bot) return;
+  if (message.content.startsWith(prefix+"استقالة")) {
+ let member = message.mentions.members.first();
+     let user = message.mentions.members.first();
+    //
+     if (message.guild.id == '980493720233316372') {
+      if (!message.member.permissions.has('ADMINISTRATOR'))
+        //
+        if (!message.member.roles.cache.has('980494296320999424'))
+          return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+    //
+    if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
+  \`${prefix}لوق-التفعيل\` **__ ` });
+    //
+      if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إقالة نفسك ! **__ ` });
+      if(user.bot) return message.reply({ content: " __** لا يمكن إقالة البوتات :x: **__ " });
+//
+        let t7t = message.guild.roles.cache.get('980494360539987978');
+        let gnde = message.guild.roles.cache.get('980494359508164628');
+        let gndeaol = message.guild.roles.cache.get('1005542090270318592');
+        let href = message.guild.roles.cache.get('1005543033363767336');
+        let r8eb = message.guild.roles.cache.get('980494355846561872');
+        let r8ebaol = message.guild.roles.cache.get('1005542165721665717');
+        let mlazm = message.guild.roles.cache.get('980494352495284326');
+        let mlazmaol = message.guild.roles.cache.get('980494350624641155');
+        let h8ed = message.guild.roles.cache.get('980494347491500034');
+        let lwaaa = message.guild.roles.cache.get('980494345717305504');
+        let fre8 = message.guild.roles.cache.get('980494341359411300');
+        let fre8aol = message.guild.roles.cache.get('980494340516376606');
+        let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
+        let hrs = message.guild.roles.cache.get('980494332949844058');// القوات
+        
+       
+       //
+        member.roles.remove(t7t);
+        member.roles.remove(gnde);
+        member.roles.remove(gndeaol);
+        member.roles.remove(href);
+        member.roles.remove(r8eb);
+        member.roles.remove(r8ebaol);
+        member.roles.remove(mlazm);
+        member.roles.remove(mlazmaol);
+        member.roles.remove(h8ed);
+        member.roles.remove(lwaaa);
+        member.roles.remove(fre8);
+        member.roles.add(fre8aol);
+        //
+    // عصابات
+if (message.guild.id == '996810757238968431') {
+
+
+ if (!message.member.permissions.has('ADMINISTRATOR'))
+        //
+        if (!message.member.roles.cache.has('996820405828464742'))
+          return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+    //
+    if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
+  \`${prefix}لوق-التفعيل\` **__ ` });
+    //
+      if (!member) return message.reply({ content: ' __** منشن عضو العصابة ! **__ ' });
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
+      if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
+        //
+  let idps4 = message.content.split(' ').slice(2).join(' ')
+  if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي عضو العصابة ! **__ ` })
+//
+    }
+    
+ 
 client.on('messageCreate', message => {
 if (message.content === prefix+'نام') {
 if (owner.includes(message.author.id)) return;
