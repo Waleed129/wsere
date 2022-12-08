@@ -1650,7 +1650,7 @@ client.on("messageCreate", async message => {
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
           //
-    //  user.setNickname(`${user.name}`);
+      user.setNickname(`${user.user.username}`);
       i.channel.send({ content: " __** تم إزالة الفصل عن `العسكري` بـ نجاح **__ " });
       
       let embed2 = new Discord.MessageEmbed()
@@ -2372,7 +2372,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         member.roles.remove(amn);
         member.roles.remove(ha9h);
                //
-    //    user.setNickname(`${user.name}`);
+        user.setNickname(`${user.user.username}`);
         let embed = new MessageEmbed()
         .setTitle("الإستقالة الوزارية")
         .setDescription(` __** عزيزي العسكري : ${user} . \n وداعاَ و نتمنى لك التوفيق في حياتك . \n و قد تم قبول إستقالتك من قبل الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
