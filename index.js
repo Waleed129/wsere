@@ -1839,7 +1839,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
   //
       let embed3 = new Discord.MessageEmbed() 
       .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
-      message.channel.send({ embeds:[embed3] });}
+      message.channel.send({ embeds:[embed3] });
          //
       let embed4 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
@@ -1847,10 +1847,9 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     logtf3el.send({ embeds: [embed4] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
-    m.delete();  
-    message.delete();
     }
-      //
+      }
+      // هنا باقي الكولكتر / الفاليو
     }
     })
    }
