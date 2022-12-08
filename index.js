@@ -205,7 +205,7 @@ let row2 = new Discord.MessageActionRow()
       //
       let embed2 = new Discord.MessageEmbed()
       .setTitle(`الأوامر الإدارية :`)
-      .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
+      .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ قبول إستقالة شخص قم بكتابة : ${prefix}استقالة \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
       .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
@@ -2296,6 +2296,10 @@ client.on("messageCreate", async message => {
  let member = message.mentions.members.first();
      let user = message.mentions.members.first();
     //
+        let hrs7dod = message.guild.channels.cache.get("1033297256465563738")  
+        let ch = dbb.get(`logtf3el_${message.guild.id}`)
+        let logtf3el = message.guild.channels.cache.find(c => c.id == ch)
+        //
      if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
         //
@@ -2323,9 +2327,34 @@ client.on("messageCreate", async message => {
         let fre8aol = message.guild.roles.cache.get('980494340516376606');
         let da7leh = message.guild.roles.cache.get('980494313295331328');// الداخلية
         let hrs = message.guild.roles.cache.get('980494332949844058');// القوات
-        
-       
+        let ha9h = message.guild.roles.cache.get('980494318580162590');// القوات
+        let amn = message.guild.roles.cache.get('980494327371399218');// القوات
+       let mgaz = message.guild.roles.cache.get('980494363606016071');
+let mtlob = message.guild.roles.cache.get('980494369536765982');
+let anzaraol = message.guild.roles.cache.get('980494366470713374');
+let anzartane = message.guild.roles.cache.get('980494367460569108');
+let mrkzal3mluat = message.guild.roles.cache.get('1049010603097858128');
+let gna9 = message.guild.roles.cache.get('1049384701346992200');
+let mtfa3l = message.guild.roles.cache.get('1049384853617000528');
+let medaleaol = message.guild.roles.cache.get('1049385030713090058');
+let medaletane = message.guild.roles.cache.get('1049385162330361987');
+//let medaletalt = message.guild.roles.cache.get('1001234400027099216');
+let gaad = message.guild.roles.cache.get('1049385611913601065');
+let mbd3 = message.guild.roles.cache.get('1049385685112598538');
+let adare = message.guild.roles.cache.get('1049385764766629958');
+let astfaf = message.guild.roles.cache.get('1049754868144939108');
        //
+        member.roles.remove(mgaz);
+        member.roles.remove(mtlob);
+        member.roles.remove(anzaraol);
+        member.roles.remove(anzartane);
+        member.roles.remove(mrkzal3mluat);
+        member.roles.remove(medaleaol);
+        member.roles.remove(medaletane);
+        member.roles.remove(gaad);
+        member.roles.remove(mbd3);
+        member.roles.remove(adare);
+        member.roles.remove(astfaf);
         member.roles.remove(t7t);
         member.roles.remove(gnde);
         member.roles.remove(gndeaol);
@@ -2337,12 +2366,32 @@ client.on("messageCreate", async message => {
         member.roles.remove(h8ed);
         member.roles.remove(lwaaa);
         member.roles.remove(fre8);
-        member.roles.add(fre8aol);
-        //
+        member.roles.remove(fre8aol);
+        member.roles.remove(da7leh);
+        member.roles.remove(hrs);
+        member.roles.remove(amn);
+        member.roles.remove(ha9h);
+               //
+    //    user.setNickname(`${user.name}`);
+        let embed = new MessageEmbed()
+        .setTitle("الإستقالة الوزارية")
+        .setDescription(` __** عزيزي العسكري : ${user} . \n وداعاَ و نتمنى لك التوفيق في حياتك . \n و قد تم قبول إستقالتك من قبل الإداري : ${message.author} . \n و مرةَ أخرى ; نتمنى لك التوفيق و المراتب العليا . **__ `)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+        .setThumbnail(user.user.avatarURL({ dynamic: true }))
+        .setTimestamp()
+        .setColor("#11e2e2")
+        message.channel.send({ embeds: [embed] });
+          //
+      message.channel.send({ content: " __** تم إقالة `العسكري` بـ نجاح **__ " });
+      
+      let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم قبول إستقالة : ${user} . \n من قبل الإداري : ${message.author} . **__ `);
+    
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
     // عصابات
 if (message.guild.id == '996810757238968431') {
-
-
  if (!message.member.permissions.has('ADMINISTRATOR'))
         //
         if (!message.member.roles.cache.has('996820405828464742'))
@@ -2359,7 +2408,7 @@ if (message.guild.id == '996810757238968431') {
   if(!idps4) return message.reply({ content: `__** يرجى كتابة أيدي عضو العصابة ! **__ ` })
 //
     }
-    
+     }}});   
  
 client.on('messageCreate', message => {
 if (message.content === prefix+'نام') {
