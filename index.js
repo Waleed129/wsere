@@ -1699,7 +1699,7 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك رتب ! ! **__ ` });
+     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إعطاء نفسك رتب ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن إعطاء الرتب للبوتات :x: **__ " });
     //
 let mgaz = message.guild.roles.cache.get('980494363606016071');
