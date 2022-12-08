@@ -1684,7 +1684,7 @@ member.roles.add(mfsol)
 //
 });
 
-/* client.on("messageCreate", async message => {
+ client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"role")) {
  let member = message.mentions.members.first();
@@ -1692,7 +1692,7 @@ member.roles.add(mfsol)
                if (message.guild.id == '980493720233316372') {
       if (!message.member.permissions.has('ADMINISTRATOR'))
        //
-        if (!message.member.roles.cache.has('980494296320999424'))
+  //      if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
     if(!dbb.has(`logtf3el_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التفعيل قبل !
@@ -1821,8 +1821,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
         let ch = dbb.get(`logtf3el_${i.guild.id}`)
         let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
              //
-     if (i.member.roles.cache.has(mgaz.id)) {
-      i.member.roles.remove(mgaz.id)
+             member.roles.add(mgaz) 
        //
       let embed = new Discord.MessageEmbed() 
       .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
@@ -1834,8 +1833,8 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
        //
-} else {
-      i.member.roles.add(mgaz.id)
+//} else {
+        member.roles.remove(mgaz);
   //
       let embed3 = new Discord.MessageEmbed() 
       .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
@@ -1848,7 +1847,6 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
     }
-      }
   if(i.values[0] === 'mtlob' || i.values[1] === 'mtlob') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
@@ -2288,7 +2286,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       message.reply({ content: ` __** عذراً أمر الرول موقف . **__ ` });
 }
     //
-}}); */
+}}); 
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
