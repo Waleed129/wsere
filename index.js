@@ -127,6 +127,8 @@ client.on('messageCreate', message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
      // 
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
       if (message.guild.id == '980493720233316372') {
               //
     let row = new Discord.MessageActionRow()
@@ -197,6 +199,8 @@ let row2 = new Discord.MessageActionRow()
 
   client.on("interactionCreate" , interaction => {
     if (!interaction.isSelectMenu()) return;
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
     if (interaction.customId == "todeh") {
     if(interaction.values[0] == 'tf') {
       if (!interaction.member.permissions.has('ADMINISTRATOR'))
@@ -205,10 +209,10 @@ let row2 = new Discord.MessageActionRow()
       //
       let embed2 = new Discord.MessageEmbed()
       .setTitle(`الأوامر الإدارية :`)
-      .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
+      .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
-      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+      .setThumbnail(`${line}`)
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -229,7 +233,7 @@ let row2 = new Discord.MessageActionRow()
         //
         let embed7 = new Discord.MessageEmbed()
         .setTitle(`أوامر التكت :`)
-        .setDescription(`__** مالكش دخل **__ `)
+        .setDescription(`__** قريباَ **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
@@ -1721,7 +1725,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       .addComponents(
       new Discord.MessageSelectMenu()
       .setMinValues(1)
-      .setMaxValues(2)
+      .setMaxValues(1)
       .setPlaceholder('إضغط هنا لرؤية خريطة الرتب')
       .setCustomId('rolemeun')
       .addOptions([
