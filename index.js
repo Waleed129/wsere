@@ -1813,43 +1813,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
     
       collector.on('collect', async i => {
       if (i.customId == "rolemeun") {
-      if(i.values[0] === 'mtlob' || i.values[1] === 'mtlob') {
-        if (!i.member.permissions.has('ADMINISTRATOR'))
-        if (!i.member.roles.cache.has('980494296320999424'))
-          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
-                //
-        let ch = dbb.get(`logtf3el_${i.guild.id}`)
-        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
-             //
-     if (i.member.roles.cache.has(mtlob.id)) {
-      i.member.roles.remove(mgaz.id)
-       //
-      let embed = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إزالة الرتبة : ${mgaz} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
-      message.channel.send({ embeds:[embed] });
-       //
-             let embed2 = new Discord.MessageEmbed()
-      .setColor(`#32496b`)
-      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
-    logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
-       //
-} else {
-      i.member.roles.add(mgaz.id)
-  //
-      let embed3 = new Discord.MessageEmbed() 
-      .setDescription(` __** تم إعطاء الرتبة : ${mgaz} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
-      message.channel.send({ embeds:[embed3] });
-         //
-      let embed4 = new Discord.MessageEmbed()
-      .setColor(`#32496b`)
-      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mgaz} . \n من قبل الإداري : ${message.author} **__ `);
-    logtf3el.send({ embeds: [embed4] });
-    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
-        //
-    }
-      }
-if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
+      if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
@@ -1884,11 +1848,444 @@ if(i.values[0] === 'mgaz' || i.values[1] === 'mgaz') {
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
         //
     }
-      }    }
+      }
+  if(i.values[0] === 'mtlob' || i.values[1] === 'mtlob') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(mtlob.id)) {
+      i.member.roles.remove(mtlob.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${mtlob} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mtlob} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(mtlob.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mtlob} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mtlob} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+         if(i.values[0] === 'anzaraol' || i.values[1] === 'anzaraol') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(anzaraol.id)) {
+      i.member.roles.remove(anzaraol.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${anzaraol} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${anzaraol} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(anzaraol.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${anzaraol} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${anzaraol} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+                 if(i.values[0] === 'anzartane' || i.values[1] === 'anzartane') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(anzartane.id)) {
+      i.member.roles.remove(anzartane.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${anzartane} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${anzartane} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(anzartane.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${anzartane} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${anzartane} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+        if(i.values[0] === 'mrkzal3mluat' || i.values[1] === 'mrkzal3mluat') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(mrkzal3mluat.id)) {
+      i.member.roles.remove(mrkzal3mluat.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${mrkzal3mluat} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mrkzal3mluat} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(mrkzal3mluat.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mrkzal3mluat} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mrkzal3mluat} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+        if(i.values[0] === '8na9' || i.values[1] === '8na9') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(gna9.id)) {
+      i.member.roles.remove(gna9.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${gna9} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${gna9} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(gna9.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${gna9} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${gna9} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+              if(i.values[0] === 'mtfa3l' || i.values[1] === 'mtfa3l') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(mtfa3l.id)) {
+      i.member.roles.remove(mtfa3l.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${mtfa3l} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mtfa3l} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(mtfa3l.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mtfa3l} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mtfa3l} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+        if(i.values[0] === 'medaleaol' || i.values[1] === 'medaleaol') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(medaleaol.id)) {
+      i.member.roles.remove(medaleaol.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${medaleaol} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${medaleaol} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(medaleaol.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${medaleaol} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${medaleaol} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+           if(i.values[0] === 'medaletane' || i.values[1] === 'medaletane') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(medaletane.id)) {
+      i.member.roles.remove(medaletane.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${medaletane} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${medaletane} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(medaletane.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${medaletane} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${medaletane} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+        if(i.values[0] === 'gaad' || i.values[1] === 'gaad') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(gaad.id)) {
+      i.member.roles.remove(gaad.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${gaad} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${gaad} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(gaad.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${gaad} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${gaad} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+           if(i.values[0] === 'mbd3' || i.values[1] === 'mbd3') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(mbd3.id)) {
+      i.member.roles.remove(mbd3.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${mbd3} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${mbd3} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(mbd3.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${mbd3} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${mbd3} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+                if(i.values[0] === 'adare' || i.values[1] === 'adare') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(adare.id)) {
+      i.member.roles.remove(adare.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${adare} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${adare} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(adare.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${adare} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${adare} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+               if(i.values[0] === 'astfaf' || i.values[1] === 'astfaf') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
+                //
+        let ch = dbb.get(`logtf3el_${i.guild.id}`)
+        let logtf3el = i.guild.channels.cache.find(c => c.id == ch)
+             //
+     if (i.member.roles.cache.has(astfaf.id)) {
+      i.member.roles.remove(astfaf.id)
+       //
+      let embed = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إزالة الرتبة : ${astfaf} من العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed] });
+       //
+             let embed2 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إزالة رتبة من : ${user} \n الرتبة : ${astfaf} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed2] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+       //
+} else {
+      i.member.roles.add(astfaf.id)
+  //
+      let embed3 = new Discord.MessageEmbed() 
+      .setDescription(` __** تم إعطاء الرتبة : ${astfaf} لـ العسكري : ${user} من قبل الإداري : ${message.author} **__ `)
+      message.channel.send({ embeds:[embed3] });
+         //
+      let embed4 = new Discord.MessageEmbed()
+      .setColor(`#32496b`)
+      .setDescription(` __** تم إعطاء رتبة لـ : ${user} \n الرتبة : ${astfaf} . \n من قبل الإداري : ${message.author} **__ `);
+    logtf3el.send({ embeds: [embed4] });
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+        //
+    }
+      }
+      }
     })
    }
     if (message.guild.id == '996810757238968431') {
-      message.reply({ content: ` __** عذراً أمر الفصل موقف , لا يمكن فصل إي شخص من العصابات فنحن لسنا فشله مثل الوزارة . **__ ` });
+      message.reply({ content: ` __** عذراً أمر الرول موقف . **__ ` });
 }
     //
 }});
