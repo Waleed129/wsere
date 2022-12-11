@@ -2584,24 +2584,6 @@ message.channel.send({ embeds: [embed] });
 }
 }); */
 
-
-client.on('ready', async () => {
-await client.application?.commands.set([])
-client.guilds.cache.forEach(guild => {
-guild.commands?.set([{ 
-name: 'ping',
-description: "ping for bot",
-}])
-})
-});
-  
-client.on("interactionCreate", async interaction => {
-if (!interaction.channel.guild) return;
-if (interaction.commandName == 'ping') {
-interaction.reply({ content: ` __** ${client.ws.ping} ms! **__ ` });
-}
-});
-
 client.on('guildMemberAdd', message => {
 if (message.guild.id === "980493720233316372") {
 message.send(`__** مرحباً بالعُضو الجديد ${message} في ${message.guild.name} 🔰
