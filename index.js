@@ -27,7 +27,7 @@ const discord = require("discord.js");
 const reply = require("discord-reply");
 const mongoose = require("mongoose");
 const fs = require(`fs`);
-const Canvas = require("canvas");
+const canvas = require("canvas");
 const { registerFont } = require("canvas");
 const { MessageEmbed } = require("discord.js");
 const ms = require("ms");
@@ -86,6 +86,38 @@ client.on("ready", () => {
       }).catch((error) => { return; });
   }, 1000)
 });
+
+client.on("messageCreate",async message =>{
+if (message.content.startsWith(prefix+"clear"))
+ { 
+message.delete({timeout: 0})
+    if(!message.channel.guild) return message.reply(`** This Command For Servers Only**`); 
+     if(!message.member.permissions.has('MANAGE_MASSAGE')) return message.reply(`** 😕 You don't have permissions **`); 
+if(!message.guild.me.permissions.has('MANAGE_MASSAGE')) return message.reply(`** 😕 I couldn't edit the channel permissions. Please check my permissions and role position. **`);
+    let args = message.content.split(" ").slice(1)
+    let messagecount = parseInt(args);
+    if (args > 100) return message.channel.send({content: `\`\`\`javascript
+i cant delete more than 100 messages 
+\`\`\``}).then(messages => messages.delete(5000))
+if(!messagecount) messagecount = '100';
+    message.channel.messages.fetch({limit: 100 }).then(e => {
+    message.channel.send('Deleting messages.').then(function(e) {
+    setTimeout(function() {
+        message.channel.bulkDelete(messagecount).then(msgs => {
+        let msgsize = msgs.size
+    message.channel.send({content: `\`\`\`js
+${msgsize} messages cleared
+\`\`\``}).then(messages => {
+setTimeout(() => {
+    messages.delete()
+}, 4000)
+    })
+    }).catch(err => 0)
+    }, 600)
+    })
+    })
+  }    
+}); 
 
 let owner = ['497796195104718888']
  client.on("messageCreate", message => {
