@@ -226,30 +226,31 @@ client.on("interactionCreate" , async interaction => {
      }
   }
 });
-
-client.on('messageCreate', message => {
-  if (message.content.startsWith(prefix + "allbans")) {
-    if (!message.guild) return;
-    if(!message.member.permissions.has('BAN_MEMBERS')) return;
-    message.guild.bans.fetch()
-.then(bans => {
-          
-  let list = bans.map(user => `- ${user.user.username}`).join('\n');
-    
-  if (list.length >= 1950) list = `${list.slice(0, 1948)}`;
-
-  const embed = new MessageEmbed()
-  .setColor(message.guild.me.displayColor)
-  .setTitle(`${bans.size} users are banned :`)
-  .setDescription(`
-**${list}**
-      `)
-.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({dynamic : true}))
- message.channel.send({embeds : [embed]})
-})
-.catch(console.error);
+client.on("messageCreate", message => {
+  if (message.content.startsWith(prefix + "inrole")) {
+      let args = message.content.split(" ").slice(1).join(" ");
+      if(message.author.bot) return;
+      let trole = message.mentions.roles.first() || message.guild.roles.cache.find(role => role.id === args)
+       if (!trole) {
+           return message.reply(`**:rolling_eyes: Please mention role id**`)
+       } else {
+           const roleMember = trole.members.map((user) => `${user.id} ${user.user.tag}`).join('\n')
+    message.reply({embeds: [
+     new MessageEmbed() 
+  .setAuthor(message.author.tag, message.author.avatarURL({dynamic:true}))
+      
+.setThumbnail(message.author.avatarURL({dynamic:true}))
+      .addFields([
+    {
+    name: `List of users in ${trole.name} role : (${trole.members.size})`,
+    value: `**${roleMember}**`
+},
+])  
+.setColor(message.guild.me.displayHexColor)
+.setFooter(`Members in this role ${trole.members.size}`)]})
   }
-});
+  }
+ }) ;
 
 let owner = ['497796195104718888']
  client.on("messageCreate", message => {
