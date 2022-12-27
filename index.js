@@ -87,6 +87,78 @@ client.on("ready", () => {
   }, 1000)
 });
 
+        client.on("messageCreate", async message => {
+          if(message.author.bot) return;
+            if(message.content.startsWith(prefix+"help")) {
+        let i0 = 0;
+        let i1 = 10;
+        let page = 1;
+        //
+        let pages = new MessageActionRow().addComponents(
+          new MessageButton()
+            .setStyle("PRIMARY")
+            .setEmoji("⬅️")
+            .setCustomId("previous_emoji"),
+          new MessageButton()
+            .setStyle("PRIMARY")
+            .setEmoji("➡️")
+            .setCustomId("next_emoji")
+        );
+    
+        let dis = new MessageActionRow().addComponents(
+          new MessageButton()
+            .setStyle("PRIMARY")
+            .setEmoji("⬅️")
+            .setDisabled(true)
+            .setCustomId("previous_emoji"),
+          new MessageButton()
+            .setStyle("PRIMARY")
+            .setEmoji("➡️")
+            .setDisabled(true)
+            .setCustomId("next_emoji")
+        );
+        //
+        const usersData = []
+        message.guild.members.cache.forEach(user => { usersData.push(user) })
+        var pointsContent = usersData.length;
+        let usersContent = 0;
+        let usersMaxContent = 11;
+        let tempData = [];
+        for (let i = 0; i < pointsContent; i++) {
+        var database = dbp.fetch(`Police_${usersData[i].id}`)
+        if (database == null) continue;
+         
+        tempData.push({
+        name: usersData[i].user.id,
+        data: database
+        });
+        }
+        const leaderboardData = []
+        tempData.sort((a, b) => b.data - a.data);
+        for (let k = 0; k < tempData.length; k++) {
+        usersContent++
+        if (usersContent >= usersMaxContent) continue;
+        leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ العسكري : "<@!${tempData[k].name}>" بتحاضير تقدر بـ : "${tempData[k].data}" . **__` )}
+        var topValue = leaderboardData.join('\n')
+        let embed = new Discord.MessageEmbed()
+        .setTitle("التوب الوزاري")
+        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setDescription(topValue)
+        .setFooter(`الصفحة رقم : "${page}"`)
+        .setTimestamp()
+        .setColor(`#32496b`)
+        message.reply({ embeds: [embed],components: [pages] });
+            }});
+
+
+client.on("interactionCreate" , async interaction => {
+  if(interaction.isButton()) {
+    if(interaction.customId == "setup") {
+      
+    }
+  }
+});
+
 let owner = ['497796195104718888']
  client.on("messageCreate", message => {
   if (message.content.startsWith(prefix+'إسم-البوت')) {
