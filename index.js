@@ -173,10 +173,56 @@ client.on("interactionCreate" , async interaction => {
         if (usersContent >= usersMaxContent) continue;
         leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ العسكري : "<@!${tempData[k].name}>" بتحاضير تقدر بـ : "${tempData[k].data}" . **__` )}
         var topValue = leaderboardData.join('\n')
-     interaction.reply({ content: ` __** DZ ! **__ ` });
+                let embed2 = new Discord.MessageEmbed()
+        .setTitle("التوب الوزاري")
+        .setAuthor(interaction.guild.name, interaction.guild.iconURL({ dynamic: true }))
+        .setDescription(topValue)
+        .setFooter(`الصفحة رقم : "${page}"`)
+        .setTimestamp()
+        .setColor(`#32496b`)
+            interaction.edit({ embeds: [embed2] });
     }
      if(interaction.customId == "next") {
-            interaction.reply({ content: ` __** DZ 2 ! **__ ` });
+            //
+        let i0 = 0;
+        let i1 = 10;
+        let page = 1;
+      // اسحب عليه خلك باللي تحت يا ذكي !
+            i0 = i0 + 10;
+            i1 = i1 + 10;
+            page = page + 1;
+            if (!i0 || !i1) return interaction.delete();
+      //
+             const usersData = []
+        interaction.guild.members.cache.forEach(user => { usersData.push(user) })
+        var pointsContent = usersData.length;
+        let usersContent = `${i0}`;
+        let usersMaxContent = `${i1}`;
+        let tempData = [];
+        for (let i = 0; i < pointsContent; i++) {
+        var database = dbp.fetch(`Police_${usersData[i].id}`)
+        if (database == null) continue;
+         
+        tempData.push({
+        name: usersData[i].user.id,
+        data: database
+        });
+        }
+        const leaderboardData = []
+        tempData.sort((a, b) => b.data - a.data);
+        for (let k = 0; k < tempData.length; k++) {
+        usersContent++
+        if (usersContent >= usersMaxContent) continue;
+        leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ العسكري : "<@!${tempData[k].name}>" بتحاضير تقدر بـ : "${tempData[k].data}" . **__` )}
+        var topValue = leaderboardData.join('\n')
+                let embed3 = new Discord.MessageEmbed()
+        .setTitle("التوب الوزاري")
+        .setAuthor(interaction.guild.name, interaction.guild.iconURL({ dynamic: true }))
+        .setDescription(topValue)
+        .setFooter(`الصفحة رقم : "${page}"`)
+        .setTimestamp()
+        .setColor(`#32496b`)
+            interaction.edit({ embeds: [embed3] });
      }
   }
 });
