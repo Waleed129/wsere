@@ -184,20 +184,20 @@ client.on("interactionCreate" , async interaction => {
     }
      if(interaction.customId == "next") {
             //
-        let i0 = 0;
-        let i1 = 10;
+        let i00 = 0;
+        let i11 = 10;
         let page = 1;
       // اسحب عليه خلك باللي تحت يا ذكي !
-            i0 = i0 + 10;
-            i1 = i1 + 10;
+            i00 = i00 + 10;
+            i11 = i11 + 10;
             page = page + 1;
-            if (!i0 || !i1) return interaction.delete();
+            if (!i00 || !i11) return interaction.delete();
       //
              const usersData = []
         interaction.guild.members.cache.forEach(user => { usersData.push(user) })
         var pointsContent = usersData.length;
-        let usersContent = `${i0}`;
-        let usersMaxContent = `${i1}`;
+        let usersContent = `${i00}`;
+        let usersMaxContent = `${i11}`;
         let tempData = [];
         for (let i = 0; i < pointsContent; i++) {
         var database = dbp.fetch(`Police_${usersData[i].id}`)
@@ -222,8 +222,32 @@ client.on("interactionCreate" , async interaction => {
         .setFooter(`الصفحة رقم : "${page}"`)
         .setTimestamp()
         .setColor(`#32496b`)
-            interaction.edit({ embeds: [embed3] });
+            interaction.reply({ embeds: [embed3] });
      }
+  }
+});
+
+client.on('messageCreate', message => {
+  if (message.content.startsWith(prefix + "allbans")) {
+    if (!message.guild) return;
+    if(!message.member.permissions.has('BAN_MEMBERS')) return;
+    message.guild.bans.fetch()
+.then(bans => {
+          
+  let list = bans.map(user => `- ${user.user.username}`).join('\n');
+    
+  if (list.length >= 1950) list = `${list.slice(0, 1948)}`;
+
+  const embed = new MessageEmbed()
+  .setColor(message.guild.me.displayColor)
+  .setTitle(`${bans.size} users are banned :`)
+  .setDescription(`
+**${list}**
+      `)
+.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL({dynamic : true}))
+ message.channel.send({embeds : [embed]})
+})
+.catch(console.error);
   }
 });
 
