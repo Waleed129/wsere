@@ -129,18 +129,18 @@ if(message.content === prefix +"سيرفراتي") {
 if(!owner.includes(message.author.id))return;
 /* client.guilds.cache.forEach(c => {
 message.channel.send(`${c.id} | ${c.name}`)
-}) */
-let servers = " ";
+})  */
+let servers = " "; 
 let num = 0;
 client.guilds.cache.forEach(server =>{
 num = num + 1;
-servers += `= \`${num}\` ${server.name} | ${server.id} | ${server.users.cache.size} \n `;
+servers += `= \`${num}\` ${server.name} | ${server.id} | ${server.guild.memberCount} \n `;
 })
   //
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
 .setTitle('عدد سيرفراتي !!!')
-.setDescription(`__** ${servers} / ${client.users..size} **__`)
+.setDescription(`__** ${servers} | ${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size} **__`)
 message.reply({ embeds: [embed] });
 //
 }});
