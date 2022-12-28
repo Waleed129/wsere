@@ -133,6 +133,21 @@ message.channel.send(`${c.id} | ${c.name}`)
 }
 });
 
+client.on("messageCreate", message =>{
+    if (message.channel.type === "DM") {
+        if (message.author.id === client.user.id) return;
+let log = message.guild.channels.cache.get("1057620829044748318")
+  let stewart = new Discord.MessageEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle('``رساله جديده في خاص البوت``')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
+  log.send({ embeds: [{ embed: stewart }] });
+    }
+});
+
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
