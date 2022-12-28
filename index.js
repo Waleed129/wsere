@@ -123,6 +123,20 @@ client.on('messageCreate', message => {
   }
 });
 
+client.on("messageCreate", function(message) {
+    if (message.channel.type === "DM") {
+        if (message.author.id === client.user.id) return;
+        let stewart = new MessageEmbed()
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setTitle('``رساله جديده في خاص البوت``')
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+            .setFooter(`من (@${message.author.tag})  |  (${message.author})`)
+        client.channels.get("1057620829044748318").send({ embeds: [stewart] });
+    }
+});
+
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
