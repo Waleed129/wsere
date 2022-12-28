@@ -3823,7 +3823,7 @@ client.on('messageCreate', async message => {
       label: 'طلب مسؤولين',
       description: 'إن كنت تريد حاكم الدولة أو ولي العهد أو رئيس الوزراء فـ يرجى الضغط هنا .',
       emoji: '📩',
-      value: 'tgbmsaaolen'
+      value: 'tlbmsaaolen'
       }
     ])
     )
