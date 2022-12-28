@@ -133,10 +133,9 @@ message.channel.send(`${c.id} | ${c.name}`)
 let servers = " "; 
 let num = 0;
 client.guilds.cache.forEach(server =>{
-let membercountdcf = server.guild.memberCount;
 //server.members.cache.size;
 num = num + 1;
-servers += `= \`${num}\` ${server.name} | ${server.id} | ${membercountdcf} \n `;
+servers += `= \`${num}\` ${server.name} | ${server.id} | n `;
 })
   //
 let embed = new Discord.MessageEmbed()
