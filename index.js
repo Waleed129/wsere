@@ -40,6 +40,7 @@ const Database = require("st.db")
 const db = new Database({path: "database.json"})
 const dbb = new Database({path: "tf3el.json"})
 const dbp = new Database({path: "points.json"})
+const dbt = new Database({path: "ticket.json"})
 // بكج
 
 const client = new Client({
@@ -3778,7 +3779,7 @@ if(interaction.isButton()) {
         if(!message.member.permissions.has("ADMINISTRATOR")) return;
         let channel = message.mentions.channels.first()
         if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
-        dbb.set(`logtkt_${message.guild.id}` , channel.id)
+        dbt.set(`logtkt_${message.guild.id}` , channel.id)
         message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` })
       }
     });
@@ -3798,23 +3799,27 @@ client.on('messageCreate', async message => {
     {
     label: 'التفعيل العسكري',
     description: 'لـ التفعيل و إعتبارك عسكري رسمياَ يرجى الضغط هنا .',
-    emoji: '☠️',
+    emoji: ':envelope_with_arrow:',
     value: 'tf3el3skre'
     },
     {
       label: 'الدعم الفني',
       description: 'إن كنت تريد مساعدة فـ يرجى الضغط هنا .',
-      emoji: '☠️',
+      emoji: ':envelope_with_arrow:',
       value: 'd3mfne'
-      } 
+      },
+          {
+      label: 'طلب مسؤولين',
+      description: 'إن كنت تريد حاكم الدولة أو ولي العهد أو رئيس الوزراء فـ يرجى الضغط هنا .',
+      emoji: ':envelope_with_arrow:',
+      value: 'tgbmsaaolen'
+      }
     ])
     )
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
 .setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
-.setDescription(` __** يرجى إختيار ما تريده من الأسفل 
-إن كنت تريد التفعيل فـ قم بالضغط على خيار "التفعيل العسكري" 
-و إن كنت تريد الدعم الفني فـ قم بالضغط على خيار "الدعم الفني" **__ `)
+.setDescription(` __** يرجى إختيار ما تريده من الأسفل ! **__ `)
 //.setFooter({ name:`${message.guild.name}`, iconURL:`${message.guild.iconURL()}`})
 await message.reply({ embeds: [ embed ], components: [ row ] });
 }});
@@ -3823,10 +3828,10 @@ await message.reply({ embeds: [ embed ], components: [ row ] });
               if (!interaction.isSelectMenu()) return;
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
-            let cy = interaction.guild.channels.cache.get("1050473695388385330")
-            let ch = dbb.get(`logtkt_${interaction.guild.id}`)
+            let cy = interaction.guild.channels.cache.get("1057669404768354314")
+            let ch = dbt.get(`logtkt_${interaction.guild.id}`)
             let log = interaction.guild.channels.cache.find(c => c.id == ch)          
-           let staffrole = interaction.guild.roles.cache.get("947815583959875614")
+           let staffrole = interaction.guild.roles.cache.get("980494296320999424")
             //
             let embed = new MessageEmbed()
       .setColor("RANDOM")
@@ -3854,26 +3859,26 @@ let row2 = new Discord.MessageActionRow()
     {
     label: 'حذف التكت',
     description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
-    emoji: '☠️',
+    emoji: '🟥',
     value: 'delete'
     },
     {
       label: 'قفل التكت',
       description: 'لـ قفل أحد التكتات (close) يرجى الضغط هنا',
-      emoji: '☠️',
+      emoji: '🟥',
       value: 'close'
       },
       {
         label: 'تغيير إسم التكت',
         description: 'لـ تغيير إسم أحد التكتات يرجى الضغط هنا',
-        emoji: '☠️',
+        emoji: '🟥',
         value: 'rename'
         } 
     ])
     )
       //
-            db.add(`counts_${interaction.message.id}`, 1)
-             let count = db.get(`counts_${interaction.message.id}`);
+            dbt.add(`counts_${interaction.message.id}`, 1)
+             let count = dbt.get(`counts_${interaction.message.id}`);
              //
               interaction.reply({ content: ` __** جاري إنشاء التكت الخاص بك , يرجى الإنتظار **__ ` , ephemeral: true });
              //
@@ -3901,7 +3906,7 @@ let row2 = new Discord.MessageActionRow()
             }).then(async c => {
                     
                    
-db.set(`ticket_${c.id}`, {ticketby : interaction.user.id,count:count,})
+dbt.set(`ticket_${c.id}`, {ticketby : interaction.user.id,count:count,})
                     
 await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
 لـ التفعيل قم بكتابة أيديك و قِطاعك و إرفاق دليل على قُبولك
@@ -3982,10 +3987,10 @@ interaction.channel.send({ embeds:[embed3], components:[row3] });
                 client.on('modalSubmitInteraction', async interaction => {
                   if(interaction.customId == "modal4") {
                     let ch = interaction.channel
-                    let ticketby = db.get(`ticketby_${interaction.user.id}`)
-                    let ticket = db.get(`ticket_${interaction.channel.id}`)
+                    let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+                    let ticket = dbt.get(`ticket_${interaction.channel.id}`)
                     let cy = interaction.guild.channels.cache.get("1050473695388385330")
-                    let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+                    let chh = dbt.get(`logtkt_${interaction.guild.id}`)
                     let log = interaction.guild.channels.cache.find(c => c.id == chh)          
                     let staffrole = interaction.guild.roles.cache.get("947815583959875614")
                     //
@@ -4035,10 +4040,10 @@ interaction.message.delete()
 //
 if (interaction.customId === "yes") {
 let ch = interaction.channel
-let ticketby = db.get(`ticketby_${interaction.user.id}`)
-let ticket = db.get(`ticket_${interaction.channel.id}`)
+let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
 let cy = interaction.guild.channels.cache.get("1050473695388385330")
-let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)          
 let staffrole = interaction.guild.roles.cache.get("947815583959875614")
 //
@@ -4101,9 +4106,9 @@ let embed5 = new Discord.MessageEmbed()
 .setColor("RED")
 .setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
 if (interaction.customId === "delete") {
-  let ticketby = db.get(`ticketby_${interaction.user.id}`)
-let ticket = db.get(`ticket_${interaction.channel.id}`)
-  let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+  let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
   let c = interaction.channel;
   //
@@ -4142,9 +4147,9 @@ let embed6 = new MessageEmbed()
 .setColor("BLACK")
 .setDescription(` __** تم إعادة فتح التكت بواسطة : ${interaction.user} **__ `)
 if (interaction.customId === "reopen") {
-  let ticketby = db.get(`ticketby_${interaction.user.id}`)
-let ticket = db.get(`ticket_${interaction.channel.id}`)
-  let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+  let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
   let c = interaction.channel;
   //
@@ -4187,7 +4192,7 @@ c.setName(`ticket-${ticket.count}`)
       if (!message.member.roles.cache.has('980494296320999424'))
         return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
   //
-  let ticket = db.get(`ticket_${message.channel.id}`)
+  let ticket = dbt.get(`ticket_${message.channel.id}`)
   if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
   let log = message.guild.channels.cache.get('1006354092563644497')
@@ -4199,7 +4204,7 @@ c.setName(`ticket-${ticket.count}`)
        if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إزالة نفسك ! **__ ` });
         if(user.bot) return message.reply({ content: " __** لا يمكن إزالة البوتات :x: **__ " });
         //
-      if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+      if(!dbt.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
     \`${prefix}لوق-التكت\` **__ ` });
     // 
   let embed = new Discord.MessageEmbed()
@@ -4240,7 +4245,7 @@ let embed2 = new Discord.MessageEmbed()
         if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
-  let ticket = db.get(`ticket_${message.channel.id}`)
+  let ticket = dbt.get(`ticket_${message.channel.id}`)
   if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
     let log = message.guild.channels.cache.get('1006354092563644497')
@@ -4252,7 +4257,7 @@ let embed2 = new Discord.MessageEmbed()
          if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إدخال نفسك ! **__ ` });
           if(user.bot) return message.reply({ content: " __** لا يمكن إدخال البوتات :x: **__ " });
           //
-        if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+        if(!dbt.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
       \`${prefix}لوق-التكت\` **__ ` });
       // 
     let embed = new Discord.MessageEmbed()
