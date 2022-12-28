@@ -123,6 +123,27 @@ client.on('messageCreate', message => {
   }
 });
 
+client.on("messageCreate", message =>{
+if(message.content === prefix +"سيرفراتي"){
+if(!owner.includes(message.author.id))return;
+client.guilds.cache.forEach(c => {
+let embed = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle("طلب معرفة من سيرفراتي !")
+.setAuthor({name: message.author.tag,iconURL: message.author.displayAvatarURL({dynamic:true})})
+.setThumbnail(message.guild.iconURL({dynamic:true}))
+.setFooter({text:`${message.guild.name}`,iconURL: message.guild.iconURL({dynamic:true})})
+.addFields(
+  {
+    name:"__**السيرفرات اللي داخلها :**__",
+    value:`**"${c.id} | ${c.name}"**`
+  }
+)
+message.reply({ content: ` __** ${c.id} | ${c.name} **__ `, embeds:[embed] });
+})
+}
+});
+
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
