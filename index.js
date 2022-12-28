@@ -127,25 +127,21 @@ client.on('messageCreate', message => {
 client.on("messageCreate", message =>{
 if(message.content === prefix +"سيرفراتي"){
 if(!owner.includes(message.author.id))return;
-client.guilds.cache.forEach(c => {
+/* client.guilds.cache.forEach(c => {
 message.channel.send(`${c.id} | ${c.name}`)
+}) */
+let servers = " ";
+let num = 0;
+client.guilds.cache.forEach(server =>{
+num = num + 1;
+servers += `\`${num}\` ${server.name} | ${server.id} \n `;
 })
-}
-});
-
-client.on("messageCreate", message =>{
-    if (message.channel.type === "DM") {
-        if (message.author.id === client.user.id) return;
-let log = message.guild.channels.cache.get("1057620829044748318")
-  let stewart = new Discord.MessageEmbed()
-            .setColor('RANDOM')
-            .setTimestamp()
-            .setTitle('``رساله جديده في خاص البوت``')
-            .setThumbnail(`${message.author.avatarURL}`)
-            .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
-            .setFooter(`من (@${message.author.tag})  |  (${message.author.id})`)
-  log.send({ embeds: [{ embed: stewart }] });
-    }
+  //
+let embed = new Discord.MessageEmbed()
+.setColor('#32496b')
+.setTitle
+.setDescription(`__** ${servers} **__`)
+//
 });
 
   client.on('messageCreate', async message => {
@@ -185,7 +181,6 @@ let log = message.guild.channels.cache.get("1057620829044748318")
     let embed = new Discord.MessageEmbed()
     .setColor('#32496b')
     .setDescription('لـ رؤية خريطة التوضيح قم بالضغط على الزر اللذي بالأسفل و تحديد ما تريده')
-  
  // let m =
    await message.reply({ embeds: [ embed ], components: [ row ]});
       }
