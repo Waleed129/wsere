@@ -3810,19 +3810,19 @@ client.on('messageCreate', async message => {
     {
     label: 'التفعيل العسكري',
     description: 'لـ التفعيل و إعتبارك عسكري رسمياَ يرجى الضغط هنا .',
-    emoji: ':envelope_with_arrow:',
+    emoji: '📩',
     value: 'tf3el3skre'
     },
     {
       label: 'الدعم الفني',
       description: 'إن كنت تريد مساعدة فـ يرجى الضغط هنا .',
-      emoji: ':envelope_with_arrow:',
+      emoji: '📩',
       value: 'd3mfne'
       },
-          {
+      {
       label: 'طلب مسؤولين',
       description: 'إن كنت تريد حاكم الدولة أو ولي العهد أو رئيس الوزراء فـ يرجى الضغط هنا .',
-      emoji: ':envelope_with_arrow:',
+      emoji: '📩',
       value: 'tgbmsaaolen'
       }
     ])
