@@ -3772,7 +3772,6 @@ if(interaction.isButton()) {
 }
 });
 
-
     client.on("messageCreate" , message => {
       if(message.author.bot) return;
       if(message.content.startsWith(prefix+"لوق-التكت")) {
@@ -4298,13 +4297,13 @@ let embed2 = new Discord.MessageEmbed()
           if (!message.member.roles.cache.has('980494296320999424'))
             return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
        //
-  let ticket = db.get(`ticket_${message.channel.id}`)
+  let ticket = dbt.get(`ticket_${message.channel.id}`)
   if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
       let log = message.guild.channels.cache.get('1006354092563644497')
       let ch = message.channel;
       //
-          if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+          if(!dbt.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
         \`${prefix}لوق-التكت\` **__ ` });
         // 
         let yes = new Discord.MessageButton()
@@ -4332,7 +4331,7 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           if(message.author.bot) return;
           if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
-  let ticket = db.get(`ticket_${message.channel.id}`)
+  let ticket = dbt.get(`ticket_${message.channel.id}`)
   if (ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
           const duration = moment
