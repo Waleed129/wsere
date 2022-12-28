@@ -132,7 +132,6 @@ message.channel.send(`${c.id} | ${c.name}`)
 }
 });
 
-
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
     if(message.content === prefix+'توضيح') {
@@ -3771,6 +3770,584 @@ if(interaction.isButton()) {
   }
 }
 });
+
+
+    client.on("messageCreate" , message => {
+      if(message.author.bot) return;
+      if(message.content.startsWith(prefix+"لوق-التكت")) {
+        if(!message.member.permissions.has("ADMINISTRATOR")) return;
+        let channel = message.mentions.channels.first()
+        if(!channel) return message.reply({ content: ` __** منشن الشات ! **__ `} )
+        dbb.set(`logtkt_${message.guild.id}` , channel.id)
+        message.reply({ content: ` > __** تم تعيين ${channel} كـ لوق تفعيل **__ ` })
+      }
+    });
+
+client.on('messageCreate', async message => {
+  if(message.author.bot) return;
+  if(message.content === prefix+'انشاء-التكت') {
+    if(!message.member.permissions.has('ADMINSTRATOR')) return;
+    let row = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التكت')
+    .setCustomId('ticket')
+    .addOptions([
+    {
+    label: 'التفعيل العسكري',
+    description: 'لـ التفعيل و إعتبارك عسكري رسمياَ يرجى الضغط هنا .',
+    emoji: '☠️',
+    value: 'tf3el3skre'
+    },
+    {
+      label: 'الدعم الفني',
+      description: 'إن كنت تريد مساعدة فـ يرجى الضغط هنا .',
+      emoji: '☠️',
+      value: 'd3mfne'
+      } 
+    ])
+    )
+let embed = new Discord.MessageEmbed()
+.setColor('#32496b')
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
+.setDescription(` __** يرجى إختيار ما تريده من الأسفل 
+إن كنت تريد التفعيل فـ قم بالضغط على خيار "التفعيل العسكري" 
+و إن كنت تريد الدعم الفني فـ قم بالضغط على خيار "الدعم الفني" **__ `)
+//.setFooter({ name:`${message.guild.name}`, iconURL:`${message.guild.iconURL()}`})
+await message.reply({ embeds: [ embed ], components: [ row ] });
+}});
+      
+            client.on("interactionCreate" , interaction => {
+              if (!interaction.isSelectMenu()) return;
+              if (interaction.customId == "ticket") {
+              if(interaction.values[0] == 'tf3el3skre') {
+            let cy = interaction.guild.channels.cache.get("1050473695388385330")
+            let ch = dbb.get(`logtkt_${interaction.guild.id}`)
+            let log = interaction.guild.channels.cache.find(c => c.id == ch)          
+           let staffrole = interaction.guild.roles.cache.get("947815583959875614")
+            //
+            let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription(` __** يُرجى فعل ما تم كتابته بالأعلى و الإنتظار دون منشن **__ `)
+      .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+      .setTimestamp();
+      //
+let row = new Discord.MessageActionRow()
+.addComponents(
+new Discord.MessageButton()
+.setStyle("PRIMARY")
+.setLabel("تفعيل")
+.setEmoji("👮🏼‍♂️")
+.setCustomId("cb")
+)
+//
+let row2 = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التكت')
+    .setCustomId('tktcomand')
+    .addOptions([
+    {
+    label: 'حذف التكت',
+    description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
+    emoji: '☠️',
+    value: 'delete'
+    },
+    {
+      label: 'قفل التكت',
+      description: 'لـ قفل أحد التكتات (close) يرجى الضغط هنا',
+      emoji: '☠️',
+      value: 'close'
+      },
+      {
+        label: 'تغيير إسم التكت',
+        description: 'لـ تغيير إسم أحد التكتات يرجى الضغط هنا',
+        emoji: '☠️',
+        value: 'rename'
+        } 
+    ])
+    )
+      //
+            db.add(`counts_${interaction.message.id}`, 1)
+             let count = db.get(`counts_${interaction.message.id}`);
+             //
+              interaction.reply({ content: ` __** جاري إنشاء التكت الخاص بك , يرجى الإنتظار **__ ` , ephemeral: true });
+             //
+              interaction.guild.channels.create(`تفعيل-${count}`, {
+              type: 'GUILD_TEXT',
+              parent:cy,
+                    permissionOverwrites:[
+                      {
+                   id: interaction.user.id,
+                   allow: ["SEND_MESSAGES","VIEW_CHANNEL"],
+                },
+                {
+                  id: client.user.id,
+                  allow:["VIEW_CHANNEL","SEND_MESSAGES","MANAGE_CHANNELS","EMBED_LINKS","ATTACH_FILES","ADD_REACTIONS","MENTION_EVERYONE","MANAGE_MESSAGES","READ_MESSAGE_HISTORY"]
+                },
+                {
+                  id:staffrole,
+                  allow:["VIEW_CHANNEL","SEND_MESSAGES","READ_MESSAGE_HISTORY"]
+                },
+                {
+                  id: interaction.guild.roles.everyone,
+                  deny:["VIEW_CHANNEL"]
+                }
+                    ]
+            }).then(async c => {
+                    
+                   
+db.set(`ticket_${c.id}`, {ticketby : interaction.user.id,count:count,})
+                    
+await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
+لـ التفعيل قم بكتابة أيديك و قِطاعك و إرفاق دليل على قُبولك
+
+بعدها قم بالضغط على الزر الازرق المسمى بـ "التفعيل " . **__`, components:[row,row2] });
+await interaction.editReply({ content: ` __** تم إنشاء تكتك , ${c} . **__ `, ephemeral: true }).then(message => setTimeout(() => message.delete(), 10000));
+let e = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setTitle("إنشاء تكت !")
+.setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+.setThumbnail(interaction.guild.iconURL({dynamic:true}))
+.setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+                    .addFields( 
+                      {
+                        name:`__**التكت :**__`,
+                        value:`**"${c}","${c.id}"**`
+                      },
+                      {
+                        name:`__**صاحب التكت :**__`,
+                        value:`**"${interaction.user}"**`
+                      },
+                      {
+                        name:`__**رقم التكت :**__`,
+                        value:`**"${count}"**`
+                      },
+                    )
+                    log.send({ embeds:[e] });
+                  })
+//
+if(interaction.values[0] == 'd3mfne') {
+  interaction.reply({ content: ` __** re **__ ` }); 
+}
+              }}});
+
+              client.on("interactionCreate" , interaction => {
+                if (!interaction.isSelectMenu()) return;
+                 if (interaction.customId == "tktcomand") {
+                    if(interaction.values[0] == 'delete') {
+                    }
+                    if(interaction.values[0] == 'close') {
+                      let yes = new Discord.MessageButton()
+                      .setStyle("DANGER")
+                      .setLabel("نعم")
+                      .setCustomId("yes")
+                
+                      let no = new Discord.MessageButton()
+                      .setStyle("SECONDARY")
+                      .setLabel("لا")
+                      .setCustomId("no")
+                
+                      let row3 = new MessageActionRow()
+                      .addComponents([yes,no])
+                      let embed3 = new Discord.MessageEmbed()
+.setColor('RED')
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
+.setDescription(` __** هل أنت متأكد من إغلاق التكت ؟ , إذا كنت تريد إغلاقه قم بالضغط على "نعم"
+و إن كنت تريد الإلغاء قم بالضغط على "لا" **__ `)
+interaction.channel.send({ embeds:[embed3], components:[row3] });
+                    }
+                    if(interaction.values[0] == 'rename') {
+                      const modal4 = new ModalBuilder()
+                      .setCustomId('modal4')
+                      .setTitle('تغيير إسم تكت :')
+                            .addComponents(
+                          new ModalField()
+                      .setCustomId('name')
+                      .setLabel("الإسم الجديد ؟")
+                            .setRequired(true)
+                            .setPlaceholder("يرجى كتابة الإسم الجديد هنا ... ")
+                            .setMin(3)
+                            .setMax(1000)
+                      .setStyle('PARAGRAPH'),
+                            )
+                            client.modal.open(interaction , modal4);
+            }
+                }});
+
+                client.on('modalSubmitInteraction', async interaction => {
+                  if(interaction.customId == "modal4") {
+                    let ch = interaction.channel
+                    let ticketby = db.get(`ticketby_${interaction.user.id}`)
+                    let ticket = db.get(`ticket_${interaction.channel.id}`)
+                    let cy = interaction.guild.channels.cache.get("1050473695388385330")
+                    let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+                    let log = interaction.guild.channels.cache.find(c => c.id == chh)          
+                    let staffrole = interaction.guild.roles.cache.get("947815583959875614")
+                    //
+                    const name = interaction.fields.getTextInputValue("name")
+                ch.setName(name)
+                let embed7 = new Discord.MessageEmbed()
+                .setColor('RED')
+                .setDescription(` __** تم تغيير إسم التكت : ${ch} إلى : ${name} . **__ `)
+                interaction.channel.send({ embeds: [embed7] });
+                let member = client.users.cache.get(ticket.ticketby)
+let em = new Discord.MessageEmbed()
+.setColor("YELLOW")
+.setTitle("تغيير إسم تكت !")
+.setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+.setThumbnail(interaction.guild.iconURL({dynamic:true}))
+.setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+.addFields(
+  {
+    name:"__**التكت :**__",
+    value:`**"${ch},${ch.id},${ch.name}"**`
+  },
+  {
+    name:`__** صاحب التكت :**__`,
+    value:`**"${member}"**`
+  },
+  {
+    name:`__** إسم التكت الجديد :**__`,
+    value:`**"${name}"**`
+  },
+  {
+    name:`__** تم تغيير إسم التكت بواسطة :**__`,
+    value:`**"${interaction.user}"**`
+  }
+)
+if (log) {
+  log.send({ embeds:[em] });
+}
+}
+                  });
+
+client.on("interactionCreate" , interaction => {
+if (!interaction.isButton()) return;
+if (interaction.customId === "no") {
+interaction.reply({ content: ` __** حسناَ , تم إلغاء عملية إغلاق التكت ! **__ ` });
+interaction.message.delete()
+}
+//
+if (interaction.customId === "yes") {
+let ch = interaction.channel
+let ticketby = db.get(`ticketby_${interaction.user.id}`)
+let ticket = db.get(`ticket_${interaction.channel.id}`)
+let cy = interaction.guild.channels.cache.get("1050473695388385330")
+let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+let log = interaction.guild.channels.cache.find(c => c.id == chh)          
+let staffrole = interaction.guild.roles.cache.get("947815583959875614")
+//
+let d = new Discord.MessageButton()
+.setLabel(`حذف التكت`)
+.setEmoji("⛔")
+.setStyle("DANGER")
+.setCustomId("delete")
+let o = new Discord.MessageButton()
+.setLabel(`فتح التكت`)
+.setEmoji("🔓")
+.setStyle("PRIMARY")
+.setCustomId("reopen")
+let row4 = new MessageActionRow()
+.addComponents([o,d])
+let embed4 = new Discord.MessageEmbed()
+.setColor('RED')
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
+.setDescription(` __** ضوابط فريق الدعم : **__ `)
+//
+let e = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
+.setDescription(` __** تم إغلاق التكت بواسطة : ${interaction.user} **__ `)
+interaction.message.delete()
+
+let msg = interaction.channel.send({ embeds:[e] })
+
+ch.permissionOverwrites.edit(ticket.ticketby,{ VIEW_CHANNEL:false,SEND_MESSAGES:false, });
+ch.setName(`closed-${ticket.count}`)
+//
+ch.send({ embeds:[embed4], components:[row4] });
+let member = client.users.cache.get(ticket.ticketby)
+let em = new Discord.MessageEmbed()
+.setColor("YELLOW")
+.setTitle("إغلاق تكت !")
+.setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+.setThumbnail(interaction.guild.iconURL({dynamic:true}))
+.setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+.addFields(
+  {
+    name:"__**التكت :**__",
+    value:`**"${ch}"**`
+  },
+  {
+    name:`__** صاحب التكت :**__`,
+    value:`**"${member}"**`
+  },
+  {
+    name:`__** تم إغلاق التكت بواسطة :**__`,
+    value:`**"${interaction.user}"**`
+  }
+)
+if (log) {
+  log.send({ embeds:[em] });
+}
+}
+//
+let embed5 = new Discord.MessageEmbed()
+.setColor("RED")
+.setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
+if (interaction.customId === "delete") {
+  let ticketby = db.get(`ticketby_${interaction.user.id}`)
+let ticket = db.get(`ticket_${interaction.channel.id}`)
+  let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+let log = interaction.guild.channels.cache.find(c => c.id == chh)
+  let c = interaction.channel;
+  //
+   interaction.reply({ embeds: [embed5] }).then(async() => 
+    setTimeout(async() => {
+     await interaction.channel.delete()
+    let member = client.users.cache.get(ticket.ticketby)
+    let emd = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setTitle("حذف تكت !")
+    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+    .setThumbnail(interaction.guild.iconURL({dynamic:true}))
+    .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+    .addFields(
+      {
+        name:"__**التكت :**__",
+        value:`**"${c},${c.id},${c.name}"**`
+      },
+      {
+        name:`__** صاحب التكت :**__`,
+        value:`**"${member}"**`
+      },
+      {
+        name:`__** تم حذف التكت بواسطة :**__`,
+        value:`**"${interaction.user}"**`
+      }
+    )
+    if (log) {
+     await log.send({ embeds: [emd] });
+    }
+     await db.delete(`ticket_${c.id}`)
+    },4000))
+}
+//
+let embed6 = new MessageEmbed()
+.setColor("BLACK")
+.setDescription(` __** تم إعادة فتح التكت بواسطة : ${interaction.user} **__ `)
+if (interaction.customId === "reopen") {
+  let ticketby = db.get(`ticketby_${interaction.user.id}`)
+let ticket = db.get(`ticket_${interaction.channel.id}`)
+  let chh = dbb.get(`logtkt_${interaction.guild.id}`)
+let log = interaction.guild.channels.cache.find(c => c.id == chh)
+  let c = interaction.channel;
+  //
+   interaction.message.delete()
+c.permissionOverwrites.edit(ticket.ticketby,{VIEW_CHANNEL:true,SEND_MESSAGES:true})
+
+c.setName(`ticket-${ticket.count}`)
+     c.send({ embeds: [embed6] });
+     let member = client.users.cache.get(ticket.ticketby)
+     let emdr = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setTitle("إعادة فتح تكت !")
+    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+    .setThumbnail(interaction.guild.iconURL({dynamic:true}))
+    .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+    .addFields(
+      {
+        name:"__**التكت :**__",
+        value:`**"${c},${c.id},${c.name}"**`
+      },
+      {
+        name:`__** صاحب التكت :**__`,
+        value:`**"${member}"**`
+      },
+      {
+        name:`__** تم إعادة فتح التكت بواسطة :**__`,
+        value:`**"${interaction.user}"**`
+      }
+    )
+    if (log) {
+      log.send({ embeds: [emdr] });
+    }
+}
+  });
+
+  client.on("messageCreate", async message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix+"remove") || message.content.startsWith(prefix+"طرد") || message.content.startsWith("طرد") || message.content.startsWith("remove") || message.content.startsWith("$remove")) {
+      if (!message.member.permissions.has('ADMINISTRATOR'))
+      if (!message.member.roles.cache.has('980494296320999424'))
+        return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+  //
+  let ticket = db.get(`ticket_${message.channel.id}`)
+  if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  //
+  let log = message.guild.channels.cache.get('1006354092563644497')
+  let ch = message.channel;
+  //
+   let member = message.mentions.members.first();
+       let user = message.mentions.members.first();
+       if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+       if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إزالة نفسك ! **__ ` });
+        if(user.bot) return message.reply({ content: " __** لا يمكن إزالة البوتات :x: **__ " });
+        //
+      if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+    \`${prefix}لوق-التكت\` **__ ` });
+    // 
+  let embed = new Discord.MessageEmbed()
+.setColor("RED")
+.setDescription(` __** تم إزالة : ${user} من : ${ch} من قبل الإداري : ${message.author} **__ `)
+//
+await ch.permissionOverwrites.edit(user.user.id,{VIEW_CHANNEL:false,SEND_MESSAGES:false,READ_MESSAGE_HISTORY:false,})
+await message.reply({ embeds: [embed] });
+//
+let embed2 = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle("إزالة عضو من التكت !")
+.setAuthor({name: message.author.tag,iconURL: message.author.displayAvatarURL({dynamic:true})})
+.setThumbnail(message.guild.iconURL({dynamic:true}))
+.setFooter({text:`${message.guild.name}`,iconURL: message.guild.iconURL({dynamic:true})})
+.addFields(
+  {
+    name:"__**التكت :**__",
+    value:`**"${ch},${ch.id},${ch.name}"**`
+  },
+  {
+    name:`__** العضو اللي تم إزالته من التكت :**__`,
+    value:`**"${user}"**`
+  },
+  {
+    name:`__** تم إزالة العضو بواسطة :**__`,
+    value:`**"${message.author}"**`
+  }
+)
+  log.send({ embeds: [embed2] });
+}
+    });
+
+    client.on("messageCreate", async message => {
+      if(message.author.bot) return;
+        if(message.content.startsWith(prefix+"add") || message.content.startsWith(prefix+"اضافة") || message.content.startsWith("اضافة") || message.content.startsWith("add") || message.content.startsWith("$add")) {
+        if (!message.member.permissions.has('ADMINISTRATOR'))
+        if (!message.member.roles.cache.has('980494296320999424'))
+          return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+    //
+  let ticket = db.get(`ticket_${message.channel.id}`)
+  if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  //
+    let log = message.guild.channels.cache.get('1006354092563644497')
+    let ch = message.channel;
+    //
+     let member = message.mentions.members.first();
+         let user = message.mentions.members.first();
+         if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
+         if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك إدخال نفسك ! **__ ` });
+          if(user.bot) return message.reply({ content: " __** لا يمكن إدخال البوتات :x: **__ " });
+          //
+        if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+      \`${prefix}لوق-التكت\` **__ ` });
+      // 
+    let embed = new Discord.MessageEmbed()
+  .setColor("RED")
+  .setDescription(` __** تم إدخال : ${user} في : ${ch} من قبل الإداري : ${message.author} **__ `)
+  //
+  await ch.permissionOverwrites.edit(user.user.id,{VIEW_CHANNEL:true,SEND_MESSAGES:true,READ_MESSAGE_HISTORY:true,})
+  await message.reply({ embeds: [embed] });
+  //
+  let embed2 = new Discord.MessageEmbed()
+  .setColor("RED")
+  .setTitle("إدخال عضو إلى التكت !")
+  .setAuthor({name: message.author.tag,iconURL: message.author.displayAvatarURL({dynamic:true})})
+  .setThumbnail(message.guild.iconURL({dynamic:true}))
+  .setFooter({text:`${message.guild.name}`,iconURL: message.guild.iconURL({dynamic:true})})
+  .addFields(
+    {
+      name:"__**التكت :**__",
+      value:`**"${ch},${ch.id},${ch.name}"**`
+    },
+    {
+      name:`__** العضو الذي تم إدخاله من التكت :**__`,
+      value:`**"${user}"**`
+    },
+    {
+      name:`__** تم إدخال العضو بواسطة :**__`,
+      value:`**"${message.author}"**`
+    }
+  )
+    log.send({ embeds: [embed2] });
+  }
+      });
+
+      client.on("messageCreate", async message => {
+        if(message.author.bot) return;
+          if(message.content.startsWith(prefix+"close") || message.content.startsWith(prefix+"اقفال") || message.content.startsWith("اقفال") || message.content.startsWith("close") || message.content.startsWith("$close")) {
+          if (!message.member.permissions.has('ADMINISTRATOR'))
+          if (!message.member.roles.cache.has('980494296320999424'))
+            return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+       //
+  let ticket = db.get(`ticket_${message.channel.id}`)
+  if (!ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  //
+      let log = message.guild.channels.cache.get('1006354092563644497')
+      let ch = message.channel;
+      //
+          if(!dbb.has(`logtkt_${message.guild.id}`)) return message.reply({ content: ` __** يرجى تعيين لوق التكت قبل !
+        \`${prefix}لوق-التكت\` **__ ` });
+        // 
+        let yes = new Discord.MessageButton()
+        .setStyle("DANGER")
+        .setLabel("نعم")
+        .setCustomId("yes")
+  
+        let no = new Discord.MessageButton()
+        .setStyle("SECONDARY")
+        .setLabel("لا")
+        .setCustomId("no")
+  
+        let row3 = new MessageActionRow()
+        .addComponents([yes,no])
+        let embed3 = new Discord.MessageEmbed()
+.setColor('RED')
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
+.setDescription(` __** هل أنت متأكد من إغلاق التكت ؟ , إذا كنت تريد إغلاقه قم بالضغط على "نعم"
+و إن كنت تريد الإلغاء قم بالضغط على "لا" **__ `)
+message.channel.send({ embeds:[embed3], components:[row3] });
+          }
+        });
+
+     /*   client.on("messageCreate", message => {
+          if(message.author.bot) return;
+          if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
+          //
+  let ticket = db.get(`ticket_${message.channel.id}`)
+  if (ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  //
+          const duration = moment
+          .duration(client.uptime)
+          .format(" D [أيام], H [ساعات], m [دقائق], s [ثانية]");
+          //
+          let embed = new Discord.MessageEmbed()
+          .setTitle("المساعد الوزاري")
+          .addFields(
+            { name: '__**سيرفراتي :**__', value: `__**${client.guilds.cache.size}**__`},
+            { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${client.users.cache.size}**__`},
+            { name: '__**بنقي :**__ ', value: `__**${client.ws.ping}**__`},
+            { name: '__**متصل من :**__ ', value: `__**${duration}**__`},
+            { name: '__**المطور الخاص بي :**__ ', value: `__**<@${owner}>**__`},
+            { name: '__**إذا حاب تعرف أكثر عني :**__ ', value: `__**${prefix}توضيح**__`},
+          )
+          .setColor("#32496b")
+          message.reply({ embeds: [embed] });
+          }
+          }); */
 
 /* client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
