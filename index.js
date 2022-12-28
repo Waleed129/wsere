@@ -124,8 +124,8 @@ client.on('messageCreate', message => {
   }
 });
 
-client.on("messageCreate", message =>{
-if(message.content === prefix +"سيرفراتي"){
+client.on("messageCreate", message => {
+if(message.content === prefix +"سيرفراتي") {
 if(!owner.includes(message.author.id))return;
 /* client.guilds.cache.forEach(c => {
 message.channel.send(`${c.id} | ${c.name}`)
@@ -134,15 +134,16 @@ let servers = " ";
 let num = 0;
 client.guilds.cache.forEach(server =>{
 num = num + 1;
-servers += `\`${num}\` ${server.name} | ${server.id} \n `;
+servers += `= \`${num}\` ${server.name} | ${server.id} | ${server.users.cache.size} \n `;
 })
   //
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
-.setTitle
-.setDescription(`__** ${servers} **__`)
+.setTitle('عدد سيرفراتي !!!')
+.setDescription(`__** ${servers} / ${client.users..size} **__`)
+message.reply({ embeds: [embed] });
 //
-});
+}});
 
   client.on('messageCreate', async message => {
     if(message.author.bot) return;
