@@ -123,7 +123,23 @@ client.on('messageCreate', message => {
     guild.leave()
   }
 });
+/* 
+const members = message.guild.members.cache
 
+const channels = message.guild.channels.cache
+
+const roles = message.guild.roles.cache
+
+const emojis = message.guild.emojis.cache
+   
+   const ch = channels.filter(m => m.type === "GUILD_TEXT").size + channels.filter(m => m.type === "GUILD_VOICE").size
+   
+const embed = new MessageEmbed()
+
+.addField(`**Name :**`,`**${message.guild.name}**`)
+.addField(`**Id :**`,`**${message.guild.id}**`)
+.addField(`**Members : (${message.guild.memberCount})**`,`**${members.filter(m => m.presence?.status== 'online').size} Online\n${message.guild.premiumSubscriptionCount} Boosts**`)
+*/
 client.on("messageCreate", message => {
 if(message.content === prefix +"سيرفراتي") {
 if(!owner.includes(message.author.id))return;
