@@ -2689,7 +2689,6 @@ message.reply({ embeds: [embed] });
 });
 
 client.on('messageCreate', message => {
-if (message.guild.id == '980493720233316372') {
 if(message.author.bot) return;
 if(message.content.includes("كيف اترقى") || message.content.includes("اترقى")) {
 let embed = new Discord.MessageEmbed()
@@ -2705,7 +2704,11 @@ let embed = new Discord.MessageEmbed()
   
 # - 4 : تنظيمك و إحترامك **__ `)
 .setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
+if (message.guild.id == '980493720233316372') {
 message.reply({ embeds: [embed] });
+}
+if (message.guild.id == '996810757238968431') {
+message.reply({ content: ` __** عذراَ الأمر خاص بالعساكر ! **__ ` });
 }
 }
 });
@@ -4150,7 +4153,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     if (log) {
      await log.send({ embeds: [emdefds] });
     }
-     await db.delete(`ticket_${c.id}`)
+     await db.delete(`ticket_${interaction.c.id}`)
     },4000))
 }
 //
