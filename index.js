@@ -2710,7 +2710,7 @@ message.reply({ embeds: [embed] });
 }
 });
   
-client.on("messageCreate", message => {
+/* client.on("messageCreate", message => {
 if(message.author.bot) return;
 if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
 //
@@ -2731,7 +2731,7 @@ let embed = new Discord.MessageEmbed()
 .setColor("#32496b")
 message.reply({ embeds: [embed] });
 }
-});
+}); */
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
@@ -4339,12 +4339,40 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           }
         });
 
-     /*   client.on("messageCreate", message => {
+        client.on("messageCreate", message => {
           if(message.author.bot) return;
           if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
   let ticket = dbt.get(`ticket_${message.channel.id}`)
-  if (ticket) return message.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  let row2 = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التكت')
+    .setCustomId('tktcomand')
+    .addOptions([
+    {
+    label: 'حذف التكت',
+    description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
+    emoji: '☠️',
+    value: 'delete'
+    },
+    {
+      label: 'قفل التكت',
+      description: 'لـ قفل أحد التكتات (close) يرجى الضغط هنا',
+      emoji: '☠️',
+      value: 'close'
+      },
+      {
+        label: 'تغيير إسم التكت',
+        description: 'لـ تغيير إسم أحد التكتات يرجى الضغط هنا',
+        emoji: '☠️',
+        value: 'rename'
+        } 
+    ])
+    )
+  if (ticket) return message.reply({ components:[row2] });
   //
           const duration = moment
           .duration(client.uptime)
@@ -4363,7 +4391,7 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           .setColor("#32496b")
           message.reply({ embeds: [embed] });
           }
-          }); */
+          }); 
 
 /* client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
