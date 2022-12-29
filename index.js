@@ -4381,12 +4381,11 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           .duration(client.uptime)
           .format(" D [أيام], H [ساعات], m [دقائق], s [ثانية]");
           //
-          const members = client.guilds.members;
           let embed = new Discord.MessageEmbed()
           .setTitle("المساعد الوزاري")
           .addFields(
             { name: '__**سيرفراتي :**__', value: `__**${client.guilds.cache.size}**__`},
-            { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${members}**__`},
+           // { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${server.memberCount}**__`},
             { name: '__**بنقي :**__ ', value: `__**${client.ws.ping}**__`},
             { name: '__**متصل من :**__ ', value: `__**${duration}**__`},
             { name: '__**المطور الخاص بي :**__ ', value: `__**<@${owner}>**__`},
@@ -4395,7 +4394,7 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           .setColor("#32496b")
           message.reply({ embeds: [embed] });
           }
-          }); 
+});
 
 /* client.on("messageCreate", wolf => {
   if (wolf.content == "تفعيل") {
