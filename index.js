@@ -1706,7 +1706,7 @@ member.roles.add(mfsol)
 //
 });
 
- client.on("messageCreate", async message => {
+ /* client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"role")) {
  let member = message.mentions.members.first();
@@ -2349,7 +2349,7 @@ let astfaf = message.guild.roles.cache.get('1049754868144939108');
       message.reply({ content: ` __** عذراً أمر الرول موقف . **__ ` });
 }
     //
-}}); 
+}}); */
 
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
@@ -2533,7 +2533,7 @@ message.channel.send({ embeds: [embed] })
 }
 });
 
- const id = '1034841770183381012';
+ const id = '1054088577203580928';
 client.on("messageCreate", message => {
 if (message.author.bot || !message.channel.guild) return;
 if(id.includes(message.channel.id)){
@@ -2596,7 +2596,7 @@ message.delete();
 }
 });
 
-/* client.on('messageCreate', message => {
+client.on('messageCreate', message => {
 if (message.content.toLowerCase().startsWith(prefix+"ping".toLowerCase())) {
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
@@ -2605,7 +2605,7 @@ let embed = new Discord.MessageEmbed()
   //
 message.channel.send({ embeds: [embed] });
 }
-}); */
+}); 
 
 client.on('guildMemberAdd', message => {
 if (message.guild.id === "980493720233316372") {
@@ -4127,7 +4127,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     setTimeout(async() => {
      await interaction.channel.delete()
     let member = client.users.cache.get(ticket.ticketby)
-    let emd = new Discord.MessageEmbed()
+    let emdefds = new Discord.MessageEmbed()
     .setColor("RED")
     .setTitle("حذف تكت !")
     .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
@@ -4148,7 +4148,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
       }
     )
     if (log) {
-     await log.send({ embeds: [emd] });
+     await log.send({ embeds: [emdefds] });
     }
      await db.delete(`ticket_${c.id}`)
     },4000))
