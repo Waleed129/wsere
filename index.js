@@ -135,15 +135,14 @@ let num = 0;
 client.guilds.cache.forEach(server =>{
 let members = server.members.cache
 num = num + 1;
-servers += `= \`${num}\` ${server.name} | ${server.id} | ${server.memberCount} | ${members.filter(m => m.presence?.status== 'online').size} Online | ${server.premiumSubscriptionCount} Boosts \n `;
-})
-  //
+servers += `السيرفر الـ "\`${num}\`" إسم السيرفر : "${server.name}" | أيدي السيرفر : ${server.id} | عدد أعضاء السيرفر : "${server.memberCount}" \n`;})
+//
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
 .setTitle('عدد سيرفراتي !!!')
-.addField(`**${members.filter(member => member.presence?.status === 'online').size + members.filter(member => member.presence?.status === 'idle').size + members.filter(member => member.presence?.status === 'dnd').size}** Online | Idle | DND\n**${members.filter(member => !['online', 'idle', 'dnd'].includes(member.presence?.status)).size}** Offline\n**${members.filter(member => member.user.bot).size}** Bot``)
 .setDescription(`__** ${servers} **__`)
-message.reply({ embeds: [embed] });
+// message.reply({ embeds: [embed] });
+message.reply({ content: ` ** ${servers} **` });
 //
 }});
 
@@ -4382,11 +4381,12 @@ message.channel.send({ embeds:[embed3], components:[row3] });
           .duration(client.uptime)
           .format(" D [أيام], H [ساعات], m [دقائق], s [ثانية]");
           //
+          const members = client.guilds.members;
           let embed = new Discord.MessageEmbed()
           .setTitle("المساعد الوزاري")
           .addFields(
             { name: '__**سيرفراتي :**__', value: `__**${client.guilds.cache.size}**__`},
-            { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${client.users.cache.size}**__`},
+            { name: '__** عدد اعضاء سيرفراتي :**__', value: `__**${members}**__`},
             { name: '__**بنقي :**__ ', value: `__**${client.ws.ping}**__`},
             { name: '__**متصل من :**__ ', value: `__**${duration}**__`},
             { name: '__**المطور الخاص بي :**__ ', value: `__**<@${owner}>**__`},
