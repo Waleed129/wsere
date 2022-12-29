@@ -123,23 +123,7 @@ client.on('messageCreate', message => {
     guild.leave()
   }
 });
-/* 
-const members = message.guild.members.cache
 
-const channels = message.guild.channels.cache
-
-const roles = message.guild.roles.cache
-
-const emojis = message.guild.emojis.cache
-   
-   const ch = channels.filter(m => m.type === "GUILD_TEXT").size + channels.filter(m => m.type === "GUILD_VOICE").size
-   
-const embed = new MessageEmbed()
-
-.addField(`**Name :**`,`**${message.guild.name}**`)
-.addField(`**Id :**`,`**${message.guild.id}**`)
-.addField(`**Members : (${message.guild.memberCount})**`,`**${members.filter(m => m.presence?.status== 'online').size} Online\n${message.guild.premiumSubscriptionCount} Boosts**`)
-*/
 client.on("messageCreate", message => {
 if(message.content === prefix +"سيرفراتي") {
 if(!owner.includes(message.author.id))return;
@@ -149,15 +133,16 @@ message.channel.send(`${c.id} | ${c.name}`)
 let servers = " "; 
 let num = 0;
 client.guilds.cache.forEach(server =>{
-//server.members.cache.size;
+let members = server.members.cache
 num = num + 1;
-servers += `= \`${num}\` ${server.name} | ${server.id} | n `;
+servers += `= \`${num}\` ${server.name} | ${server.id} | ${server.memberCount} | ${members.filter(m => m.presence?.status== 'online').size} Online | ${server.premiumSubscriptionCount} Boosts \n `;
 })
   //
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
 .setTitle('عدد سيرفراتي !!!')
-.setDescription(`__** ${servers} | ${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size} **__`)
+.addField(`**${members.filter(member => member.presence?.status === 'online').size + members.filter(member => member.presence?.status === 'idle').size + members.filter(member => member.presence?.status === 'dnd').size}** Online | Idle | DND\n**${members.filter(member => !['online', 'idle', 'dnd'].includes(member.presence?.status)).size}** Offline\n**${members.filter(member => member.user.bot).size}** Bot``)
+.setDescription(`__** ${servers} **__`)
 message.reply({ embeds: [embed] });
 //
 }});
