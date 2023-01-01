@@ -25,10 +25,10 @@ const {
 const embed = new Discord.MessageEmbed();
 const discord = require("discord.js");
 const reply = require("discord-reply");
-const mongoose = require("mongoose");
 const fs = require(`fs`);
 const canvas = require("canvas");
 const { registerFont } = require("canvas");
+const mongoose = require("mongoose");
 const { MessageEmbed } = require("discord.js");
 const ms = require("ms");
 const { joinVoiceChannel } = require('@discordjs/voice');
