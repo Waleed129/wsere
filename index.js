@@ -69,7 +69,9 @@ const { DiscordModal, ModalBuilder, ModalField } = require("discord-modal");
 DiscordModal(client);
 const cooldown = new Set();
 // تحضير
-
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058446210513502349/fdbd8ca84ac31ec0.jpg");
+// خط
 const prefix = "-"; // البرفكس
 
 client.on("ready", () => {
@@ -2937,8 +2939,6 @@ client.on('messageCreate', message => {
 }); // تنبيهات الإدارة
 
 client.on('messageCreate', message => {
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
-let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
 if (message.content === "خط"||message.content === "لاين"|| message.content === "line" ) {
 //
 if (message.guild.id == '980493720233316372') {
