@@ -2564,7 +2564,7 @@ embed.setImage(attachm.proxyURL)
 message.channel.send({ embeds: [embed], components: [row] }).then(c => {
 c.react('981644790649217054').then(() =>
 c.react('981644850350927973'))
-message.channel.send({ content: "https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png" })
+message.channel.send({ files: [line] });
 })
 }}); 
 
@@ -2581,7 +2581,7 @@ if (!args) return message.reply({ content: ' __** ❌ أرسل النص !! **__ 
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
 .setDescription(`${args}`)
-.setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+.setImage(`${line}`)
 //
 message.channel.send({ embeds: [embed] });
 message.delete();
@@ -2590,7 +2590,7 @@ if (message.guild.id == '996810757238968431') {
 let embed2 = new Discord.MessageEmbed() 
 .setColor("RED")
 .setDescription(`${args}`)
-.setImage(`https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png`)
+.setImage(`${line2}`)
 //
 message.channel.send({ embeds: [embed2] });
 message.delete();
@@ -2684,7 +2684,7 @@ let embed = new Discord.MessageEmbed()
 عشان تعرف تحاضيرك او تحاضير غيرك : 
 
 > ${prefix}تحاضيري **__`)
-.setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
+.setImage(`${line}`)
 message.reply({ embeds: [embed] });
 }
 }
@@ -2705,7 +2705,7 @@ let embed = new Discord.MessageEmbed()
 # - 3 : الإلتزام بالبروتوكولات و البنود
   
 # - 4 : تنظيمك و إحترامك **__ `)
-.setImage(`https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png`)
+.setImage(`${line}`)
 if (message.guild.id == '980493720233316372') {
 message.reply({ embeds: [embed] });
 }
@@ -2740,7 +2740,6 @@ message.reply({ embeds: [embed] });
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '980494406836690997') return;
   if (message) {
