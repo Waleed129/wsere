@@ -69,7 +69,7 @@ const { DiscordModal, ModalBuilder, ModalField } = require("discord-modal");
 DiscordModal(client);
 const cooldown = new Set();
 // تحضير
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
+let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058445850730315776/f9e162250956dfd1.jpg");
 let line2 = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/982409404043374602/1058446210513502349/fdbd8ca84ac31ec0.jpg");
 // خط
 const prefix = "-"; // البرفكس
@@ -2760,7 +2760,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031233706473553992') return;
   if (message) {
@@ -2770,7 +2769,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031239658434203748') return;
   if (message) { message.channel.send({ files: [line] })};
@@ -2778,7 +2776,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031239641036238928') return;
   if (message) {
@@ -2788,7 +2785,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031241528758255646') return;
   if (message) {
@@ -2798,7 +2794,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031300288931442758') return;
   if (message) {
@@ -2808,7 +2803,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031300309970063453') return;
   if (message) {
@@ -2818,7 +2812,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031300271181140008') return;
   if (message) {
@@ -2828,7 +2821,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031301741305675846') return;
   if (message) {
@@ -2838,7 +2830,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031301760884691064') return;
   if (message) {
@@ -2848,7 +2839,6 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
   if (message.guild.id !== '980493720233316372') return;
   if (message.channel.id !== '1031302781497266306') return;
   if (message) {
@@ -2860,81 +2850,73 @@ client.on('messageCreate', message => {
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '996820476892545134') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تنبيهات السيرفر
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052229264826695680') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); //  تعاميم العصابات
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052483847138316288') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تنبيهات المسؤولين
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052483360347410492') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تعاميم بلود
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052484098612023396') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تعاميم مافيا
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '998951084565483620') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تعاميم بيكي
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052484861144870932') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تعاميم بلاك
 
 client.on('messageCreate', message => {
   if (message.author.bot) return;
-  let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png");
   if (message.guild.id !== '996810757238968431') return;
   if (message.channel.id !== '1052485625904898058') return;
   if (message) {
-    message.channel.send({ files: [line] });
+    message.channel.send({ files: [line2] });
   }
 }); // تنبيهات الإدارة
 
@@ -3308,7 +3290,6 @@ client.on('modalSubmitInteraction', async interaction => {
      let codes = dbp.get(`codes_${interaction.guild.id}`)
      let ch = dbp.get(`channel1_${interaction.guild.id}`)
      let channel1 = interaction.guild.channels.cache.find(c => c.id == ch)
-let line = new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png");
 const name = interaction.fields.getTextInputValue("name")
 const id = interaction.fields.getTextInputValue("id")
 const sector = interaction.fields.getTextInputValue("sector")
