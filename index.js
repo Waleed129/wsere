@@ -2588,7 +2588,7 @@ let o3 = new Discord.MessageButton()
 let row3 = new MessageActionRow()
 .addComponents([o3,d3])
 //
-let collector = m.createMessageComponentCollector({ filter: i => i.user.id === message.author.id, time: 3600000})
+let collector = message.channel.createMessageComponentCollector({ filter: i => i.user.id === message.author.id, time: 3600000})
 
     collector.on('collect', i => {
       if(i.customId === 'inforole') {
