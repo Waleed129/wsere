@@ -3481,26 +3481,6 @@ client.on("messageCreate", async message => {
 if(message.author.bot) return;
 let user = message.mentions.users.first() || message.author;
 //
-if(message.content.startsWith(prefix+"نقاطي")) {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('980494295444361216'))
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-if(!user){
-
-user = message.author;
-}
-//
-if(!dbb.has(`pointsstaff_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
-let points = dbb.get(`pointsstaff_${user.id}`);
-message.reply({ content: ` __** عدد تحضيرات العسكري <@${user.id}>
-
-هيا : "${points || 0}" **__ ` })
-}});
-
-client.on("messageCreate", async message => {
-if(message.author.bot) return;
-let user = message.mentions.users.first() || message.author;
-//
 if(message.content.startsWith(prefix+"تحضيراتي")) {
 if (message.guild.id == '980493720233316372') {
 if (!message.member.permissions.has('ADMINISTRATOR'))
