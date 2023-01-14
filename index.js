@@ -2504,12 +2504,13 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
   
 client.on("guildCreate", guild => {
   if (guild.memberCount < 100000000) {
+    owner.send({ content:` __** تم إدخالي لـ ${guild.guild.name},${guild.guild.id} و لكني خرجت . **__ ` });
     guild.leave()
   }
-});
+}); 
 
 client.on('messageCreate', message => {
-        if(message.author.bot) return;
+if(message.author.bot) return;
 if (message.guild.id == '980493720233316372') {
 if (message.content === 'التحضيرالعسكري') {
 let embed = new Discord.MessageEmbed()
