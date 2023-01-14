@@ -302,6 +302,7 @@ client.on("messageCreate" , message => {
   }
 });
 
+
 client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"تفعيل")) {
@@ -339,17 +340,11 @@ client.on("messageCreate", async message => {
         value: '8wat5a9h'
         },
     {
-    label: 'الأمن-العام',
-    description: 'لـ تفعيل شخص بـ قطاع الأمن العام',
+    label: 'الشرطة-العسكرية',
+    description: 'لـ تفعيل شخص بـ قطاع الشرطة العسكرية',
     emoji: '👮🏻‍♂️',
     value: 'amn3am'
-    },
-    {
-      label: 'امن-الطرق',
-      description: 'لـ تفعيل شخص بـ قطاع امن الطرق',
-      emoji: '👮🏼‍♂️',
-      value: '7rs7dod'
-      }
+    }
     ])
     )
     let embed = new Discord.MessageEmbed()
@@ -361,7 +356,7 @@ client.on("messageCreate", async message => {
     
       collector.on('collect', async i => {
       if (i.customId == "tf3el") {
-      if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
+    /*  if(i.values[0] === '7rs7dod' || i.values[1] === '7rs7dod') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
         if (!i.member.roles.cache.has('980494296320999424'))
           return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
@@ -404,7 +399,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
         m.delete();  
-    }
+    } */
     //
          if(i.values[0] === 'amn3am' || i.values[1] === 'amn3am') {
         if (!i.member.permissions.has('ADMINISTRATOR'))
@@ -437,8 +432,8 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
       //
-           //
-  dbb.add(`pointsstaff_${i.author.id}`, 1)
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
 //
       dbb.add(`codeamn_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( G-${count || 0} )`);
@@ -448,7 +443,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
@@ -485,7 +480,10 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         .setTimestamp()
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
-      //
+      //      
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
+//
       dbb.add(`code8wat_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( S-${count || 0} )`);
       gwat5a9h.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : S-${count || 0} \n قطاعه : <@&980494318580162590> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
@@ -494,7 +492,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : S-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
@@ -502,11 +500,9 @@ m.delete();
     }
     }
     })
-  }
+   } 
     // عصابات
 if (message.guild.id == '996810757238968431') {
-
-
  if (!message.member.permissions.has('ADMINISTRATOR'))
         //
         if (!message.member.roles.cache.has('996820405828464742'))
@@ -582,6 +578,9 @@ if (message.guild.id == '996810757238968431') {
         member.roles.add(h9o);
         member.roles.add(blood);
         //
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
+//
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو ذا اند : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في ذا إند رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
@@ -597,7 +596,7 @@ if (message.guild.id == '996810757238968431') {
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
@@ -620,7 +619,10 @@ if (message.guild.id == '996810757238968431') {
         //
         member.roles.add(h9o);
         member.roles.add(mafua);
-        //
+              //      
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
+//
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو ذا لوست : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في ذا لوست ام سي رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
@@ -636,7 +638,7 @@ if (message.guild.id == '996810757238968431') {
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
@@ -659,7 +661,10 @@ if (message.guild.id == '996810757238968431') {
         //
         member.roles.add(h9o);
         member.roles.add(peaky);
-        //
+              //      
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
+//
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو لا كاسا : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في لا كاسا دي بابل رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
@@ -675,7 +680,7 @@ if (message.guild.id == '996810757238968431') {
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
@@ -698,7 +703,10 @@ if (message.guild.id == '996810757238968431') {
         //
         member.roles.add(h9o);
         member.roles.add(blackmarkt);
-        //
+              //      
+  dbb.add(`pointsstaff_${message.author.id}`, 1)
+  let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
+//
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو البلاك : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في البلاك نايت رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
@@ -714,7 +722,7 @@ if (message.guild.id == '996810757238968431') {
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
@@ -3507,53 +3515,154 @@ message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__
 }
 }});
 
-client.on("messageCreate", (message) => {
-if(message.author.bot) return;
-if (message.content.startsWith(prefix+"توب")) {
-
-if (message.guild.id == '980493720233316372') {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('980494295444361216'))
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-const usersData = []
-message.guild.members.cache.forEach(user => { usersData.push(user) })
-var pointsContent = usersData.length;
-let usersContent = 0;
-let usersMaxContent = 21;
-let tempData = [];
-for (let i = 0; i < pointsContent; i++) {
-var database = dbp.fetch(`Police_${usersData[i].id}`)
-if (database == null) continue;
- 
-tempData.push({
-name: usersData[i].user.id,
-data: database
-});
-}
-const leaderboardData = []
-tempData.sort((a, b) => b.data - a.data);
-for (let k = 0; k < tempData.length; k++) {
-usersContent++
-if (usersContent >= usersMaxContent) continue;
-leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ العسكري : "<@!${tempData[k].name}>" بتحاضير تقدر بـ : "${tempData[k].data}" . **__` )}
-var topValue = leaderboardData.join('\n')
-let embed = new Discord.MessageEmbed()
-.setTitle("التوب الوزاري")
-.setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
-.setDescription(topValue)
-.setTimestamp()
-.setColor(`#32496b`)
-message.reply({ embeds: [embed] });
-}
+client.on("messageCreate", async message => {
+  if(message.author.bot) return;
+  let user = message.mentions.users.first() || message.author;
+  if(message.content.startsWith(prefix+"نقاطي")) {
+    //
+  if (!message.member.permissions.has('ADMINISTRATOR'))
+  if (!message.member.roles.cache.has('980494295444361216'))
+  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+  if(!user) { user = message.author };
+  //
+  if(!dbb.has(`pointsstaff_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
+  let countstaff = dbb.get(`pointsstaff_${user.id}`);
+  message.reply({ content: ` __** عدد نقاط الإداري <@${user.id}>
+  
+  هيا : "${countstaff || 0}" **__ ` })
+  }});
+  
+  client.on("messageCreate", (message) => {
+  if(message.author.bot) return;
+  if (message.content.startsWith(prefix+"توب")) {
+  if (message.guild.id == '980493720233316372') {
+  if (!message.member.permissions.has('ADMINISTRATOR'))
+  if (!message.member.roles.cache.has('980494295444361216'))
+  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+  //
+let d = new Discord.MessageButton()
+.setLabel(`االتوب الوازري`)
+.setEmoji("💂🏻")
+.setStyle("SECONDARY")
+.setCustomId("toppolice")
+let o = new Discord.MessageButton()
+.setLabel(`التوب الإداري`)
+.setEmoji("🌚")
+.setStyle("SECONDARY")
+.setCustomId("topstaff")
+let row = new MessageActionRow()
+.addComponents([o,d])
 //
-if (message.guild.id == '996810757238968431') {
-if (!message.member.permissions.has('ADMINISTRATOR'))
-if (!message.member.roles.cache.has('996820405828464742')) 
-return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
-message.delete();
-message.channel.send({ content: ` __** الأمر خاص بالعساكر ! **__ ` });
-}
-}});
+message.reply({ content: ` __** يرجى التحديد التوب الوزاري أم الإداري ؟ **__ `, components: [row] });
+//
+const collector = message.channel.createMessageComponentCollector({ componentType: "BUTTON" });
+
+    collector.on('collect', i => {
+      if(i.customId === 'toppolice') {
+        const usersData = []
+        message.guild.members.cache.forEach(user => { usersData.push(user) })
+        var pointsContent = usersData.length;
+        let usersContent = 0;
+        let usersMaxContent = 16;
+        let tempData = [];
+        for (let i = 0; i < pointsContent; i++) {
+        var database = dbp.fetch(`Police_${usersData[i].id}`)
+        if (database == null) continue;
+         
+        tempData.push({
+        name: usersData[i].user.id,
+        data: database
+        });
+        }
+        const leaderboardData = []
+        tempData.sort((a, b) => b.data - a.data);
+        for (let k = 0; k < tempData.length; k++) {
+        usersContent++
+        if (usersContent >= usersMaxContent) continue;
+        leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ العسكري : "<@!${tempData[k].name}>" بتحاضير تقدر بـ : "${tempData[k].data}" . **__` )}
+        var topValue = leaderboardData.join('\n')
+        let embed = new Discord.MessageEmbed()
+        .setTitle("التوب الوزاري")
+        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setDescription(topValue)
+        .setTimestamp()
+        .setColor(`#32496b`)
+        i.message.edit({ embeds: [embed] });
+              }
+  //
+    if(i.customId === 'topstaff') {
+      const usersData = []
+      message.guild.members.cache.forEach(user => { usersData.push(user) })
+      var pointsContent = usersData.length;
+      let usersContent = 0;
+      let usersMaxContent = 16;
+      let tempData = [];
+      for (let i = 0; i < pointsContent; i++) {
+      var database = dbb.fetch(`pointsstaff_${usersData[i].id}`)
+      if (database == null) continue;
+       
+      tempData.push({
+      name: usersData[i].user.id,
+      data: database
+      });
+      }
+      const leaderboardData = []
+      tempData.sort((a, b) => b.data - a.data);
+      for (let k = 0; k < tempData.length; k++) {
+      usersContent++
+      if (usersContent >= usersMaxContent) continue;
+      leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ الإداري : "<@!${tempData[k].name}>" بـ نقاط تقدر بـ : "${tempData[k].data}" . **__` )}
+      var topValue = leaderboardData.join('\n')
+      let embed = new Discord.MessageEmbed()
+      .setTitle("التوب الإداري")
+      .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+      .setDescription(topValue)
+      .setTimestamp()
+      .setColor(`#32496b`)
+      i.message.edit({ embeds: [embed] });
+          }
+  });
+  //
+  collector.on('end', collected => {
+    console.log(`Collected ${collected.size} items`);
+  });
+   }
+  //
+   if (message.guild.id == '996810757238968431') {
+  if (!message.member.permissions.has('ADMINISTRATOR'))
+  if (!message.member.roles.cache.has('996820405828464742')) 
+  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+  const usersData = []
+  message.guild.members.cache.forEach(user => { usersData.push(user) })
+  var pointsContent = usersData.length;
+  let usersContent = 0;
+  let usersMaxContent = 16;
+  let tempData = [];
+  for (let i = 0; i < pointsContent; i++) {
+  var database = dbb.fetch(`pointsstaff_${usersData[i].id}`)
+  if (database == null) continue;
+   
+  tempData.push({
+  name: usersData[i].user.id,
+  data: database
+  });
+  }
+  const leaderboardData = []
+  tempData.sort((a, b) => b.data - a.data);
+  for (let k = 0; k < tempData.length; k++) {
+  usersContent++
+  if (usersContent >= usersMaxContent) continue;
+  leaderboardData.push(` __** المركز الـ "\`${k + 1}\`" يذهب لـ الإداري : "<@!${tempData[k].name}>" بـ نقاط تقدر بـ : "${tempData[k].data}" . **__` )}
+  var topValue = leaderboardData.join('\n')
+  let embed = new Discord.MessageEmbed()
+  .setTitle("التوب الإداري")
+  .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+  .setDescription(topValue)
+  .setTimestamp()
+  .setColor(`#32496b`)
+  message.edit({ embeds: [embed] });
+  }
+  }});
 
 client.on("messageCreate" , message => {
   if(message.content.startsWith(prefix+"شات-التقديمات")) {
