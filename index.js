@@ -2588,7 +2588,7 @@ let o3 = new Discord.MessageButton()
 let row3 = new MessageActionRow()
 .addComponents([o3,d3])
 //
-const collector = message.channel.createMessageComponentCollector({ componentType: "BUTTON" });
+let collector = m.createMessageComponentCollector({ filter: i => i.user.id === message.author.id, time: 3600000})
 
     collector.on('collect', i => {
       if(i.customId === 'inforole') {
@@ -2599,7 +2599,7 @@ const collector = message.channel.createMessageComponentCollector({ componentTyp
 let num = 0;
 //
             const generateEmbed = start => {
-              const current = inroles.slice(start, start + 20)
+              const current = inroles.slice(start, start + 30)
               num = num + 1;
               const panteq = current.join(`\n`)
               const embed = new Discord.MessageEmbed()
