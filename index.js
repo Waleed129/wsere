@@ -3525,7 +3525,7 @@ client.on("messageCreate", async message => {
   return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
   if(!user) { user = message.author };
   //
-  if(!dbb.has(`pointsstaff_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
+  if(!dbb.has(`pointsstaff_${user.id}`)) return message.reply({ content: ` __** لا توجد نقاط لـ <@${user.id}> ! :x: **__ ` })
   let countstaff = dbb.get(`pointsstaff_${user.id}`);
   message.reply({ content: ` __** عدد نقاط الإداري <@${user.id}>
   
