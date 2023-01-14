@@ -3591,6 +3591,9 @@ const collector = message.channel.createMessageComponentCollector({ componentTyp
               }
   //
     if(i.customId === 'topstaff') {
+        if (!i.member.permissions.has('ADMINISTRATOR'))
+        if (!i.member.roles.cache.has('980494296320999424'))
+          return i.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' , ephemeral: true });
       const usersData = []
       message.guild.members.cache.forEach(user => { usersData.push(user) })
       var pointsContent = usersData.length;
@@ -5075,4 +5078,4 @@ await cooldown.delete(user.id)
   }
 }); */
 
-// client.login(process.env.token) 
+client.login(process.env.token) 
