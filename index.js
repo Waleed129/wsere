@@ -318,7 +318,7 @@ client.on("messageCreate", async message => {
   \`${prefix}لوق-التفعيل\` **__ ` });
     //
       if (!member) return message.reply({ content: ' __** منشن العسكري **__ ' });
-     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
+//     if(message.author.id == user.id) return message.reply({ content: ` __** لا يمكنك تفعيل نفسك ! **__ ` });
       if(user.bot) return message.reply({ content: " __** لا يمكن تفعيل البوتات :x: **__ " });
         //
   let idps4 = message.content.split(' ').slice(2).join(' ')
@@ -397,7 +397,6 @@ client.on("messageCreate", async message => {
 hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : T-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
-            dbb.add(`pointsstaff_${message.author.id}`, 1)
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
@@ -438,6 +437,9 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         .setColor("#11e2e2")
         i.channel.send({ embeds: [embed] });
       //
+           //
+  dbb.add(`pointsstaff_${i.author.id}`, 1)
+//
       dbb.add(`codeamn_${message.guild.id}`, 1)
       user.setNickname(`${idps4} ( G-${count || 0} )`);
       amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : G-${count || 0} \n قطاعه : <@&980494327371399218> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
@@ -2502,12 +2504,164 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
   }
 });
   
-client.on("guildCreate", guild => {
+ client.on("guildCreate", guild => {
   if (guild.memberCount < 100000000) {
-    owner.send({ content:` __** تم إدخالي لـ ${guild.guild.name},${guild.guild.id} و لكني خرجت . **__ ` });
     guild.leave()
   }
 }); 
+
+
+  client.on("messageCreate", (message) => {
+    if(message.author.bot) return;
+    if (message.content.startsWith(prefix+"info")) {
+      let args = message.content.split(" ");			
+  let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);
+if(!role) role = message.guild.roles.cache.find(r => r.id == args[1]);
+if(!role) { message.reply({ content: ` __** منشن الرتبة ! **__ ` });
+return message.delete();
+};
+//
+const visible = {
+  false: "لا",
+  true: "نعم"
+};
+//
+const status = {
+  false: "لا",
+  true: "نعم"
+};
+const inforolesize = role.members.size;
+//
+let d = new Discord.MessageButton()
+.setLabel(`عرض من يملك الرتبة`)
+.setEmoji("🌚")
+.setStyle("SECONDARY")
+.setCustomId("inforole")
+let o = new Discord.MessageButton()
+.setLabel(`عرض صلاحيات الرتبة`)
+.setEmoji("🌚")
+.setStyle("PRIMARY")
+.setCustomId("rolepermission")
+let row = new MessageActionRow()
+.addComponents([o,d])
+// 
+let embed = new Discord.MessageEmbed()
+.setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+.setTitle(`معلومات عامة عن رتبت : "\`${role.name}\`"`)
+.setDescription(`__** إسم الرتبة و الأيدي الخاص بها : ${role.name},${role.id} \n لون الرتبة : ${role.hexColor} \n عدد من يملكون الرتبة هو : ${inforolesize} \n رقم الرتبة : ${role.position} \n الرتبة مرئية ام لا : ${visible[role.hoist]} \n هل المنشن مفتوح للرتبة : ${status[role.mentionable]} \n تم إنشاء الرتبة في : \`${role.createdAt.toLocaleString()}\`**__`)
+.setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+.setTimestamp()
+.setColor(`#32496b`)
+let m = message.reply({ embeds: [embed],components:[row] });
+//
+let d2 = new Discord.MessageButton()
+.setLabel(`عرض معلومات الرتبة`)
+.setEmoji("🌚")
+.setStyle("SECONDARY")
+.setCustomId("m3lomatrole")
+let o2 = new Discord.MessageButton()
+.setLabel(`عرض صلاحيات الرتبة`)
+.setEmoji("🌚")
+.setStyle("PRIMARY")
+.setCustomId("rolepermission")
+let row2 = new MessageActionRow()
+.addComponents([o2,d2])
+//
+let d3 = new Discord.MessageButton()
+.setLabel(`عرض معلومات الرتبة`)
+.setEmoji("🌚")
+.setStyle("SECONDARY")
+.setCustomId("m3lomatrole")
+let o3 = new Discord.MessageButton()
+.setLabel(`عرض من يملك الرتبة`)
+.setEmoji("🌚")
+.setStyle("SECONDARY")
+.setCustomId("inforole")
+let row3 = new MessageActionRow()
+.addComponents([o3,d3])
+//
+const collector = message.channel.createMessageComponentCollector({ componentType: "BUTTON" });
+
+    collector.on('collect', i => {
+      if(i.customId === 'inforole') {
+        let arr = new Array();
+        role.members.forEach(user => { arr.push(`<@${user.id}>`)});
+        const inroles = arr
+        //
+let num = 0;
+//
+            const generateEmbed = start => {
+              const current = inroles.slice(start, start + 20)
+              num = num + 1;
+              const panteq = current.join(`\n`)
+              const embed = new Discord.MessageEmbed()
+        .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setTitle(`من يملك رتبة ; "\`${role.name}\`" هم :`)
+        .setDescription(`__** ${panteq} **__`)
+        .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+        .setTimestamp()
+        .setColor(`#32496b`)
+        return i.message.edit({ embeds: [embed],components:[row2] });
+        }
+        i.message.edit(generateEmbed(0))
+              }
+      if(i.customId === 'm3lomatrole') {
+i.message.edit({ embeds: [embed],components:[row] });
+    }
+    if(i.customId === 'rolepermission') {
+      const permissions = {
+        "ADMINISTRATOR": "ادمن ستريتر",
+        "VIEW_AUDIT_LOG": "رؤية لوق السيرفر",
+        "VIEW_GUILD_INSIGHTS": "رؤية صلاحيات السلاش كوماند",
+        "MANAGE_GUILD": "منج سيرفر",
+        "MANAGE_ROLES": "منج رول",
+        "MANAGE_CHANNELS": "منج شانيل",
+        "KICK_MEMBERS": "طرد الأعضاء",
+        "BAN_MEMBERS": "حظر الأعضاء",
+        "CREATE_INSTANT_INVITE": "عمل دعوات",
+        "CHANGE_NICKNAME": "التعديل على الإسم الخاص به",
+        "MANAGE_NICKNAMES": "تعديل أسامي اعضاء السيرفر",
+        "MANAGE_EMOJIS": "التعديل على الإيموجيات",
+        "MANAGE_WEBHOOKS": "منج ويب هوك",
+        "VIEW_CHANNEL": "رؤية الشاتات",
+        "SEND_MESSAGES": "إرسال الرسائل",
+        "SEND_TTS_MESSAGES": "إرسال رسائل كتابية و تحويلها لصوتية",
+        "MANAGE_MESSAGES": "حذف الرسائل",
+        "EMBED_LINKS": "إرسال الروابط",
+        "ATTACH_FILES": "إرسال الصور",
+        "READ_MESSAGE_HISTORY": "قرائة الرسائل",
+        "MENTION_EVERYONE": "منشن جميع الرتب",
+        "USE_EXTERNAL_EMOJIS": "إستعمال الإيموجيات الخارجية",
+        "ADD_REACTIONS": "وضع رياكشنات على الرسائل",
+        "CONNECT": "دخول الرومات الصوتية",
+        "SPEAK": "التحدث بالرومات الصوتية",
+        "STREAM": "فتح الكاميرا",
+        "MUTE_MEMBERS": "إسكات الأعضاء صوتياَ",
+        "DEAFEN_MEMBERS": "منع الأعضاء من سماع من في الروم",
+        "MOVE_MEMBERS": "سحب الأعضاء",
+        "PRIORITY_SPEAKER": "فتح المايك"
+    }
+    const rolePermissions = role.permissions.toArray();
+    const finalPermissions = [];
+    for (const permission in permissions) {
+        if (rolePermissions.includes(permission)) finalPermissions.push(`✔️ : ${permissions[permission]}`);
+        else finalPermissions.push(`❌ : ${permissions[permission]}`);
+    }
+      let embed2 = new Discord.MessageEmbed()
+      .setAuthor(message.guild.name, message.guild.iconURL({ dynamic: true }))
+      .setTitle(`صلاحيات رتبت ; "\`${role.name}\`" هي :`)
+      .setDescription(`__** \`\`\`diff\n${finalPermissions.join('\n')}\`\`\` **__`)
+      .setFooter(message.guild.name, message.guild.iconURL({ dynamic: true }))
+      .setTimestamp()
+      .setColor(`#32496b`)
+      i.message.edit({ embeds: [embed2],components:[row3] });
+          }
+  });
+
+  collector.on('end', collected => {
+    console.log(`Collected ${collected.size} items`);
+  });
+}});
 
 client.on('messageCreate', message => {
 if(message.author.bot) return;
@@ -3322,6 +3476,26 @@ db.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
 })}});
+
+client.on("messageCreate", async message => {
+if(message.author.bot) return;
+let user = message.mentions.users.first() || message.author;
+//
+if(message.content.startsWith(prefix+"نقاطي")) {
+if (!message.member.permissions.has('ADMINISTRATOR'))
+if (!message.member.roles.cache.has('980494295444361216'))
+return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+if(!user){
+
+user = message.author;
+}
+//
+if(!dbb.has(`pointsstaff_${user.id}`)) return message.reply({ content: ` __** لا توجد تحضيرات لـ <@${user.id}> ! :x: **__ ` })
+let points = dbb.get(`pointsstaff_${user.id}`);
+message.reply({ content: ` __** عدد تحضيرات العسكري <@${user.id}>
+
+هيا : "${points || 0}" **__ ` })
+}});
 
 client.on("messageCreate", async message => {
 if(message.author.bot) return;
