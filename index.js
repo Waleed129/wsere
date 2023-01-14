@@ -397,7 +397,7 @@ client.on("messageCreate", async message => {
 hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : T-${count || 0} \n قطاعه : <@&980494332949844058> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
-      
+            dbb.add(`pointsstaff_${message.author.id}`, 1)
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : T-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} **__ `);
