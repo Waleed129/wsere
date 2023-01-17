@@ -84,6 +84,7 @@
             "ABC66",
             "ABC79",
             "ABC85",
+            "ABC05",
             "ABC99",
             "ABC08",
             "ABC44",
@@ -144,7 +145,6 @@
             "GHGHGHG^*325",
             "AGgegeAeht221",
             "PPRREE11122",
-            "GNBMMMae22",
             "MMNNNRTBBT!@$15",
             "ZZZGD$$@!",
             "PITHGXA!#4",
@@ -2334,27 +2334,27 @@
     ],
     [
         "member_GNBMMMae22",
-        "1011427941328097420"
+        "1002655489471037552"
     ],
     [
         "name_GNBMMMae22",
-        "ليث"
+        "محمد"
     ],
     [
         "id_GNBMMMae22",
-        "LR-SAD"
+        "ScOpEZ_Darken"
     ],
     [
         "sector_GNBMMMae22",
-        " القوات الخاصة"
+        "القوات الخاصه"
     ],
     [
         "time_GNBMMMae22",
-        "4:00"
+        "8.30"
     ],
     [
         "embed_GNBMMMae22",
-        "1064892728321781794"
+        "1064970952934441021"
     ],
     [
         "member_GHUEG93353",
@@ -2475,5 +2475,29 @@
     [
         "embed_ABC12",
         "1064961903283154964"
+    ],
+    [
+        "member_ABC17",
+        "983724081683791903"
+    ],
+    [
+        "name_ABC17",
+        "فهد"
+    ],
+    [
+        "id_ABC17",
+        "QaD7I-"
+    ],
+    [
+        "sector_ABC17",
+        "كل شي"
+    ],
+    [
+        "time_ABC17",
+        "8:30"
+    ],
+    [
+        "embed_ABC17",
+        "1064970344735195247"
     ]
 ]
