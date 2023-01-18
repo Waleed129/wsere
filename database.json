@@ -52,6 +52,7 @@
             "ABC51",
             "ABC82",
             "ABC50",
+            "ABC65",
             "ABC55",
             "ABC32",
             "ABC94",
@@ -142,7 +143,6 @@
             "GEHEG#$!@",
             "OEOEO#%@#!",
             "GHGHGHG^*325",
-            "AGgegeAeht221",
             "PPRREE11122",
             "GNBMMMae22",
             "MMNNNRTBBT!@$15",
@@ -682,27 +682,27 @@
     ],
     [
         "member_AGgegeAeht221",
-        "938033740486148157"
+        "1050089197840650291"
     ],
     [
         "name_AGgegeAeht221",
-        "رامي"
+        "K1 "
     ],
     [
         "id_AGgegeAeht221",
-        "cnxs_3"
+        "_K1551 "
     ],
     [
         "sector_AGgegeAeht221",
-        "مسؤولين الوزاره"
+        "رئيس الوزراء "
     ],
     [
         "time_AGgegeAeht221",
-        "8:30"
+        "7:50"
     ],
     [
         "embed_AGgegeAeht221",
-        "1064960092438532216"
+        "1065311070241169429"
     ],
     [
         "member_ABC91",
@@ -2527,5 +2527,29 @@
     [
         "embed_ABC57",
         "1065306273861615686"
+    ],
+    [
+        "member_Agshgja",
+        "659287868782673921"
+    ],
+    [
+        "name_Agshgja",
+        "حسين"
+    ],
+    [
+        "id_Agshgja",
+        "wci2e"
+    ],
+    [
+        "sector_Agshgja",
+        "القوات الجوية"
+    ],
+    [
+        "time_Agshgja",
+        "7:50"
+    ],
+    [
+        "embed_Agshgja",
+        "1065310916129849374"
     ]
 ]
