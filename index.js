@@ -425,7 +425,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         let count = dbb.fetch(`codeamn_${message.guild.id}`)
         let embed = new MessageEmbed()
         .setTitle("التفعيل الوزاري")
-        .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : G-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
+        .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : U-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
@@ -436,14 +436,14 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
   let countstaff = dbb.fetch(`pointsstaff_${message.author.id}`)
 //
       dbb.add(`codeamn_${message.guild.id}`, 1)
-      user.setNickname(`${idps4} ( G-${count || 0} )`);
-      amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : G-${count || 0} \n قطاعه : <@&980494327371399218> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
+      user.setNickname(`${idps4} ( U-${count || 0} )`);
+      amn3am.send({ content: ` __** تم تفعيل العسكري : ${user} \n أيديه : \`${idps4}\` \n كوده العسكري : U-${count || 0} \n قطاعه : <@&980494327371399218> \n <@&980494296320999424> **__ `, files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });
       //
       i.channel.send({ content: " __** تم تفعيل `العسكري` بـ نجاح **__ " });
       
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
-      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : G-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
+      .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : U-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
