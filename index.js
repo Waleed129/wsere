@@ -2518,7 +2518,6 @@ if (!message.member.permissions.has('ADMINISTRATOR'))
   }
 }); 
 
-
   client.on("messageCreate", (message) => {
     if(message.author.bot) return;
     if (message.content.startsWith(prefix+"info")) {
