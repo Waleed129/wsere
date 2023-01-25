@@ -5078,4 +5078,4 @@ await cooldown.delete(user.id)
   }
 }); */
 
-client.login(process.env.token) 
+client.login(process.env.token).catch(() => console.log(`[ERROR]: Invalid Token!`));
