@@ -3443,7 +3443,6 @@ client.on("interactionCreate" , async interaction => {
             .setMin(4)
             .setMax(32)
 			.setStyle('SHORT'),
-
             )
 		await client.modal.open(interaction , modal);
             }
