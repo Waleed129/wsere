@@ -3487,6 +3487,10 @@ db.set(`time_${random}` , `${time}`)
 db.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
+   cooldown.add(interaction.member.id)
+     setTimeout(() => {
+       cooldown.delete(interaction.member.id)
+     },3600000)
 })}});
 
 client.on("messageCreate", async message => {
