@@ -2813,20 +2813,24 @@ message.send(`__** مرحباً بالعُضو الجديد ${message} في ${me
 }
 }});
   
-let nord = ['1031233706473553992','1031241528758255646','980494406836690997','980494414763946004']
+
 client.on('messageCreate', message => {
 if(message.content.includes("السلام عليكم") || message.content.includes("سلام عليكم")) {
 if (message.guild.id == '980493720233316372') {
-
-if (message.channel.id == `${nord}`) return console.log(`weeeewdfdw`)
+  //
+if (message.channel.id == '980494406836690997') return;
+if (message.channel.id == '980494409693020210') return;
+if (message.channel.id == '980494414763946004') return;
+if (message.channel.id == '1031233706473553992') return;
+if (message.channel.id == '1031241528758255646') return;
 message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه 👮‍♂️ **~~__` });
-}
+ }
 if (message.guild.id == '996810757238968431') {
 return message.reply({ content: `__~~** وعـلـيـكـم الــســلام ورحـمـه الله وبـركـاتـه مـنـور/ه ☠️ **~~__` });
 }
 }
 });
-  
+
 client.on('messageCreate', message => {
 if(message.author.bot) return;
 if (message.guild.id == '980493720233316372') {
@@ -3536,9 +3540,9 @@ client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if (message.content.startsWith(prefix+"توب")) {
   if (message.guild.id == '980493720233316372') {
-  if (!message.member.permissions.has('ADMINISTRATOR'))
+/*  if (!message.member.permissions.has('ADMINISTRATOR'))
   if (!message.member.roles.cache.has('980494295444361216'))
-  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
+  return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' }).then(message => setTimeout(() => message.delete(), 5000)); */
   //
 let d = new Discord.MessageButton()
 .setLabel(`االتوب الوازري`)
