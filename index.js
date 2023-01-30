@@ -3460,7 +3460,6 @@ const name = interaction.fields.getTextInputValue("name")
 const id = interaction.fields.getTextInputValue("id")
 const sector = interaction.fields.getTextInputValue("sector")
 const time = interaction.fields.getTextInputValue("time")
-  //interaction.reply({content:"**Done Sending Your Suggestion !**" , ephemeral:true})
      let r = codes[Math.floor(Math.random() * codes.length)]
      let random = r
 dbp.add(`Police_${interaction.member.id}`, 1)        
@@ -3487,11 +3486,12 @@ db.set(`time_${random}` , `${time}`)
 db.set(`embed_${random}` , m.id)
 let f = codes.filter(t => t !== random)
 db.set(`codes_${interaction.guild.id}` , f)
+})
    cooldown.add(interaction.member.id)
      setTimeout(() => {
        cooldown.delete(interaction.member.id)
      },3600000)
-})}});
+}});
 
 client.on("messageCreate", async message => {
 if(message.author.bot) return;
