@@ -2699,7 +2699,7 @@ message.channel.send({ embeds: [embed] })
 
  const id = '1054088577203580928';
 client.on("messageCreate", message => {
-if (message.author.bot || !message.channel.guild) return;
+if (message.author.bot || !message.channel.guild || message.member.permissions.has('ADMINISTRATOR')) return;
 if(id.includes(message.channel.id)){
 let args = message.content.split(',')  
 message.delete()
