@@ -4919,7 +4919,7 @@ content: ` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطر
                                                                                                                                                                       }
                                                                                                                                                                       if (q6 === "لا") {
                                                                                                                                                                         await dbb.add(`true_${user.id}`, 1)
-} else if (q6 === "نعم") {
+                                                                                                                                                                      } else if (q6 === "نعم") {
                                                                                                                                                                         await dbb.add(`false_${user.id}`, 1)
 }
                                                                                                                                                                       if (q7 === "لا") {
