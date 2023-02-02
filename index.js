@@ -4075,12 +4075,6 @@ client.on('messageCreate', async message => {
       description: 'إن كنت تريد مساعدة فـ يرجى الضغط هنا .',
       emoji: '📩',
       value: 'd3mfne'
-      },
-      {
-      label: 'طلب مسؤولين',
-      description: 'إن كنت تريد حاكم الدولة أو ولي العهد أو رئيس الوزراء فـ يرجى الضغط هنا .',
-      emoji: '📩',
-      value: 'tlbmsaaolen'
       }
     ])
     )
@@ -4207,6 +4201,7 @@ let e = new Discord.MessageEmbed()
 //
 if(interaction.values[0] == 'd3mfne') {
   interaction.reply({ content: ` __** re **__ ` }); 
+  interaction.channel.send({ content: ` __** re **__ ` }); 
 }
               }}});
 
@@ -5353,7 +5348,7 @@ interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق
               //
               if(interaction.customId === "yes2") { 
                 dbb.add(`false_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضير الراديو ؟ 
+interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
               }
               if(interaction.customId === "no2") {
@@ -5501,8 +5496,8 @@ interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ �
             }
             if(interaction.customId === "no15") {
               dbb.add(`false_${interaction.member.id}`, 1)
-              interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
-              هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
+interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
             }
               //
               if(interaction.customId === "yes16") {
@@ -5531,7 +5526,7 @@ interaction.message.edit({ content: ` __** FBI Police || التفعيل العس
 . أيدي العسكري : \`${id}\` .
 . عدد الأجوبة الصحيحة : ${truee} 
 . عدد الأجوبة الخاطئة : ${falsee} 
-. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
 //
  sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
 . إسم العسكري : ${name} 
@@ -5540,7 +5535,7 @@ interaction.message.edit({ content: ` __** FBI Police || التفعيل العس
 . أيدي العسكري : \`${id}\` .
 . عدد الأجوبة الصحيحة : ${truee} 
 . عدد الأجوبة الخاطئة : ${falsee} 
-. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
 //
 w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
 w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
@@ -5586,7 +5581,7 @@ interaction.message.edit({ content: ` __** FBI Police || التفعيل العس
 . أيدي العسكري : \`${id}\` .
 . عدد الأجوبة الصحيحة : ${truee} 
 . عدد الأجوبة الخاطئة : ${falsee} 
-. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
 //
  sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
 . إسم العسكري : ${name} 
@@ -5595,7 +5590,7 @@ interaction.message.edit({ content: ` __** FBI Police || التفعيل العس
 . أيدي العسكري : \`${id}\` .
 . عدد الأجوبة الصحيحة : ${truee} 
 . عدد الأجوبة الخاطئة : ${falsee} 
-. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:[line],components:[] });
 //
 w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
 w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
