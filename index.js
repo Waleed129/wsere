@@ -5085,4 +5085,534 @@ await cooldown.delete(user.id)
   }
 }); */
 
+client.on("interactionCreate" , interaction => {
+ if (interaction.member.bot || !interaction.channel.guild || interaction.member.permissions.has('ADMINISTRATOR') || !interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
+      let sglaltf3el = interaction.guild.channels.cache.get('1070642252508041236')
+      let w8wanen1 = interaction.guild.channels.cache.get('1047507178010988615')
+      let w8wanen2 = interaction.guild.channels.cache.get('1047507202052726915')
+      let w8wanen3 = interaction.guild.channels.cache.get('1006354092563644497')
+      //
+      w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
+      w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
+      w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
+              if(interaction.customId == "cb") {
+                if(cooldown.has(interaction.member.id)) {
+                  interaction.reply({ content: " __** يرجى الإنتظار ساعة كاملة قبل التحضير مجدداَ ! **__ " , ephemeral:true})
+                } else {
+  let filter = m => m.member.id === interaction.member.id
+                //
+                var msg1;
+                let embed = new Discord.MessageEmbed()
+                .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+                .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setDescription(` > __** إسمك ؟ **__ `)
+                .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+                .setThumbnail(interaction.guild.iconURL())
+                .setColor("RANDOM")
+                .setTimestamp();
+                interaction.channel.send({ content: ` __** السؤال الأول , <@${interaction.member.id}> : **__ `, embeds: [embed] })
+                .then(message => {
+                message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+                .then(collected => {
+                dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`, collected.first().content)
+                collected.first().delete();
+                msg1 = collected.first().content;
+                //
+                var msg2;
+                        let embed2 = new Discord.MessageEmbed()
+                .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+                .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setDescription(` > __** عمرك ؟ **__ `)
+                .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+                .setThumbnail(interaction.guild.iconURL())
+                .setColor("RANDOM")
+                .setTimestamp();
+                message.edit({ content: ` __** السؤال الثاني , <@${interaction.member.id}> : **__ `, embeds: [embed2] })
+                .then(message => {
+                message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+                .then(collected => {
+                dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`, collected.first().content)
+                collected.first().delete();
+                msg2 = collected.first().content;
+                //
+                var msg3;
+                let embed3 = new Discord.MessageEmbed()
+        .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+        .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+        .setDescription(` > __** ايديك ؟ **__ `)
+        .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+        .setThumbnail(interaction.guild.iconURL())
+        .setColor("RANDOM")
+        .setTimestamp();
+        message.edit({ content: ` __** السؤال الثالث , <@${interaction.member.id}> : **__ `, embeds: [embed3] })
+        .then(message => {
+        message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+        .then(collected => {
+        dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`, collected.first().content)
+        collected.first().delete();
+        msg3 = collected.first().content;
+        //
+        var msg4;
+        let embed4 = new Discord.MessageEmbed()
+.setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+.setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+.setDescription(` > __** قطاعك العسكري ؟ **__ `)
+.setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+.setThumbnail(interaction.guild.iconURL())
+.setColor("RANDOM")
+.setTimestamp();
+message.edit({ content: ` __** السؤال الرابع , <@${interaction.member.id}> : **__ `, embeds: [embed4] })
+.then(message => {
+message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+.then(collected => {
+dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`, collected.first().content)
+collected.first().delete();
+msg4 = collected.first().content;
+                //
+var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
+//
+message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+              })}
+              )})
+            })}
+            )})
+          })}
+          )
+        }
+        }
+        //
+        if(interaction.customId == "yest788") {
+const bdaaltf3el = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`بدء التفعيل`).setEmoji("✅").setStyle("SUCCESS").setCustomId("bdaaltf3el"));
+interaction.message.edit({ content: ` __** حسناَ بعدما قمت بتأكيد معلوماتك ,
+قم بالضغط على الزر الازرق و المسمى بـ " بدء التفعيل" .
+يرجى الإنتباه كل سؤال لديك 5 دقائق للإجابة عنه و الأختبار مكون من 15 سؤال , 
+إي وقتك الإجمالي هو "75 دقيقة" 
+ملاحطة ; سيتم إخفاء شاتات المأخوذ منها الإسئلة ^ **__ `, components:[bdaaltf3el] });
+        }
+        //
+if(interaction.customId == "not788") {
+const m3lomat3l6 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`الإسم`).setEmoji("😔").setStyle("PRIMARY").setCustomId("name3'l6"), 
+new Discord.MessageButton().setLabel(`العمر`).setEmoji("😔").setStyle("SECONDARY").setCustomId("aeg3'l6"), 
+new Discord.MessageButton().setLabel(`الأيدي`).setEmoji("😔").setStyle("SUCCESS").setCustomId("id3'l6"), 
+new Discord.MessageButton().setLabel(`القطاع العسكري`).setEmoji("😔").setStyle("DANGER").setCustomId("sector3'l6"));
+interaction.message.edit({ content: ` __** يرجى تحديد ما هو غير صحيح ! **__ `, components:[m3lomat3l6] });
+}
+//
+        if(interaction.customId == "name3'l6") {
+          let filter = m => m.member.id === interaction.member.id
+          var t3del1;
+          let embed = new Discord.MessageEmbed()
+          .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+          .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+          .setDescription(` > __** إسمك ؟ **__ `)
+          .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+          .setThumbnail(interaction.guild.iconURL())
+          .setColor("RANDOM")
+          .setTimestamp();
+         interaction.message.edit({ content: ` __** يرجى كتابة اسمك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+          .then(message => {
+          message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+          .then(collected => {
+          dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`, collected.first().content)
+          collected.first().delete();
+          t3del1 = collected.first().content;
+                                    //
+var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
+//
+message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+})})
+        }
+          //
+        if(interaction.customId == "aeg3'l6") {
+          let filter = m => m.member.id === interaction.member.id
+          var t3del2;
+          let embed = new Discord.MessageEmbed()
+          .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+          .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+          .setDescription(` > __** عمرك ؟ **__ `)
+          .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+          .setThumbnail(interaction.guild.iconURL())
+          .setColor("RANDOM")
+          .setTimestamp();
+         interaction.message.edit({ content: ` __** يرجى كتابة عمرك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+          .then(message => {
+          message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+          .then(collected => {
+          dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`, collected.first().content)
+          collected.first().delete();
+          t3del2 = collected.first().content;
+                                    //
+var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
+//
+message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+})})
+        }
+          //
+          if(interaction.customId == "id3'l6") {
+            let filter = m => m.member.id === interaction.member.id
+            var t3del2;
+            let embed = new Discord.MessageEmbed()
+            .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+            .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+            .setDescription(` > __** ايديك ؟ **__ `)
+            .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+            .setThumbnail(interaction.guild.iconURL())
+            .setColor("RANDOM")
+            .setTimestamp();
+           interaction.message.edit({ content: ` __** يرجى كتابة ايديك بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+            .then(message => {
+            message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+            .then(collected => {
+            dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`, collected.first().content)
+            collected.first().delete();
+            t3del2 = collected.first().content;
+                                      //
+  var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+  var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+  var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+  var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+  const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
+  //
+  message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+  })})
+          }
+            //
+            if(interaction.customId == "sector3'l6") {
+              let filter = m => m.member.id === interaction.member.id
+              var t3del2;
+              let embed = new Discord.MessageEmbed()
+              .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
+              .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+              .setDescription(` > __** قطاعك العسكري ؟ **__ `)
+              .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+              .setThumbnail(interaction.guild.iconURL())
+              .setColor("RANDOM")
+              .setTimestamp();
+             interaction.message.edit({ content: ` __** يرجى كتابة قطاعك العسكري بشكل صحيح ! , <@${interaction.member.id}> : **__ `, embeds: [embed],components:[] })
+              .then(message => {
+              message.channel.awaitMessages({ filter, max: 1, time: 90000, errors: ['time'] })
+              .then(collected => {
+              dbb.set(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`, collected.first().content)
+              collected.first().delete();
+              t3del2 = collected.first().content;
+                                        //
+    var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+    var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+    var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+    var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+    const t788 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yest788"), new Discord.MessageButton().setLabel(`لا`).setEmoji("❌").setStyle("DANGER").setCustomId("not788"));
+    //
+    message.edit({ content: ` __** FBI Police || التحقق العسكري . \n هوية العسكري : <@${interaction.member.id}> . \n إسم العسكري : ${name} . \n عمر العسكري : ${aeg} . \n ايدي العسكري : \`${id}\` . \n قطاع العسكري : ${sector} . \n هل هذه المعلومات صحيحة ؟ . **__ `,embeds:[],components:[t788] });
+    })})
+            }
+              // 
+              if(interaction.customId == "bdaaltf3el") {
+                   const row1 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes1"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no1"))
+interaction.message.edit({ content: ` __**  يجب التعامل مع المواطنين بإسلوب جيد ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row1] });
+              }
+              const row2 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes2"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no2"))
+              const row3 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes3"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no3"))
+              const row4 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes4"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no4"))
+              const row5 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes5"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no5"))
+              const row6 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes6"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no6"))
+              const row7 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes7"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no7"))
+              const row8 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes8"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no8"))
+              const row9 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes9"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no9"))
+              const row10 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes10"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no10"))
+              const row11 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes11"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no11"))
+              const row12 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes12"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no12"))
+              const row13 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes13"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no13"))
+              const row14 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes14"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no14"))
+              const row15 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes15"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no15"))
+              const row16 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes16"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no16"))
+              if(interaction.customId === "yes1") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
+              }
+              //
+              if(interaction.customId === "no1") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
+              }
+              //
+              if(interaction.customId === "yes2") { 
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضير الراديو ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
+              }
+              if(interaction.customId === "no2") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
+                هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
+              }
+              //
+              if(interaction.customId === "yes3") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
+              }
+              if(interaction.customId === "no3") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
+              }
+              //
+              if(interaction.customId === "yes4") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
+              }
+              if(interaction.customId === "no4") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم بالتنظيم العسكري ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row5] })
+              }
+              //
+              if(interaction.customId === "yes5") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
+              }
+              if(interaction.customId === "no5"){
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
+              }
+              //
+              if(interaction.customId === "yes6") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للأفراد ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
+              }
+              if(interaction.customId === "no6") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للأفراد ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
+              }
+              //
+              if(interaction.customId === "yes7") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
+              }
+              if(interaction.customId === "no7") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ السرعة في الملكية و التصديم و العبث بالممتلكات ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row8] })
+              }
+              //
+              if(interaction.customId === "yes8") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
+              }
+              if(interaction.customId === "no8") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
+              }
+              //  
+              if(interaction.customId === "yes9") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
+              }
+              if(interaction.customId === "no9") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
+              }
+              //
+              if(interaction.customId === "yes10") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
+              }
+              if(interaction.customId === "no10") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
+              }
+              //
+            if(interaction.customId === "yes11") {
+              dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
+            }
+            if(interaction.customId === "no11") {
+              dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
+            }
+            //
+            if(interaction.customId === "yes12") {
+              dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
+            }
+            if(interaction.customId === "no12") {
+              dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
+            }
+            //
+            if(interaction.customId === "yes13") {
+              dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
+            }
+            if(interaction.customId === "no13") {
+              dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
+            }
+            //
+            if(interaction.customId === "yes14") {
+              dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
+            }
+            if(interaction.customId === "no14") {
+              dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
+            }
+            //
+            if(interaction.customId === "yes15") {
+              dbb.add(`true_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
+            }
+            if(interaction.customId === "no15") {
+              dbb.add(`false_${interaction.member.id}`, 1)
+              interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+              هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
+            }
+              //
+              if(interaction.customId === "yes16") {
+                dbb.add(`false_${interaction.member.id}`, 1)
+//
+let truee = dbb.fetch(`true_${interaction.member.id}`)
+let falsee = dbb.fetch(`false_${interaction.member.id}`)
+var done
+if (!falsee) falsee = 0
+if (!truee) truee = 0
+if (falsee > 5) {
+done = "مرفوض"
+} else if (falsee <= 5) {
+done = "مقبول"
+}
+//
+var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+//
+interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+//
+ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+//
+w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+//
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_age`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+//
+ dbb.delete(`true_${interaction.member.id}`)
+ dbb.delete(`false_${interaction.member.id}`)
+//
+ cooldown.add(interaction.member.id)
+setTimeout(() => {
+ cooldown.delete(interaction.member.id)
+}, 90000)
+}
+//
+              if(interaction.customId === "no16") {
+                dbb.add(`true_${interaction.member.id}`, 1)
+//
+let truee = dbb.fetch(`true_${interaction.member.id}`)
+let falsee = dbb.fetch(`false_${interaction.member.id}`)
+var done
+if (!falsee) falsee = 0
+if (!truee) truee = 0
+if (falsee > 5) {
+done = "مرفوض"
+} else if (falsee <= 5) {
+done = "مقبول"
+}
+//
+var name = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+var aeg = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_aeg`)
+var sector = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+var id = dbb.fetch(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+//
+interaction.message.edit({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+//
+ sglaltf3el.send({ content: ` __** FBI Police || التفعيل العسكري . \n  هوية العسكري : <@${interaction.member.id}> .
+. إسم العسكري : ${name} 
+. عمر العسكري : ${aeg} 
+. قطاع العسكري : ${sector} 
+. أيدي العسكري : \`${id}\` .
+. عدد الأجوبة الصحيحة : ${truee} 
+. عدد الأجوبة الخاطئة : ${falsee} 
+. الحالة : ${done} \n وطن لا نحميه لا نستحق العيش فيه | وطن لا نفديه حياتنا لا نستحق العيش فيه . **__ `, files:`${line}`,components:[] });
+//
+w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: null });
+//
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_name`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_age`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_sector`)
+ dbb.delete(`guild=${interaction.guild.id}_user=${interaction.member.id}_id`)
+//
+ dbb.delete(`true_${interaction.member.id}`)
+ dbb.delete(`false_${interaction.member.id}`)
+//
+ cooldown.add(interaction.member.id)
+setTimeout(() => {
+ cooldown.delete(interaction.member.id)
+}, 90000)
+}
+            });
+
 client.login(process.env.token).catch(() => console.log(`[ERROR]: Invalid Token!`));
