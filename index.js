@@ -4208,7 +4208,7 @@ if(interaction.values[0] == 'd3mfne') {
               client.on("interactionCreate" , interaction => {
                 if (!interaction.isSelectMenu()) return;
                  if (interaction.customId == "tktcomand") {
-                    if(interaction.values[0] == 'delete') {
+                    if(interaction.values[0] == 'deletee') {
                     }
                     if(interaction.values[0] == 'close') {
                       let yes = new Discord.MessageButton()
@@ -4403,7 +4403,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     if (log) {
      await log.send({ embeds: [emdefds] });
     }
-     await db.delete(`ticket_${interaction.c.id}`)
+     await dbt.delete(`ticket_${interaction.c.id}`)
     },4000))
 }
 //
@@ -5480,7 +5480,7 @@ interaction.message.edit({ content:` __** عدد البنود العسكرية 2
             //
             if(interaction.customId === "yes14") {
                             dbb.add(`true_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
             }
             if(interaction.customId === "no14") {
