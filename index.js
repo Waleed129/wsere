@@ -2782,7 +2782,7 @@ if (message.guild.id === "996810757238968431") {
 message.send(`__** مرحباً بالعُضو الجديد ${message} في ${message.guild.name} 🔰
 نرجى منك قرائة القوانين 🛠
 و التفعيل و لكن قبلها قرائة قوانين التفعيل 📚 …
-و نستودعك في رحلتك لتدمير المدينة مع ${message.guild.memberCount} مستعد لتدمير المدينة 💀🏻‍♂️ **__ `);
+و نستودعك في رحلتك لتدمير المدينة مع ${message.guild.memberCount} مستعد لتدمير المدينة 💀🏻‍ **__ `);
 }
 });
 
@@ -5335,35 +5335,35 @@ interaction.message.edit({ content: ` __**  يجب التعامل مع المو�
               const row15 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes15"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no15"))
               const row16 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes16"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no16"))
               if(interaction.customId === "yes1") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
               }
               //
               if(interaction.customId === "no1") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
               }
               //
               if(interaction.customId === "yes2") { 
                 dbb.add(`false_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
+interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
               }
               if(interaction.customId === "no2") {
                 dbb.add(`true_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** هل يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
-                هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
+interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة و لكن لا تحضر الراديو ؟ 
+هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row3] })
               }
               //
               if(interaction.customId === "yes3") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
               }
               if(interaction.customId === "no3") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
               }
@@ -5380,23 +5380,23 @@ interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم �
               }
               //
               if(interaction.customId === "yes5") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
               }
               if(interaction.customId === "no5"){
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
               }
               //
               if(interaction.customId === "yes6") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للأفراد ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
               }
               if(interaction.customId === "no6") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** إنزال التحية من دون إذن يعد إهانة للأفراد ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row7] })
               }
@@ -5413,12 +5413,12 @@ interaction.message.edit({ content:` __** يسمح بـ السرعة في الم
               }
               //
               if(interaction.customId === "yes8") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
               }
               if(interaction.customId === "no8") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
               }
@@ -5435,23 +5435,23 @@ interaction.message.edit({ content:` __** البند الثالث عشر هو : 
               }
               //
               if(interaction.customId === "yes10") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
               }
               if(interaction.customId === "no10") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** البند الثلاثون هو : إحترام المسؤولين . ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row11] })
               }
               //
             if(interaction.customId === "yes11") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+              dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
             }
             if(interaction.customId === "no11") {
-              dbb.add(`true_${interaction.member.id}`, 1)
+              dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
             }
@@ -5468,12 +5468,12 @@ interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصا
             }
             //
             if(interaction.customId === "yes13") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+              dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
             }
             if(interaction.customId === "no13") {
-              dbb.add(`true_${interaction.member.id}`, 1)
+              dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
             }
@@ -5491,7 +5491,14 @@ interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ �
             //
             if(interaction.customId === "yes15") {
               dbb.add(`true_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا : 
+
+الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
+
+الحالة الثانية : رفع المواطن السلاح عليك .
+
+الحالة الثالثة : في حال وجود مطلوب بالمركز .
+
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
             }
             if(interaction.customId === "no15") {
