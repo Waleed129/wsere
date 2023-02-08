@@ -4122,7 +4122,7 @@ let row2 = new Discord.MessageActionRow()
     label: 'حذف التكت',
     description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
     emoji: '🟥',
-    value: 'delete'
+    value: 'deletee'
     },
     {
       label: 'قفل التكت',
@@ -4209,7 +4209,46 @@ if(interaction.values[0] == 'd3mfne') {
                 if (!interaction.isSelectMenu()) return;
                  if (interaction.customId == "tktcomand") {
                     if(interaction.values[0] == 'deletee') {
-                    }
+let embeddeletedre = new Discord.MessageEmbed()
+.setColor("RED")
+.setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
+  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+  let chh = dbt.get(`logtkt_${interaction.guild.id}`)
+let log = interaction.guild.channels.cache.find(c => c.id == chh)
+  let c = interaction.channel;
+  //
+   interaction.reply({ embeds: [embeddeletedre] }).then(async() => 
+    setTimeout(async() => {
+     await interaction.channel.delete()
+    let member = client.users.cache.get(ticket.ticketby)
+    let deletedd = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setTitle("حذف تكت !")
+    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+    .setThumbnail(interaction.guild.iconURL({dynamic:true}))
+    .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+    .addFields(
+      {
+        name:"__**التكت :**__",
+        value:`**"${c},${c.id},${c.name}"**`
+      },
+      {
+        name:`__** صاحب التكت :**__`,
+        value:`**"${member}"**`
+      },
+      {
+        name:`__** تم حذف التكت بواسطة :**__`,
+        value:`**"${interaction.user}"**`
+      }
+    )
+    if (log) {
+     await log.send({ embeds: [deletedd] });
+    }
+     await dbt.delete(`ticket_${interaction.c.id}`)
+    },4000)
+                                                       )
+}
                     if(interaction.values[0] == 'close') {
                       let yes = new Discord.MessageButton()
                       .setStyle("DANGER")
@@ -4407,7 +4446,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     },4000))
 }
 //
-let embed6 = new MessageEmbed()
+let embed6 = new Discord.MessageEmbed()
 .setColor("BLACK")
 .setDescription(` __** تم إعادة فتح التكت بواسطة : ${interaction.user} **__ `)
 if (interaction.customId === "reopen") {
