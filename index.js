@@ -4212,11 +4212,12 @@ if(interaction.values[0] == 'd3mfne') {
 let embeddeletedre = new Discord.MessageEmbed()
 .setColor("RED")
 .setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
+//
   let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
 let ticket = dbt.get(`ticket_${interaction.channel.id}`)
   let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
-  let c = interaction.channel;
+  let ch = interaction.channel;
   //
    interaction.reply({ embeds: [embeddeletedre] }).then(async() => 
     setTimeout(async() => {
@@ -4231,7 +4232,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     .addFields(
       {
         name:"__**التكت :**__",
-        value:`**"${c},${c.id},${c.name}"**`
+        value:`**"${ch},${ch.id},${ch.name}"**`
       },
       {
         name:`__** صاحب التكت :**__`,
@@ -4239,7 +4240,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
       },
       {
         name:`__** تم حذف التكت بواسطة :**__`,
-        value:`**"${interaction.user}"**`
+        value:`**"${interaction.user.id}"**`
       }
     )
     if (log) {
@@ -4247,7 +4248,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     }
      await dbt.delete(`ticket_${interaction.c.id}`)
     },4000)
-                                                       )
+)
 }
                     if(interaction.values[0] == 'close') {
                       let yes = new Discord.MessageButton()
@@ -4285,7 +4286,8 @@ interaction.channel.send({ embeds:[embed3], components:[row3] });
                             )
                             client.modal.open(interaction , modal4);
             }
-                }});
+                }
+              });
 
                 client.on('modalSubmitInteraction', async interaction => {
                   if(interaction.customId == "modal4") {
@@ -4630,6 +4632,48 @@ let embed2 = new Discord.MessageEmbed()
 message.channel.send({ embeds:[embed3], components:[row3] });
           }
         });
+
+let embeddeletedre = new Discord.MessageEmbed()
+.setColor("RED")
+.setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
+//
+  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+  let chh = dbt.get(`logtkt_${interaction.guild.id}`)
+let log = interaction.guild.channels.cache.find(c => c.id == chh)
+  let ch = interaction.channel;
+  //
+   interaction.reply({ embeds: [embeddeletedre] }).then(async() => 
+    setTimeout(async() => {
+     await interaction.channel.delete()
+    let member = client.users.cache.get(ticket.ticketby)
+    let deletedd = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setTitle("حذف تكت !")
+    .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+    .setThumbnail(interaction.guild.iconURL({dynamic:true}))
+    .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+    .addFields(
+      {
+        name:"__**التكت :**__",
+        value:`**"${ch},${ch.id},${ch.name}"**`
+      },
+      {
+        name:`__** صاحب التكت :**__`,
+        value:`**"${member}"**`
+      },
+      {
+        name:`__** تم حذف التكت بواسطة :**__`,
+        value:`**"${interaction.user.id}"**`
+      }
+    )
+    if (log) {
+     await log.send({ embeds: [deletedd] });
+    }
+     await dbt.delete(`ticket_${interaction.c.id}`)
+    },4000)
+)
+}
 
         client.on("messageCreate", message => {
           if(message.author.bot) return;
