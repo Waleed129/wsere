@@ -4632,7 +4632,7 @@ let embed2 = new Discord.MessageEmbed()
 message.channel.send({ embeds:[embed3], components:[row3] });
           }
         });
-
+/*
 let embeddeletedre = new Discord.MessageEmbed()
 .setColor("RED")
 .setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
@@ -4673,10 +4673,10 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
      await dbt.delete(`ticket_${interaction.c.id}`)
     },4000)
 )
-}
+} */
 
         client.on("messageCreate", message => {
-          if(message.author.bot) return;
+          if(messmessageage.author.bot) return;
           if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
   let ticket = dbt.get(`ticket_${message.channel.id}`)
