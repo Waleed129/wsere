@@ -5335,13 +5335,13 @@ interaction.message.edit({ content: ` __**  يجب التعامل مع المو�
               const row15 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes15"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no15"))
               const row16 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes16"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no16"))
               if(interaction.customId === "yes1") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
               }
               //
               if(interaction.customId === "no1") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عقوبة مخالفة الميثاق العسكري هيا : الفصل 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row2] })
               }
@@ -5358,12 +5358,12 @@ interaction.message.edit({ content:` __** يسمح بأن تحضر الرحلة 
               }
               //
               if(interaction.customId === "yes3") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
               }
               if(interaction.customId === "no3") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** الجدية بالعمل من أساسيات العسكري ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row4] })
               }
@@ -5380,12 +5380,12 @@ interaction.message.edit({ content:` __** اعلى رتبة هو من يقوم �
               }
               //
               if(interaction.customId === "yes5") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
               }
-              if(interaction.customId === "no5"){
-                dbb.add(`true_${interaction.member.id}`, 1)
+              if(interaction.customId === "no5") {
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** المطاردات تكون فردية ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row6] })
               }
@@ -5413,23 +5413,23 @@ interaction.message.edit({ content:` __** يسمح بـ السرعة في الم
               }
               //
               if(interaction.customId === "yes8") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
               }
               if(interaction.customId === "no8") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ تشغيل السفاتي للحالات الخاصة فقط مثل وجود مطاردة ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row9] })
               }
               //  
               if(interaction.customId === "yes9") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                                dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
               }
               if(interaction.customId === "no9") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** البند الثالث عشر هو : عدم التشكيك بقرارات الرُتب العُليا ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row10] })
               }
@@ -5446,46 +5446,46 @@ interaction.message.edit({ content:` __** البند الثلاثون هو : إ�
               }
               //
             if(interaction.customId === "yes11") {
-              dbb.add(`true_${interaction.member.id}`, 1)
+                            dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
             }
             if(interaction.customId === "no11") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+              dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إفشال تفاوض لـ إستهزاء الطرف الآخر بالعساكر ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row12] })
             }
             //
             if(interaction.customId === "yes12") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+                            dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
             }
             if(interaction.customId === "no12") {
-              dbb.add(`true_${interaction.member.id}`, 1)
+              dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** يسمح بـ إعدام عضو عصابة و هو ليس مطلوب أو لديه سجل إجرامي ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row13] })
             }
             //
             if(interaction.customId === "yes13") {
-              dbb.add(`true_${interaction.member.id}`, 1)
+                            dbb.add(`false_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
             }
             if(interaction.customId === "no13") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+                                          dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** عدد البنود العسكرية 25 ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row14] })
             }
             //
             if(interaction.customId === "yes14") {
-              dbb.add(`false_${interaction.member.id}`, 1)
+                            dbb.add(`true_${interaction.member.id}`, 1)
 interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
             }
             if(interaction.customId === "no14") {
-              dbb.add(`true_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+              dbb.add(`false_${interaction.member.id}`, 1)
+interaction.message.edit({ content:` __** التجمهر غرامته 100 ﷼ ؟
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row15] })
             }
             //
@@ -5503,12 +5503,19 @@ interaction.message.edit({ content:` __** يسمح بإستخدام التيزر
             }
             if(interaction.customId === "no15") {
               dbb.add(`false_${interaction.member.id}`, 1)
-interaction.message.edit({ content:` __** التجمهر غرامته 1000 ﷼ ؟
+interaction.message.edit({ content:` __** يسمح بإستخدام التيزر في ثلاث حالات هيا : 
+
+الحالة الأولى : ان رفض المواطن الإستسلام و إستمر بالهرب .
+
+الحالة الثانية : رفع المواطن السلاح عليك .
+
+الحالة الثالثة : في حال وجود مطلوب بالمركز .
+
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row16] })
             }
               //
               if(interaction.customId === "yes16") {
-                dbb.add(`false_${interaction.member.id}`, 1)
+                              dbb.add(`true_${interaction.member.id}`, 1)
 //
 let truee = dbb.fetch(`true_${interaction.member.id}`)
 let falsee = dbb.fetch(`false_${interaction.member.id}`)
@@ -5563,7 +5570,7 @@ setTimeout(() => {
 }
 //
               if(interaction.customId === "no16") {
-                dbb.add(`true_${interaction.member.id}`, 1)
+                dbb.add(`false_${interaction.member.id}`, 1)
 //
 let truee = dbb.fetch(`true_${interaction.member.id}`)
 let falsee = dbb.fetch(`false_${interaction.member.id}`)
