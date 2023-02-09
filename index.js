@@ -2743,7 +2743,6 @@ if (!args) return message.reply({ content: ' __** ❌ أرسل النص !! **__ 
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
 .setDescription(`${args}`)
-.setImage(`${line}`)
 //
 message.channel.send({ embeds: [embed] });
 message.delete();
@@ -4257,10 +4256,10 @@ let row2 = new Discord.MessageActionRow()
                   id: client.user.id,
                   allow:["VIEW_CHANNEL","SEND_MESSAGES","MANAGE_CHANNELS","EMBED_LINKS","ATTACH_FILES","ADD_REACTIONS","MENTION_EVERYONE","MANAGE_MESSAGES","READ_MESSAGE_HISTORY"]
                 },
-               /* {
+                {
                   id:staffrole,
                   allow:["VIEW_CHANNEL","SEND_MESSAGES","READ_MESSAGE_HISTORY"]
-                },*/
+                },
                 {
                   id: interaction.guild.roles.everyone,
                   deny:["VIEW_CHANNEL"]
@@ -4791,23 +4790,23 @@ client.on("messageCreate", message => {
     .setMaxValues(1)
     .setPlaceholder('إضغط هنا لرؤية خريطة التكت')
     .setCustomId('tktcomand')
-    .addOptions([
+  .addOptions([
     {
     label: 'حذف التكت',
     description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
-    emoji: '☠️',
-    value: 'delete'
+    emoji: '🟥',
+    value: 'deletee'
     },
     {
       label: 'قفل التكت',
       description: 'لـ قفل أحد التكتات (close) يرجى الضغط هنا',
-      emoji: '☠️',
+      emoji: '🟥',
       value: 'close'
       },
       {
         label: 'تغيير إسم التكت',
         description: 'لـ تغيير إسم أحد التكتات يرجى الضغط هنا',
-        emoji: '☠️',
+        emoji: '🟥',
         value: 'rename'
         } 
     ])
@@ -5269,7 +5268,7 @@ await cooldown.delete(user.id)
 }); */
 
 client.on("interactionCreate" , interaction => {
- if (interaction.member.bot || !interaction.channel.guild || /* interaction.member.permissions.has('ADMINISTRATOR') || !interaction.member.roles.cache.has('980494295444361216') || */ !interaction.isButton()) return;
+ if (interaction.member.bot || !interaction.channel.guild || interaction.member.permissions.has('ADMINISTRATOR') || !interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
 let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
       let w8wanen1 = interaction.guild.channels.cache.get('980494405234466836')
       let w8wanen2 = interaction.guild.channels.cache.get('980494409693020210')
@@ -5287,7 +5286,7 @@ let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
                 var msg1;
                 let embed = new Discord.MessageEmbed()
                 .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-                .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
                 .setDescription(` > __** إسمك ؟ **__ `)
                 .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
                 .setThumbnail(interaction.guild.iconURL())
@@ -5304,7 +5303,7 @@ let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
                 var msg2;
                         let embed2 = new Discord.MessageEmbed()
                 .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-                .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
                 .setDescription(` > __** عمرك ؟ **__ `)
                 .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
                 .setThumbnail(interaction.guild.iconURL())
@@ -5321,7 +5320,7 @@ let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
                 var msg3;
                 let embed3 = new Discord.MessageEmbed()
         .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-        .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
         .setDescription(` > __** ايديك ؟ **__ `)
         .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
         .setThumbnail(interaction.guild.iconURL())
@@ -5338,7 +5337,7 @@ let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
         var msg4;
         let embed4 = new Discord.MessageEmbed()
 .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-.setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
 .setDescription(` > __** قطاعك العسكري ؟ **__ `)
 .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
 .setThumbnail(interaction.guild.iconURL())
@@ -5390,7 +5389,7 @@ interaction.message.edit({ content: ` __** يرجى تحديد ما هو غير 
           var t3del1;
           let embed = new Discord.MessageEmbed()
           .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-          .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
           .setDescription(` > __** إسمك ؟ **__ `)
           .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
           .setThumbnail(interaction.guild.iconURL())
@@ -5419,7 +5418,7 @@ message.edit({ content: ` __** FBI Police || التحقق العسكري . \n ه
           var t3del2;
           let embed = new Discord.MessageEmbed()
           .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-          .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
           .setDescription(` > __** عمرك ؟ **__ `)
           .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
           .setThumbnail(interaction.guild.iconURL())
@@ -5448,7 +5447,7 @@ message.edit({ content: ` __** FBI Police || التحقق العسكري . \n ه
             var t3del2;
             let embed = new Discord.MessageEmbed()
             .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-            .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
             .setDescription(` > __** ايديك ؟ **__ `)
             .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
             .setThumbnail(interaction.guild.iconURL())
@@ -5477,7 +5476,7 @@ message.edit({ content: ` __** FBI Police || التحقق العسكري . \n ه
               var t3del2;
               let embed = new Discord.MessageEmbed()
               .setAuthor({name:`${interaction.member.user.username}` , iconURL:`${interaction.member.user.displayAvatarURL()}`})
-              .setTitle(':emoji_20: FBI ON TOP . :emoji_20:')
+                .setTitle('<:emoji_20:981170142744567808>  FBI ON TOP . <:emoji_20:981170142744567808> ')
               .setDescription(` > __** قطاعك العسكري ؟ **__ `)
               .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
               .setThumbnail(interaction.guild.iconURL())
