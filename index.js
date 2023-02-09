@@ -444,7 +444,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
       let embed2 = new Discord.MessageEmbed()
       .setColor(`#32496b`)
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} \n و الكود العسكري : U-${count || 0} \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
-    
+
     logtf3el.send({ embeds: [embed2] });
     logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png"] });  
            m.delete();  
