@@ -4635,13 +4635,13 @@ message.channel.send({ embeds:[embed3], components:[row3] });
 
 client.on("messageCreate", interaction => {
 if(interaction.author.bot) return;
-if(interaction.content.startsWith(prefix+"delete") || interaction.content.startsWith(prefix+"حذف") || interaction.content.startsWith("اقفال") || message.content.startsWith("close") || message.content.startsWith("$close")) {
+if(interaction.content.startsWith(prefix+"delete") || interaction.content.startsWith(prefix+"حذف") || interaction.content.startsWith("حذف") || interaction.content.startsWith("delete") || interaction.content.startsWith("$delete")) {
 if (!interaction.member.permissions.has('ADMINISTRATOR'))
 if (!interaction.member.roles.cache.has('980494296320999424'))
 return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
        //
-  let ticket = dbt.get(`ticket_${interaction.channel.id}`)
-  if (!ticket) return interaction.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+if (!ticket) return interaction.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
   //
 
   //
@@ -4649,7 +4649,7 @@ let embeddeletedre = new Discord.MessageEmbed()
 .setColor("RED")
 .setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
 //
-  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+  let ticketby = dbt.get(`ticketby_${interaction.member.id}`)
   let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
   let ch = interaction.channel;
@@ -4675,7 +4675,7 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
       },
       {
         name:`__** تم حذف التكت بواسطة :**__`,
-        value:`**"${interaction.user.id}"**`
+        value:`**"${interaction.member.id}"**`
       }
     )
     if (log) {
@@ -4685,9 +4685,8 @@ let log = interaction.guild.channels.cache.find(c => c.id == chh)
     },4000)
                                   )
 }});
-  
 
-        client.on("messageCreate", message => {
+client.on("messageCreate", message => {
           if(message.author.bot) return;
           if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
