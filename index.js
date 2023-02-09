@@ -2764,7 +2764,7 @@ if (message.content.toLowerCase().startsWith(prefix+"ping".toLowerCase())) {
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
 .setDescription(` __** Ping =  ${client.ws.ping} **__ `)
-.setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
+.setImage('https://cdn.discordapp.com/attachments/980494378999087144/1073227143540125757/f9e162250956dfd1.jpg')
   //
 message.channel.send({ embeds: [embed] });
 }
@@ -2849,7 +2849,7 @@ let embed = new Discord.MessageEmbed()
 عشان تعرف تحاضيرك او تحاضير غيرك : 
 
 > ${prefix}تحاضيري **__`)
-.setImage(`${line}`)
+.setImage(`https://cdn.discordapp.com/attachments/980494378999087144/1073227143540125757/f9e162250956dfd1.jpg`)
 message.reply({ embeds: [embed] });
 }
 }
@@ -2870,7 +2870,7 @@ let embed = new Discord.MessageEmbed()
 # - 3 : الإلتزام بالبروتوكولات و البنود
   
 # - 4 : تنظيمك و إحترامك **__ `)
-.setImage(`${line}`)
+.setImage(`https://cdn.discordapp.com/attachments/980494378999087144/1073227143540125757/f9e162250956dfd1.jpg`)
 if (message.guild.id == '980493720233316372') {
 message.reply({ embeds: [embed] });
 }
@@ -4586,7 +4586,8 @@ c.setName(`ticket-${ticket.count}`)
 
   client.on("messageCreate", async message => {
     if(message.author.bot) return;
-    if(message.content.startsWith(prefix+"remove") || message.content.startsWith(prefix+"طرد") || message.content.startsWith("طرد") || message.content.startsWith("remove") || message.content.startsWith("$remove")) {
+if (message.content.toLowerCase().startsWith(prefix+"remove".toLowerCase()) || message.content.toLowerCase().startsWith("remove".toLowerCase()) || message.content.toLowerCase().startsWith("$remove".toLowerCase()) 
+|| message.content.toLowerCase().startsWith(prefix+"طرد".toLowerCase()) ||  message.content.toLowerCase().startsWith("طرد".toLowerCase())) {
       if (!message.member.permissions.has('ADMINISTRATOR'))
       if (!message.member.roles.cache.has('980494296320999424'))
         return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
@@ -4639,8 +4640,9 @@ let embed2 = new Discord.MessageEmbed()
 
     client.on("messageCreate", async message => {
       if(message.author.bot) return;
-        if(message.content.startsWith(prefix+"add") || message.content.startsWith(prefix+"اضافة") || message.content.startsWith("اضافة") || message.content.startsWith("add") || message.content.startsWith("$add")) {
-        if (!message.member.permissions.has('ADMINISTRATOR'))
+if (message.content.toLowerCase().startsWith(prefix+"add".toLowerCase()) || message.content.toLowerCase().startsWith("add".toLowerCase()) || message.content.toLowerCase().startsWith("add".toLowerCase()) 
+|| message.content.toLowerCase().startsWith(prefix+"اضافة".toLowerCase()) ||  message.content.toLowerCase().startsWith("اضافة".toLowerCase())) {
+if (!message.member.permissions.has('ADMINISTRATOR'))
         if (!message.member.roles.cache.has('980494296320999424'))
           return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
     //
@@ -4692,8 +4694,9 @@ let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${
 
       client.on("messageCreate", async message => {
         if(message.author.bot) return;
-          if(message.content.startsWith(prefix+"close") || message.content.startsWith(prefix+"اقفال") || message.content.startsWith("اقفال") || message.content.startsWith("close") || message.content.startsWith("$close")) {
-          if (!message.member.permissions.has('ADMINISTRATOR'))
+if (message.content.toLowerCase().startsWith(prefix+"close".toLowerCase()) || message.content.toLowerCase().startsWith("close".toLowerCase()) || message.content.toLowerCase().startsWith("close".toLowerCase()) 
+|| message.content.toLowerCase().startsWith(prefix+"اقفال".toLowerCase()) ||  message.content.toLowerCase().startsWith("اقفال".toLowerCase())) {
+        if (!message.member.permissions.has('ADMINISTRATOR'))
           if (!message.member.roles.cache.has('980494296320999424'))
             return message.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
        //
@@ -4729,8 +4732,9 @@ message.channel.send({ embeds:[embed3], components:[row3] });
 
 client.on("messageCreate", interaction => {
 if(interaction.author.bot) return;
-if(interaction.content.startsWith(prefix+"delete") || interaction.content.startsWith(prefix+"حذف") || interaction.content.startsWith("حذف") || interaction.content.startsWith("delete") || interaction.content.startsWith("$delete")) {
-if (!interaction.member.permissions.has('ADMINISTRATOR'))
+if (interaction.content.toLowerCase().startsWith(prefix+"delete".toLowerCase()) || interaction.content.toLowerCase().startsWith("delete".toLowerCase()) || interaction.content.toLowerCase().startsWith("$delete".toLowerCase()) 
+|| interaction.content.toLowerCase().startsWith(prefix+"حذف".toLowerCase()) || interaction.content.toLowerCase().startsWith("حذف".toLowerCase())) {
+  if (!interaction.member.permissions.has('ADMINISTRATOR'))
 if (!interaction.member.roles.cache.has('980494296320999424'))
 return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
        //
@@ -4782,7 +4786,7 @@ client.on("messageCreate", message => {
           if(message.author.bot) return;
           if(message.content.includes(`<@${client.user.id}>`) || message.content.includes("برفكس") || message.content.includes(`البرفكس`)) {
           //
-  let ticket = dbt.get(`ticket_${message.channel.id}`)
+let ticket = dbt.get(`ticket_${message.channel.id}`) || dbt.get(`ticketd3mfne_${message.channel.id}`)
   let row2 = new Discord.MessageActionRow()
     .addComponents(
     new Discord.MessageSelectMenu()
