@@ -4210,11 +4210,8 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
-                //
-let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
-    if (interaction.guild.channels.cache.find(channel => channel.name === `دعم-فني-${ticket}`)) {
-      return interaction.reply('لديك تذكرة بالفعل ، يرجى إغلاق تذكرتك الحالية أولاً قبل فتح تذكرة جديدة !');
-    }
+if (dbt.get(`ticketd3mfne_${interaction.channel.id}_ticketby:${interaction.member.id}`)) 
+return interaction.reply({content: `**انت بالفعل لديك تذكرة: >**`, ephemeral:true})
   //
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل **__ ', ephemeral: true });
@@ -4287,7 +4284,7 @@ let row2 = new Discord.MessageActionRow()
             }).then(async c => {
                     
                    
-dbt.set(`ticketd3mfne_${c.id}`, {ticketby : interaction.user.id,count:count,})
+dbt.set(`ticketd3mfne_${c.id}`, {ticketby : interaction.user.id,countsd3mfne:count,})
                     
 await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
 قُم بكتابة ما تريده و إنتظار الدعم من دون منشن .
