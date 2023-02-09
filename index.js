@@ -4206,6 +4206,15 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
+  let op = dbt.get(`ticketby_${interaction.user.id}`)
+
+     let ii = dbt.get(`ticketd3mfne_${interaction.message.channel.id}`)
+      
+    if (interaction.user.id === op) return interaction.reply({embeds : [
+      new Discord.MessageEmbed()
+      .setDescription(`**\`⛔\` | You Have An Open Ticket Here __<#${ii}>__**`)
+      .setColor("#333")
+    ] , ephemeral: true})
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل **__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
@@ -4213,7 +4222,7 @@ if(interaction.values[0] == 'd3mfne') {
             let log = interaction.guild.channels.cache.find(c => c.id == ch)          
            let staffrole = interaction.guild.roles.cache.get("980494296320999424")
             //
-            let embed = new MessageEmbed()
+            let embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setDescription(` __** يُرجى فعل ما تم كتابته بالأعلى و الإنتظار دون منشن **__ `)
       .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
