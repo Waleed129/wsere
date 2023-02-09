@@ -2811,8 +2811,7 @@ message.send(`__** مرحباً بالعُضو الجديد ${message} في ${me
        if (!member) return message.reply({ content: ' __** منشن الإداري **__ ' }).then(message => setTimeout(() => message.delete(), 5000));
           return message.reply({ content: `!! ✯ 𝗙𝗚・˹ ${member.nickname} ˼` });
 }
-}});
-  
+}}); 
 
 client.on('messageCreate', message => {
 if(message.content.includes("السلام عليكم") || message.content.includes("سلام عليكم")) {
