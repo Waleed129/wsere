@@ -4196,13 +4196,112 @@ let e = new Discord.MessageEmbed()
                       },
                     )
                     log.send({ embeds:[e] });
-                  })
+      })
+    };
 //
 if(interaction.values[0] == 'd3mfne') {
-  interaction.reply({ content: ` __** re **__ ` }); 
-  interaction.channel.send({ content: ` __** re **__ ` }); 
+          let cy = interaction.guild.channels.cache.get("1057669363219562516")
+            let ch = dbt.get(`logtkt_${interaction.guild.id}`)
+            let log = interaction.guild.channels.cache.find(c => c.id == ch)          
+           let staffrole = interaction.guild.roles.cache.get("980494296320999424")
+            //
+            let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription(` __** يُرجى فعل ما تم كتابته بالأعلى و الإنتظار دون منشن **__ `)
+      .setFooter({text:`${interaction.guild.name}` , iconURL:`${interaction.guild.iconURL()}`})
+      .setTimestamp();
+//
+let row2 = new Discord.MessageActionRow()
+    .addComponents(
+    new Discord.MessageSelectMenu()
+    .setMinValues(0)
+    .setMaxValues(1)
+    .setPlaceholder('إضغط هنا لرؤية خريطة التكت')
+    .setCustomId('tktcomand')
+    .addOptions([
+    {
+    label: 'حذف التكت',
+    description: 'لـ حذف أحد التكتات (delete) يرجى الضغط هنا',
+    emoji: '🟥',
+    value: 'deletee'
+    },
+    {
+      label: 'قفل التكت',
+      description: 'لـ قفل أحد التكتات (close) يرجى الضغط هنا',
+      emoji: '🟥',
+      value: 'close'
+      },
+      {
+        label: 'تغيير إسم التكت',
+        description: 'لـ تغيير إسم أحد التكتات يرجى الضغط هنا',
+        emoji: '🟥',
+        value: 'rename'
+        } 
+    ])
+    )
+      //
+            dbt.add(`counts_${interaction.message.id}`, 1)
+             let count = dbt.get(`counts_${interaction.message.id}`);
+             //
+              interaction.reply({ content: ` __** جاري إنشاء التكت الخاص بك , يرجى الإنتظار **__ ` , ephemeral: true });
+             //
+              interaction.guild.channels.create(`دعم-فني-${count}`, {
+              type: 'GUILD_TEXT',
+              parent:cy,
+                    permissionOverwrites:[
+                      {
+                   id: interaction.user.id,
+                   allow: ["SEND_MESSAGES","VIEW_CHANNEL"],
+                },
+                {
+                  id: client.user.id,
+                  allow:["VIEW_CHANNEL","SEND_MESSAGES","MANAGE_CHANNELS","EMBED_LINKS","ATTACH_FILES","ADD_REACTIONS","MENTION_EVERYONE","MANAGE_MESSAGES","READ_MESSAGE_HISTORY"]
+                },
+                {
+                  id:staffrole,
+                  allow:["VIEW_CHANNEL","SEND_MESSAGES","READ_MESSAGE_HISTORY"]
+                },
+                {
+                  id: interaction.guild.roles.everyone,
+                  deny:["VIEW_CHANNEL"]
+                }
+                    ]
+            }).then(async c => {
+                    
+                   
+dbt.set(`ticket_${c.id}`, {ticketby : interaction.user.id,count:count,})
+                    
+await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
+لـ التفعيل قم بكتابة أيديك و قِطاعك و إرفاق دليل على قُبولك
+
+بعدها قم بالضغط على الزر الازرق المسمى بـ "تفعيل" . 
+${staffrole} **__`, components:[row,row2] });
+await interaction.editReply({ content: ` __** تم إنشاء تكتك , ${c} . **__ `, ephemeral: true }).then(message => setTimeout(() => message.delete(), 10000));
+let e = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setTitle("إنشاء تكت !")
+.setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
+.setThumbnail(interaction.guild.iconURL({dynamic:true}))
+.setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
+                    .addFields( 
+                      {
+                        name:`__**التكت :**__`,
+                        value:`**"${c}","${c.id}"**`
+                      },
+                      {
+                        name:`__**صاحب التكت :**__`,
+                        value:`**"${interaction.user}"**`
+                      },
+                      {
+                        name:`__**رقم التكت :**__`,
+                        value:`**"${count}"**`
+                      },
+                    )
+                    log.send({ embeds:[e] });
+      })
 }
-              }}});
+  } // تكت
+});
 
               client.on("interactionCreate" , interaction => {
                 if (!interaction.isSelectMenu()) return;
