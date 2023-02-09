@@ -232,7 +232,7 @@ let row2 = new Discord.MessageActionRow()
       .setDescription(`__** FBI Police \n لـ ترقية شخص قم بكتابة : ${prefix}ترقية \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n لـ قبول إستقالة شخص قم بكتابة : ${prefix}استقالة \n لـ إعطاء أو إزالة رتبة من عسكري قم بكتابة : role${prefix} \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`حاكم الدولة بالخدمة`})
       .setColor(`#32496b`)
-        .setImage(`${line}`)
+      .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -242,7 +242,7 @@ let row2 = new Discord.MessageActionRow()
         .setDescription(`__** FBI Police \n لـ معرفة تحاضير شخص او نفسك قم بكتابة : ${prefix}تحضيراتي \n لـ معرفة توب 20 تحاضير قم بكتابة : ${prefix}توب ! **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
-        .setImage(`${line}`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         interaction.reply({ embeds: [ embed2 ], ephemeral: true});
         }
         //
@@ -253,10 +253,10 @@ let row2 = new Discord.MessageActionRow()
         //
         let embed7 = new Discord.MessageEmbed()
         .setTitle(`أوامر التكت :`)
-.setDescription(`__** لـ إدخال شخص إلى التكت قم بكتابة : ${prefix}اضافة . \n لـ طرد شخص من التكت قم بكتابة : ${prefix}طرد . \n لـ حذف تكت قم بكتابة : ${prefix}حذف \n لـ قفل تكت قم بكتابة : ${prefix}اقفال \n أو يمكنك إستخدام الأوامر الموجودة في أعلى التكت . \n أو منشن البوت . **__ `)
+.setDescription(`__** FBI Police \n لـ إدخال شخص إلى التكت قم بكتابة : ${prefix}اضافة . \n لـ طرد شخص من التكت قم بكتابة : ${prefix}طرد . \n لـ حذف تكت قم بكتابة : ${prefix}حذف \n لـ قفل تكت قم بكتابة : ${prefix}اقفال \n أو يمكنك إستخدام الأوامر الموجودة في أعلى التكت . \n أو منشن البوت . **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
-        .setImage(`${line}`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
     }
@@ -271,7 +271,7 @@ let row2 = new Discord.MessageActionRow()
       .setDescription(`__** FBI Gang \n لـ تفعيل شخص قم بكتابة : ${prefix}تفعيل \n لـ فصل شخص قم بكتابة : ${prefix}فصل \n مع منشن للعضو بعد كل أمر ! **__ `)
       .setFooter({text:`مسؤول العصابات بالخدمة`})
       .setColor(`#32496b`)
-        .setImage(`${line2}`)
+      .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
       interaction.reply({ embeds: [ embed2 ], ephemeral: true});
       }
       //
@@ -285,7 +285,7 @@ let row2 = new Discord.MessageActionRow()
         .setDescription(`__** مالكش دخل **__ `)
         .setFooter({text:`مسؤول العصابات بالخدمة`})
         .setColor(`#32496b`)
-        .setImage(`${line2}`)
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         interaction.reply({ embeds: [ embed7 ], ephemeral: true });
         }
      }
@@ -426,7 +426,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         let embed = new MessageEmbed()
         .setTitle("التفعيل الوزاري")
         .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : U-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
-        .setImage(`${line}`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
@@ -475,7 +475,7 @@ hrs7dod.send({ content: ` __** تم تفعيل العسكري : ${user} \n أي�
         let embed = new MessageEmbed()
         .setTitle("التفعيل الوزاري")
         .setDescription(` __** عزيزي العسكري : ${user} . \n صاحب الأيدي : \`${idps4}\` و الكود : S-${count || 0} . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Police و إعتبارك عسكري رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . \n و نرجى منك مراجعة القوانين و البروتوكولات لـ تجنب الإنذارات و الفصل . **__ `)
-        .setImage(`${line}`)
+        .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
@@ -584,7 +584,7 @@ if (message.guild.id == '996810757238968431') {
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو ذا اند : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في ذا إند رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
-        .setImage(`${line2}`)
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
@@ -599,7 +599,7 @@ if (message.guild.id == '996810757238968431') {
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: [`${line2}`] });  
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
         m.delete();  
     }
     //
@@ -626,7 +626,7 @@ if (message.guild.id == '996810757238968431') {
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو ذا لوست : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في ذا لوست ام سي رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
-        .setImage(`${line2}`)
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
@@ -641,7 +641,7 @@ if (message.guild.id == '996810757238968431') {
       .setDescription(` __** تم تفعيل : ${user} \n و الأيدي : ${idps4} . \n و إسمه بالكامل : ${user.nickname} \n من قبل الإداري : ${message.author} \n و نقاطه هيا : ${countstaff || 0} **__ `);
     
     logtf3el.send({ embeds: [embed2] });
-    logtf3el.send({ files: [line2] });  
+    logtf3el.send({ files: ["https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png"] });  
         m.delete();  
     }
     //
@@ -668,7 +668,7 @@ if (message.guild.id == '996810757238968431') {
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو لا كاسا : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في لا كاسا دي بابل رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
-        .setImage(`${line2}`)
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
@@ -710,7 +710,7 @@ if (message.guild.id == '996810757238968431') {
         let embed = new MessageEmbed()
         .setTitle("تفعيل العصابات")
         .setDescription(` __** عزيزي عضو البلاك : ${user} . \n صاحب الأيدي : \`${idps4}\` . \n نحيطك علماَ بأنه قم تم تفعيلك في FBI Gang و إعتبارك عضو عصابة في البلاك نايت رسمياَ . \n و قد تم تفعيلك من الإداري : ${message.author} . **__ `)
-        .setImage(`${line2}`)
+        .setImage('https://cdn.discordapp.com/attachments/996820450275500093/1049453075779305492/9BFA5912-825A-46FB-93E3-5B2863DB6D8F.png')
         .setThumbnail(user.user.avatarURL({ dynamic: true }))
         .setTimestamp()
         .setColor("#11e2e2")
