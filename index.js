@@ -4091,7 +4091,7 @@ message.delete();
 let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
-                if (ticket) return interaction.reply({ content:  })
+                if (ticket) return interaction.reply({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ ` });
       if (interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , قم تم تفعيلك مسبقاَ ! **__ ', ephemeral: true });
             let cy = interaction.guild.channels.cache.get("1057669404768354314")
