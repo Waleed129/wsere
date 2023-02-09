@@ -4635,14 +4635,21 @@ message.channel.send({ embeds:[embed3], components:[row3] });
 
 client.on("messageCreate", interaction => {
 if(interaction.author.bot) return;
-if(interaction.content.includes(`delete`) || interaction.content.includes("$delete") || interaction.content.includes(`$حذف`)) {
-          //
+if(interaction.content.startsWith(prefix+"delete") || interaction.content.startsWith(prefix+"حذف") || interaction.content.startsWith("اقفال") || message.content.startsWith("close") || message.content.startsWith("$close")) {
+if (!interaction.member.permissions.has('ADMINISTRATOR'))
+if (!interaction.member.roles.cache.has('980494296320999424'))
+return interaction.reply({ content: ' __** أنت لاتملك صلاحيات كافية **__ ' });
+       //
+  let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+  if (!ticket) return interaction.reply({ content: ' __** الأوامر تعمل بالتكت فقط ! **__ ' });
+  //
+
+  //
 let embeddeletedre = new Discord.MessageEmbed()
 .setColor("RED")
 .setDescription("__** سيتم حذف التكت بعد خمس ثواني ! **__ ")
 //
   let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
-let ticket = dbt.get(`ticket_${interaction.channel.id}`)
   let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
   let ch = interaction.channel;
