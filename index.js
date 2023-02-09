@@ -4088,6 +4088,8 @@ await message.reply({ embeds: [ embed ], components: [ row ] });
               if (!interaction.isSelectMenu()) return;
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
+      if (interaction.member.roles.cache.has('980494313295331328'))
+      return interaction.reply({ content: ' __** عذراَ , قم تم تفعيلك مسبقاَ ! **__ ', ephemeral: true });
             let cy = interaction.guild.channels.cache.get("1057669404768354314")
             let ch = dbt.get(`logtkt_${interaction.guild.id}`)
             let log = interaction.guild.channels.cache.find(c => c.id == ch)          
@@ -4199,6 +4201,8 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
+  if (!interaction.member.roles.cache.has('980494313295331328'))
+      return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل**__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
             let ch = dbt.get(`logtkt_${interaction.guild.id}`)
             let log = interaction.guild.channels.cache.find(c => c.id == ch)          
@@ -5272,18 +5276,15 @@ await cooldown.delete(user.id)
 }); */
 
 client.on("interactionCreate" , interaction => {
- if (interaction.member.bot || !interaction.channel.guild || interaction.member.permissions.has('ADMINISTRATOR') || !interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
+ if (interaction.member.bot || !interaction.channel.guild || interaction.member.permissions.has('ADMINISTRATOR') || interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
 let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
       let w8wanen1 = interaction.guild.channels.cache.get('980494405234466836')
       let w8wanen2 = interaction.guild.channels.cache.get('980494409693020210')
       let w8wanen3 = interaction.guild.channels.cache.get('980494414763946004')
       //
-      w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
-      w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
-      w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
               if(interaction.customId == "cb") {
                 if(cooldown.has(interaction.member.id)) {
-                  interaction.reply({ content: " __** يرجى الإنتظار ساعة كاملة قبل التحضير مجدداَ ! **__ " , ephemeral:true})
+                  interaction.reply({ content: " __** يرجى الإنتظار ساعة كاملة قبل التفعيل مجدداَ ! **__ " , ephemeral:true})
                 } else {
   let filter = m => m.member.id === interaction.member.id
                 //
@@ -5505,6 +5506,9 @@ message.edit({ content: ` __** FBI Police || التحقق العسكري . \n ه
             }
               // 
               if(interaction.customId == "bdaaltf3el") {
+w8wanen1.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
+w8wanen2.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
+w8wanen3.permissionOverwrites.edit(interaction.member.id, { VIEW_CHANNEL: false });
                    const row1 = new Discord.MessageActionRow().addComponents(new Discord.MessageButton().setLabel(`نعم الجملة صحيحة`).setEmoji("✅").setStyle("SUCCESS").setCustomId("yes1"), new Discord.MessageButton().setLabel(`لا جملة خاطئة`).setEmoji("❌").setStyle("DANGER").setCustomId("no1"))
 interaction.message.edit({ content: ` __**  يجب التعامل مع المواطنين بإسلوب جيد ؟ 
 هل الجملة صحيحة أم خاطئة ؟ **__ `, components: [row1] });
