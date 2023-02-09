@@ -4240,8 +4240,8 @@ let row2 = new Discord.MessageActionRow()
     ])
     )
       //
-            dbt.add(`counts_${interaction.message.id}`, 1)
-             let count = dbt.get(`counts_${interaction.message.id}`);
+            dbt.add(`countsd3mfne_${interaction.message.id}`, 1)
+             let count = dbt.get(`countsd3mfne_${interaction.message.id}`);
              //
               interaction.reply({ content: ` __** جاري إنشاء التكت الخاص بك , يرجى الإنتظار **__ ` , ephemeral: true });
              //
@@ -4257,10 +4257,10 @@ let row2 = new Discord.MessageActionRow()
                   id: client.user.id,
                   allow:["VIEW_CHANNEL","SEND_MESSAGES","MANAGE_CHANNELS","EMBED_LINKS","ATTACH_FILES","ADD_REACTIONS","MENTION_EVERYONE","MANAGE_MESSAGES","READ_MESSAGE_HISTORY"]
                 },
-                {
+               /* {
                   id:staffrole,
                   allow:["VIEW_CHANNEL","SEND_MESSAGES","READ_MESSAGE_HISTORY"]
-                },
+                },*/
                 {
                   id: interaction.guild.roles.everyone,
                   deny:["VIEW_CHANNEL"]
@@ -4269,17 +4269,16 @@ let row2 = new Discord.MessageActionRow()
             }).then(async c => {
                     
                    
-dbt.set(`ticket_${c.id}`, {ticketby : interaction.user.id,count:count,})
+dbt.set(`ticketd3mfne_${c.id}`, {ticketby : interaction.user.id,count:count,})
                     
 await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
-لـ التفعيل قم بكتابة أيديك و قِطاعك و إرفاق دليل على قُبولك
+قُم بكتابة ما تريده و إنتظار الدعم من دون منشن .
 
-بعدها قم بالضغط على الزر الازرق المسمى بـ "تفعيل" . 
-${staffrole} **__`, components:[row,row2] });
+${staffrole} **__`, components:[row2] });
 await interaction.editReply({ content: ` __** تم إنشاء تكتك , ${c} . **__ `, ephemeral: true }).then(message => setTimeout(() => message.delete(), 10000));
 let e = new Discord.MessageEmbed()
 .setColor("GREEN")
-.setTitle("إنشاء تكت !")
+.setTitle("إنشاء تكت دعم فني !")
 .setAuthor({name: interaction.user.tag,iconURL: interaction.user.displayAvatarURL({dynamic:true})})
 .setThumbnail(interaction.guild.iconURL({dynamic:true}))
 .setFooter({text:`${interaction.guild.name}`,iconURL: interaction.guild.iconURL({dynamic:true})})
@@ -4392,7 +4391,6 @@ interaction.channel.send({ embeds:[embed3], components:[row3] });
                     let ch = interaction.channel
                     let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
                     let ticket = dbt.get(`ticket_${interaction.channel.id}`)
-                    let cy = interaction.guild.channels.cache.get("1050473695388385330")
                     let chh = dbt.get(`logtkt_${interaction.guild.id}`)
                     let log = interaction.guild.channels.cache.find(c => c.id == chh)          
                     let staffrole = interaction.guild.roles.cache.get("947815583959875614")
