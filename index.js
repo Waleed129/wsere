@@ -4093,10 +4093,6 @@ message.delete();
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
                 //
-let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
-
-if (ticket) return interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
-                //
       if (interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , قم تم تفعيلك مسبقاَ ! **__ ', ephemeral: true });
             let cy = interaction.guild.channels.cache.get("1057669404768354314")
@@ -4210,9 +4206,6 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
-if (dbt.get(`ticketd3mfne_${interaction.channel.id}_ticketby:${interaction.member.id}`)) 
-return interaction.reply({content: `**انت بالفعل لديك تذكرة: >**`, ephemeral:true})
-  //
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل **__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
@@ -4284,7 +4277,7 @@ let row2 = new Discord.MessageActionRow()
             }).then(async c => {
                     
                    
-dbt.set(`ticketd3mfne_${c.id}`, {ticketby : interaction.user.id,countsd3mfne:count,})
+dbt.set(`ticketd3mfne_${c.id}`, {ticketby : interaction.user.id,count:count,})
                     
 await c.send({ embeds:[embed], content:` __** ${interaction.user} مرحباَ 
 قُم بكتابة ما تريده و إنتظار الدعم من دون منشن .
