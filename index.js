@@ -4093,8 +4093,8 @@ message.delete();
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
                 //
-let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
-if (!ticket) return interaction.reply({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ ` });
+let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
+if (ticket) return interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
                 //
       if (interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , قم تم تفعيلك مسبقاَ ! **__ ', ephemeral: true });
@@ -4211,7 +4211,7 @@ let e = new Discord.MessageEmbed()
 if(interaction.values[0] == 'd3mfne') {
                 //
 let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
-if (!ticket) return; interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
+if (ticket) return interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
                 //
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل**__ ', ephemeral: true });
