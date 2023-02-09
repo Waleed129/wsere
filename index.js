@@ -4088,8 +4088,10 @@ message.delete();
       
             client.on("interactionCreate" , interaction => {
               if (!interaction.isSelectMenu()) return;
+let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
               if (interaction.customId == "ticket") {
               if(interaction.values[0] == 'tf3el3skre') {
+                if (ticket) return interaction.reply({ content:  })
       if (interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , قم تم تفعيلك مسبقاَ ! **__ ', ephemeral: true });
             let cy = interaction.guild.channels.cache.get("1057669404768354314")
@@ -4203,6 +4205,8 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
+
+
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل**__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
