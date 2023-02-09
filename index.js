@@ -4094,6 +4094,7 @@ message.delete();
               if(interaction.values[0] == 'tf3el3skre') {
                 //
 let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
+
 if (ticket) return interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
                 //
       if (interaction.member.roles.cache.has('980494313295331328'))
@@ -4210,7 +4211,10 @@ let e = new Discord.MessageEmbed()
 //
 if(interaction.values[0] == 'd3mfne') {
                 //
-let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
+let ticke = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`) 
+let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = client.users.cache.get(ticke.ticketby)
+//
 if (ticket) return interaction.channel.send({ content: ` __** عذراَ , لديك تكت مسبقاَ ${ticket} ... **__ `, ephemeral: true });
                 //
   if (!interaction.member.roles.cache.has('980494313295331328'))
