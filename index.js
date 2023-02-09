@@ -4206,15 +4206,9 @@ let e = new Discord.MessageEmbed()
     };
 //
 if(interaction.values[0] == 'd3mfne') {
-  let op = dbt.get(`ticketby_${interaction.user.id}`)
-
-     let ii = dbt.get(`ticketd3mfne_${interaction.message.channel.id}`)
+  let op = dbt.get(`ticketby:${interaction.user.id}`)
       
-    if (interaction.user.id === op) return interaction.reply({embeds : [
-      new Discord.MessageEmbed()
-      .setDescription(`**\`⛔\` | You Have An Open Ticket Here __<#${ii}>__**`)
-      .setColor("#333")
-    ] , ephemeral: true})
+if (op) return interaction.reply({content: `**\`⛔\` | You Have An Open Ticket Here ____**`, ephemeral: true})
   if (!interaction.member.roles.cache.has('980494313295331328'))
       return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل **__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
