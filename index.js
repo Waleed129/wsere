@@ -4211,17 +4211,13 @@ let e = new Discord.MessageEmbed()
 //
 if(interaction.values[0] == 'd3mfne') {
                 //
-        const getAllData = dbt.get(`ticket_${interaction.channel.id}`);
-        const userHasTicket = getAllData.filter(r => r.data.user === interaction.user.id);
-  if (userHasTicket.length > 0) {
-            return interaction.reply({
-                content: `:x: You already have opened ticket.`,
-                ephemeral: true
-            })
-        }
+let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
+    if (interaction.guild.channels.cache.find(channel => channel.name === `دعم-فني-${ticket}`)) {
+      return interaction.reply('لديك تذكرة بالفعل ، يرجى إغلاق تذكرتك الحالية أولاً قبل فتح تذكرة جديدة !');
+    }
   //
   if (!interaction.member.roles.cache.has('980494313295331328'))
-      return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل**__ ', ephemeral: true });
+      return interaction.reply({ content: ' __** عذراَ , يجب أن تملك رتبة وزارة الداخلية لتقوم بفتح تكت دعم فني , حالياَ قم بـ فتح تكت تفعيل **__ ', ephemeral: true });
           let cy = interaction.guild.channels.cache.get("1057669363219562516")
             let ch = dbt.get(`logtkt_${interaction.guild.id}`)
             let log = interaction.guild.channels.cache.find(c => c.id == ch)          
