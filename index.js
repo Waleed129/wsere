@@ -4079,10 +4079,11 @@ client.on('messageCreate', async message => {
     )
 let embed = new Discord.MessageEmbed()
 .setColor('#32496b')
-.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التفعيل العسكري .`)
-.setDescription(` __** يرجى إختيار ما تريده من الأسفل ! **__ `)
+.setTitle(`𝗙𝗕𝗜 ~ 𝗣𝗼𝗹𝗶𝗰𝗲 || التكت العسكري .`)
+.setDescription(` __** إن كنت تريد التفعيل فقم بالضغط على خيار التفعيل . \n و إن كنت تريد المساعدة فـ يرجى الضغط على خيار الدعم الفني . **__ `)
 //.setFooter({ name:`${message.guild.name}`, iconURL:`${message.guild.iconURL()}`})
-await message.reply({ embeds: [ embed ], components: [ row ] });
+await message.channel.send({ embeds: [ embed ], components: [ row ] });
+message.delete();
 }});
       
             client.on("interactionCreate" , interaction => {
