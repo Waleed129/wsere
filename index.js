@@ -2743,6 +2743,7 @@ if (!args) return message.reply({ content: ' __** ❌ أرسل النص !! **__ 
 let embed = new Discord.MessageEmbed()
 .setColor("#32496B")
 .setDescription(`${args}`)
+.setImage('https://cdn.discordapp.com/attachments/982409404043374602/1058445850730315776/f9e162250956dfd1.jpg')
 //
 message.channel.send({ embeds: [embed] });
 message.delete();
@@ -5278,9 +5279,9 @@ await cooldown.delete(user.id)
 client.on("interactionCreate" , interaction => {
  if (interaction.member.bot || !interaction.channel.guild || interaction.member.permissions.has('ADMINISTRATOR') || interaction.member.roles.cache.has('980494295444361216') || !interaction.isButton()) return;
 let sglaltf3el = interaction.guild.channels.cache.get('1016292689941106758')
-      let w8wanen1 = interaction.guild.channels.cache.get('980494405234466836')
-      let w8wanen2 = interaction.guild.channels.cache.get('980494409693020210')
-      let w8wanen3 = interaction.guild.channels.cache.get('980494414763946004')
+      let w8wanen1 = interaction.guild.channels.cache.get('1073254895056068649')
+      let w8wanen2 = interaction.guild.channels.cache.get('1073253082986709123')
+      let w8wanen3 = interaction.guild.channels.cache.get('1073253152750571591')
       //
               if(interaction.customId == "cb") {
                 if(cooldown.has(interaction.member.id)) {
