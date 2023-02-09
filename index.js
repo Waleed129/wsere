@@ -253,7 +253,7 @@ let row2 = new Discord.MessageActionRow()
         //
         let embed7 = new Discord.MessageEmbed()
         .setTitle(`أوامر التكت :`)
-        .setDescription(`__** قريباَ **__ `)
+        .setDescription(`__** لإخراج شخص من التكت **__ `)
         .setFooter({text:`حاكم الدولة بالخدمة`})
         .setColor(`#32496b`)
         .setImage('https://cdn.discordapp.com/attachments/979468751927926796/989654610543247430/1656022427615.png')
@@ -4441,9 +4441,8 @@ interaction.message.delete()
 //
 if (interaction.customId === "yes") {
 let ch = interaction.channel
-let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
-let ticket = dbt.get(`ticket_${interaction.channel.id}`)
-let cy = interaction.guild.channels.cache.get("1050473695388385330")
+let ticketby = dbt.get(`ticketby_${interaction.user.id}`) || dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
 let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)          
 let staffrole = interaction.guild.roles.cache.get("947815583959875614")
@@ -4548,8 +4547,8 @@ let embed6 = new Discord.MessageEmbed()
 .setColor("BLACK")
 .setDescription(` __** تم إعادة فتح التكت بواسطة : ${interaction.user} **__ `)
 if (interaction.customId === "reopen") {
-  let ticketby = dbt.get(`ticketby_${interaction.user.id}`)
-let ticket = dbt.get(`ticket_${interaction.channel.id}`)
+let ticketby = dbt.get(`ticketby_${interaction.user.id}`) || dbt.get(`ticketby_${interaction.user.id}`)
+let ticket = dbt.get(`ticket_${interaction.channel.id}`) || dbt.get(`ticketd3mfne_${interaction.channel.id}`)
   let chh = dbt.get(`logtkt_${interaction.guild.id}`)
 let log = interaction.guild.channels.cache.find(c => c.id == chh)
   let c = interaction.channel;
