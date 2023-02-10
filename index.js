@@ -2733,7 +2733,7 @@ message.channel.send({ files: [line] });
 }}); 
 
 client.on("messageCreate" , message => {
-if(message.content.startsWith(prefix+'say')) {
+if (message.content.toLowerCase().startsWith(prefix+"say".toLowerCase())) {
 setTimeout(() => message.delete(), 5000)
   //
 if (!message.member.permissions.has('ADMINISTRATOR'))
