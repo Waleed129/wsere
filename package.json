@@ -34,7 +34,7 @@
     "embed": "0.0.1",
     "events": "^3.3.0",
     "express": "^4.18.1",
-    "fastify": "^4.4.0",
+    "fastify": "^4.13.0",
     "fs": "0.0.1-security",
     "glob": "^8.0.3",
     "handlebars": "^4.7.7",
